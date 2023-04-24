@@ -26,10 +26,19 @@ public class MenuPrincipalControlleur {
 	@FXML
 	private void chargerPartie() {
 		System.out.println("Charger une partie cliqué");
+		System.out.println(btnChargerPartie.getWidth());
 	}
 	
 	@FXML
 	private void quitter() {
 		System.out.println("Quitter cliqué");
+	}
+	
+	/**S'éxécute aux démarrage de l'application */
+	@FXML
+	private void initialize() {
+		btnNouvellePartie.setPrefWidth(300);
+		btnQuitter.setPrefWidth(300);
+		btnChargerPartie.setPrefWidth(300);
 	}
 }
