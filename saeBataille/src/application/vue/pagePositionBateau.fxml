@@ -12,7 +12,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" style="-fx-background-color: D9D9D9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="720.0">
@@ -34,22 +33,22 @@
                   <Insets left="50.0" right="150.0" />
                </HBox.margin>
                <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox prefHeight="100.0" prefWidth="250.0">
                      <children>
-                        <ImageView fitHeight="112.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="150.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
-                              <Insets left="20.0" />
+                              <Insets bottom="10.0" left="20.0" top="15.0" />
                            </HBox.margin>
                            <image>
-                              <Image url="@image/pomme_000.jpg" />
+                              <Image url="@image/Group%202.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="100.0" fitWidth="50.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="120.0" fitWidth="30.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
-                              <Insets left="20.0" />
+                              <Insets left="50.0" top="15.0" />
                            </HBox.margin>
                            <image>
-                              <Image url="@image/pomme_000.jpg" />
+                              <Image url="@image/Group%203.png" />
                            </image>
                         </ImageView>
                      </children>
@@ -70,20 +69,20 @@
                   </HBox>
                   <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <ImageView fitHeight="112.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="90.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
-                              <Insets left="20.0" />
+                              <Insets bottom="10.0" left="20.0" top="15.0" />
                            </HBox.margin>
                            <image>
-                              <Image url="@image/pomme_000.jpg" />
+                              <Image url="@image/Group%205.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="100.0" fitWidth="50.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="60.0" fitWidth="30.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
-                              <Insets left="20.0" />
+                              <Insets left="50.0" top="15.0" />
                            </HBox.margin>
                            <image>
-                              <Image url="@image/pomme_000.jpg" />
+                              <Image url="@image/Group%204.png" />
                            </image>
                         </ImageView>
                      </children>
@@ -92,12 +91,12 @@
                      <children>
                         <TextField prefHeight="25.0" prefWidth="50.0" text="?/?">
                            <HBox.margin>
-                              <Insets left="20.0" />
+                              <Insets bottom="10.0" left="20.0" />
                            </HBox.margin>
                         </TextField>
                         <TextField layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="50.0" text="?/?">
                            <HBox.margin>
-                              <Insets left="20.0" />
+                              <Insets bottom="10.0" left="20.0" />
                            </HBox.margin>
                         </TextField>
                      </children>
@@ -118,19 +117,19 @@
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="30.0" />
               </columnConstraints>
               <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <HBox.margin>
-                  <Insets right="50.0" />
+                  <Insets bottom="20.0" right="50.0" top="30.0" />
                </HBox.margin>
             </GridPane>
          </children>
