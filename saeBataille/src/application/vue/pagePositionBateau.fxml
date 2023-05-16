@@ -40,7 +40,7 @@
                               <Insets bottom="10.0" left="20.0" top="15.0" />
                            </HBox.margin>
                            <image>
-                              <Image url="@image/Group%202.png" />
+                              <Image url="@image/porteAvions.png" />
                            </image>
                         </ImageView>
                         <ImageView fitHeight="120.0" fitWidth="30.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
@@ -48,7 +48,7 @@
                               <Insets left="50.0" top="15.0" />
                            </HBox.margin>
                            <image>
-                              <Image url="@image/Group%203.png" />
+                              <Image url="@image/croiseur.png" />
                            </image>
                         </ImageView>
                      </children>
@@ -74,7 +74,7 @@
                               <Insets bottom="10.0" left="20.0" top="15.0" />
                            </HBox.margin>
                            <image>
-                              <Image url="@image/Group%205.png" />
+                              <Image url="@image/contreTorpillleur.png" />
                            </image>
                         </ImageView>
                         <ImageView fitHeight="60.0" fitWidth="30.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
@@ -82,7 +82,7 @@
                               <Insets left="50.0" top="15.0" />
                            </HBox.margin>
                            <image>
-                              <Image url="@image/Group%204.png" />
+                              <Image url="@image/torpilleur.png" />
                            </image>
                         </ImageView>
                      </children>
