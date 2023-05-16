@@ -9,7 +9,10 @@ import jeu.plateau.Cellule;
 
 /**
  * //TODO Commenter la responsabilités de la classe Joueur
- * @author quent
+ * @author Costes Quentin
+ * @author de Saint Palais Francois
+ * @author Denamiel Clement
+ * @author Descriaud Lucas
  *
  */
 public class Joueur {
@@ -71,6 +74,10 @@ public class Joueur {
 	}
 	
 	
+	/** 
+	 * retourne le nombre de bateaux ennemis touches par
+	 * le joueur
+	 */
 	public int getNbTouche() {
 		
 		Cellule[][] tableau = mesTirs.getQuadrillage();

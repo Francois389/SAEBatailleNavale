@@ -32,8 +32,8 @@ public class Grille {
 	 * <ul>
 	 *      <li>Il est carré (autant de longueur que de largeur)</li>
 	 *      <li>A chaque coordonné il y est une Cellule (pas de trous)</li>
-	 *      <li>Il n'existe pas deux Cellule avec les même </li>
-	 * 
+	 *      <li>Il n'existe pas deux Cellule avec les mêmes ocordonnée</li>
+	 * </ul>
 	 * @param argQuadrillage Le quadrillage testé
 	 * @return Renvoie true si le quadrillage est valide
 	 */

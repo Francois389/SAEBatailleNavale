@@ -12,7 +12,7 @@ import jeu.partie.Joueur;
 import jeu.partie.Partie;
 
 /**
- * //TODO Commenter la responsabilités de la classe testPartie
+ * teste de la classe Partie
  * @author quent
  *
  */
@@ -23,7 +23,7 @@ class testPartie {
      */
     @Test
     void testPartie() {
-        fail("Not yet implemented");
+        assertDoesNotThrow(()->new Partie(new Joueur("quentin", new Grille({{new Cellule(1, 2, false, false)}}))));
     }
 
     /**
