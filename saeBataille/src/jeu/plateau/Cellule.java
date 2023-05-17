@@ -33,15 +33,15 @@ public class Cellule {
      * 
      * @throws IllegalArgumentException 
      */
-    public Cellule(int x, int y, boolean estBateau, boolean estTouche) {
+    public Cellule(int x, int y) {
         
         if (!estValide(x, y)) {
             throw new IllegalArgumentException("arguments invalides");
         } 
 		this.x = x;
         this.y = y;
-        this.estBateau = estBateau;
-        this.estTouche = estTouche;
+        estBateau = false;
+        estTouche = false;
     }
     
     
@@ -70,6 +70,12 @@ public class Cellule {
         this.estTouche = estTouche;
     }
 
+    /**
+     * @param estTouche modifie la valeur de estTouche
+     */
+    public void setEstBateau(boolean estTouche) {
+        this.estBateau = estTouche;
+    }
     /** @return la valeur de x */
     public int getX() {
         return x;
@@ -78,6 +84,19 @@ public class Cellule {
     /** @return la valeur de y */
     public int getY() {
         return y;
+    }
+    
+    public boolean equals(Object arg) {
+        if (arg == null) {
+            return false;
+        }
+        if (!(arg instanceof Cellule)) {
+            return false;
+        }
+        
+        Cellule autre = (Cellule) arg;
+        
+        return getY() == autre.getY() && getX() == autre.getX(); 
     }
 	
 }

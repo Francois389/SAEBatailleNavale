@@ -4,6 +4,7 @@
  */
 package jeu.plateau;
 
+
 import jeu.plateau.Cellule;
 
 /**
@@ -38,7 +39,25 @@ public class Grille {
 	 * @return Renvoie true si le quadrillage est valide
 	 */
 	private boolean estValide(Cellule[][] argQuadrillage) {
-		//TODO Ecrire le test
+		
+		int nbColonnes = argQuadrillage.length;
+		Cellule[][] cellulesPresentes = new Cellule[argQuadrillage.length][argQuadrillage.length];
+		
+		for (int i = 0; i < argQuadrillage.length; i++) {
+			if (argQuadrillage[i].length != nbColonnes) {
+				return false;
+			}
+			
+			for (int j = 0; j < argQuadrillage.length; j++) {
+                if (argQuadrillage[i][j] == null) {
+					return false;
+				}
+				
+            }
+            // TODO Il n'existe pas deux Cellule avec les mêmes ocordonnée
+			
+		}
+
 		return true;
 	}
 	
@@ -48,8 +67,7 @@ public class Grille {
 	 * @return La cellule au coordonné précisé 
 	 */
 	public Cellule getCellule(int x, int y) {
-		//TODO Retourner la cellule correpondante
-		return null;
+		return quadrillage[x][y];
 	}
 	
 	/** @return le quadrillage */
@@ -58,12 +76,19 @@ public class Grille {
 	}
 	
 	/**
-	 * @return Cellule[][] Un tableau contenant 
-	 * des tableau (représentant un bateau) qui contient 
-	 * les cellules composant le bateau
+	 * @return Cellule[][] Un tableau de tableau contenant
+	 * des boolearue si la cellule a cet indice est un bateau false sinon
 	 */
-	public Cellule[][] getBateau() {
-		//TODO Retourner le tableau
-		return null;
+	public boolean[][] getBateau() {
+
+	    boolean[][] bateaux = new boolean[quadrillage.length][quadrillage.length];
+	    
+	 	for (int i = 0; i < quadrillage.length; i++) {
+            for (int j = 0; j < quadrillage.length; j++) {
+                bateaux[i][j] = quadrillage[i][j].isBateau();
+            }
+        }
+	    
+		return bateaux;
 	}
 }

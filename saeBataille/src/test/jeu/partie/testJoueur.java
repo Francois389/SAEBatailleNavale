@@ -1,4 +1,7 @@
+package test.jeu.partie;
+
 import org.junit.jupiter.api.Assertions;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,12 +14,12 @@ public class testJoueur {
     private Joueur joueur;
     private Grille mesBateaux;
     private Grille mesTirs;
-s
+
     @BeforeEach
     public void setUp() {
         // Initialiser les objets nécessaires pour les tests
-        mesBateaux = new Grille();
-        mesTirs = new Grille();
+        mesBateaux = new Grille(null);
+        mesTirs = new Grille(null);
         joueur = new Joueur("Alice", mesBateaux, mesTirs);
     }
 
@@ -27,9 +30,8 @@ s
 
     @Test
     public void testConstructeurAvecNomInvalide() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            Joueur joueur = new Joueur("", mesBateaux, mesTirs);
-        });
+        Assertions.assertThrows(IllegalArgumentException.class, 
+                                () -> new Joueur("", mesBateaux, mesTirs));
     }
 
     @Test
@@ -40,7 +42,7 @@ s
 
     @Test
     public void testTirSurCelluleTouchee() {
-        Cellule cellule = new Cellule();
+        Cellule cellule = new Cellule(1,1);
         cellule.setEstTouche(true);
 
         joueur.tir(cellule);
@@ -51,7 +53,7 @@ s
 
     @Test
     public void testTirSurCelluleBateau() {
-        Cellule cellule = new Cellule();
+        Cellule cellule = new Cellule(1,1);
         cellule.setEstBateau(true);
 
         joueur.tir(cellule);
@@ -62,7 +64,7 @@ s
 
     @Test
     public void testTirSurCelluleVide() {
-        Cellule cellule = new Cellule();
+        Cellule cellule = new Cellule(1,1);
 
         joueur.tir(cellule);
 
@@ -71,7 +73,7 @@ s
     }
 
     
-}
+
 @Test
     public void testGetNbTouche() {
         // Préparer la grille de tirs avec des cellules touchées
@@ -83,3 +85,4 @@ s
         // Vérifier que le nombre de cellules touchées est correct
         Assertions.assertEquals(2, nbTouche);
     }
+}

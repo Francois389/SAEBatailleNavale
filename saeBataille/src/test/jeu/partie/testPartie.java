@@ -10,6 +10,8 @@ import org.junit.jupiter.api.Test;
 
 import jeu.partie.Joueur;
 import jeu.partie.Partie;
+import jeu.plateau.Grille;
+import jeu.plateau.Cellule;
 
 /**
  * teste de la classe Partie
@@ -22,8 +24,11 @@ class testPartie {
      * Test method for {@link jeu.partie.Partie#Partie(jeu.partie.Joueur, jeu.partie.Joueur)}.
      */
     @Test
-    void testPartie() {
-        assertDoesNotThrow(()->new Partie(new Joueur("quentin", new Grille({{new Cellule(1, 2, false, false)}}))));
+    void testConstructeurPartie() {
+        Cellule[][] tabCellule = {{new Cellule(1, 2)}};
+        Cellule[][] tabCellule2 = {{new Cellule(1, 2)}};
+        assertDoesNotThrow(()->new Partie(new Joueur("Quentin",new Grille(tabCellule),new Grille (tabCellule)),
+                                          new Joueur("François",new Grille(tabCellule),new Grille (tabCellule))));
     }
 
     /**

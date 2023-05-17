@@ -102,7 +102,7 @@ public class Joueur {
 	}
 	
 	/** @return le nom du joueur */
-	public Grille getGrilleBeteaux() {
+	public Grille getGrilleBateaux() {
 		return mesBateaux;
 	}
 	
