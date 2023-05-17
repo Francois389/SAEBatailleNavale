@@ -1,7 +1,14 @@
-package application;
+package application.controller;
 
+import java.io.IOException;
+
+import application.Main;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 /**
  * Gère l'interactivité entre le menu et l'utilisateur.
@@ -19,9 +26,10 @@ public class MenuPrincipalControlleur {
 	private Button btnQuitter;
 	
 	@FXML
-	private void creerNouvellePartie() {
-		System.out.println("Nouvelle partie cliqué");
-	}
+	private void creerNouvellePartie() throws IOException {
+	    Main.activerPositionBateau();
+    }
+	    
 	
 	@FXML
 	private void chargerPartie() {

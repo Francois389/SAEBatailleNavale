@@ -9,21 +9,61 @@ import javafx.scene.Scene;
 /**
  * Classe qui va lancer l'application de jeu.
  * 
- * @author François de Saint Palais
+ * @author Descriaud Lucas
  */
 public class Main extends Application {
+    
+    /** Scene du menu principale*/
+    private static Scene menuPrincipale;
+    
+    /** Scene du menu de positionnement des bateaux*/
+    private static Scene positionBateau;
+    
+    /** 
+     * Fenêtre principale de l'application
+     * La scène qui lui est associée sera modifiée en fonction
+     * des clic sur les boutons
+     */
+    private static Stage fenetrePrincipale;
+    
+    
+    /**
+     * Les methodes suivant change la scene de
+     * la fenetre principale
+     */
+    public static void activerMenuPrincipale() {
+        fenetrePrincipale.setScene(menuPrincipale);
+    }
+    
+    public static void activerPositionBateau() {
+        fenetrePrincipale.setScene(positionBateau); 
+    }
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+		    // Chargement de la vue Menu principale dans le conteneur
 			FXMLLoader chargeurFXML = new FXMLLoader();
-			System.out.println("view folder: " + Main.class.getResource("vue/pagePositionBateau.fxml"));     // returns null
-			chargeurFXML.setLocation(getClass().getResource("vue/pagePositionBateau.fxml"));
+			chargeurFXML.setLocation(getClass().getResource("vue/MenuPrincipal.fxml"));  
+			Parent conteneur = chargeurFXML.load();
 			
-			Parent racine = chargeurFXML.load();
+			// Creation scene principale
+			menuPrincipale = new Scene(conteneur , 720 , 480);
 			
-			Scene scene = new Scene(racine);
-//			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setScene(scene);
+			// Chargment de la vue postionBateau dans le conteneur
+			FXMLLoader chargeurFXMLPositionBateau = new FXMLLoader();
+            chargeurFXMLPositionBateau.setLocation(getClass().getResource("vue/pagePositionBateau.fxml"));  
+            conteneur = chargeurFXMLPositionBateau.load();
+            
+            positionBateau = new Scene(conteneur , 720 , 480);
+            
+            primaryStage.setTitle("Bataille Navale");
+            
+            
+            /* chargement de la vue de la scène principale 
+             * dans le conteneu de type Parent
+             */
+			primaryStage.setScene(menuPrincipale);
+			fenetrePrincipale = primaryStage;
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
