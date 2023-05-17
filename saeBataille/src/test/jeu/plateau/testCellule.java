@@ -8,13 +8,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
 
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import jeu.plateau.Cellule;
 /**
- * Lancement des tests de Cellule
+ * Tests unitaire de la classe Cellule
  * @author quent
  *
  */
@@ -67,7 +66,6 @@ class testCellule {
      */
     @Test
     void testIsEstBateau() {
-        //fail("Not yet implemented");
         for (int i = 0; i < celluleValide.size(); i++) {
             assertFalse(celluleValide.get(i).isBateau());
             celluleValide.get(i).setEstBateau(true);
@@ -88,7 +86,11 @@ class testCellule {
      */
     @Test
     void testIsEstTouche() {
-        fail("Not yet implemented");
+        for (int i = 0; i < celluleValide.size(); i++) {
+        	assertFalse(celluleValide.get(i).isTouche());
+        	celluleValide.get(i).setEstTouche(true);
+        	assertTrue(celluleValide.get(i).isTouche());
+        }        
     }
 
     /**
@@ -96,7 +98,9 @@ class testCellule {
      */
     @Test
     void testSetEstTouche() {
-        fail("Not yet implemented");
+    	for (int i = 0; i < celluleValide.size(); i++) {
+			
+		}
     }
 
     /**
@@ -104,7 +108,10 @@ class testCellule {
      */
     @Test
     void testGetX() {
-        fail("Not yet implemented");
+        int[] xDesCellulesValides = {10, 0 , 10, 0 , 8 , 3 , 8 , 6};
+        for (int i = 0; i < celluleValide.size(); i++) {
+        	assertEquals(xDesCellulesValides[i],celluleValide.get(i).getX());
+        }
     }
 
     /**
@@ -112,7 +119,10 @@ class testCellule {
      */
     @Test
     void testGetY() {
-        fail("Not yet implemented");
+    	int[] yDesCellulesValides = {10, 0, 0, 10, 5, 4, 6, 9};
+        for (int i = 0; i < celluleValide.size(); i++) {
+        	assertEquals(yDesCellulesValides[i],celluleValide.get(i).getY());
+        }
     }
 
 }

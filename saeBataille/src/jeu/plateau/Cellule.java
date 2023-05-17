@@ -46,7 +46,7 @@ public class Cellule {
     
     
     /**
-     * verifie la validite des coordonnees d'un bateau
+     * Vérifie la validite des coordonnees d'un bateau
      */
     private static boolean estValide(int x, int y) {
         return CORDONNES_MIN <= x && x <= COORDONNES_MAX
