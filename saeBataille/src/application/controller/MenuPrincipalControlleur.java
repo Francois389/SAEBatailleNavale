@@ -1,13 +1,16 @@
 package application.controller;
 
 import java.io.IOException;
+import java.util.Optional;
 
 import application.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
 /**
@@ -39,7 +42,13 @@ public class MenuPrincipalControlleur {
 	
 	@FXML
 	private void quitter() {
-		System.out.println("Quitter cliqué");
+	    Alert boiteAlerte = new Alert(Alert.AlertType.CONFIRMATION ,"",
+	                                  ButtonType.YES, ButtonType.NO);
+	    boiteAlerte.setHeaderText("Voulez-vous vraiment quitter ?"); 
+	    Optional<ButtonType> option = boiteAlerte.showAndWait(); 
+	    if (option.get() == ButtonType.YES) {
+	        Main.quitter();
+	    }
 	}
 	
 	/**S'éxécute aux démarrage de l'application */

@@ -38,6 +38,10 @@ public class Main extends Application {
     public static void activerPositionBateau() {
         fenetrePrincipale.setScene(positionBateau); 
     }
+    
+    public static void quitter() {
+        fenetrePrincipale.close();
+    }
 	@Override
 	public void start(Stage primaryStage) {
 		try {
