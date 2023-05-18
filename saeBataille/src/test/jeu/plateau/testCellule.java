@@ -133,5 +133,23 @@ class testCellule {
         	assertEquals(yDesCellulesValides[i],celluleValide.get(i).getY());
         }
     }
+    
+    @Test
+    void testEquals() {
+    	for (int i = 0; i < celluleValide.size(); i++) {
+    		assertNotEquals(null, celluleValide.get(i));
+    		assertNotEquals(celluleValide.get(i),null);
+    		String chaine = "Cellule";
+    		assertNotEquals(chaine, celluleValide.get(i));
+    		assertNotEquals(celluleValide.get(i),chaine);
+    		Cellule laMeme = new Cellule(celluleValide.get(i).getX(),celluleValide.get(i).getY());
+			assertEquals(laMeme, celluleValide.get(i));
+			for (int j = 0; j < celluleValide.size(); j++) {
+				if (i != j) {
+					assertNotEquals(celluleValide.get(j), celluleValide.get(i));
+				}
+			}
+		}
+    }
 
 }

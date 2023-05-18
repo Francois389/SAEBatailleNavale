@@ -93,9 +93,7 @@ public class Cellule {
         if (!(arg instanceof Cellule)) {
             return false;
         }
-        
         Cellule autre = (Cellule) arg;
-        
         return getY() == autre.getY() && getX() == autre.getX(); 
     }
 	

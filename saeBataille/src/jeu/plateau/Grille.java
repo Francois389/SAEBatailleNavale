@@ -11,7 +11,7 @@ import jeu.plateau.Cellule;
  * //TODO Commenter la responsabilités de la classe Grille
  * @author Costes Quentin
  * @author de Saint Palais François
- * @author Denamiel Clement
+ * @author Denamiel Clément
  * @author Descriaud Lucas
  *
  */
@@ -27,13 +27,13 @@ public class Grille {
 	}
 	
 	/**
-	 * Vérifie la validité du quadrillage passé en paramétre.
+	 * Vérifie la validité du quadrillage passé en paramètre.
 	 * 
 	 * Un quadrillage est valide si :
 	 * <ul>
 	 *      <li>Il est carré (autant de longueur que de largeur)</li>
 	 *      <li>A chaque coordonné il y est une Cellule (pas de trous)</li>
-	 *      <li>Il n'existe pas deux Cellule avec les mêmes ocordonnée</li>
+	 *      <li>Il n'existe pas deux Cellule avec les mêmes coordonnée</li>
 	 * </ul>
 	 * @param argQuadrillage Le quadrillage testé
 	 * @return Renvoie true si le quadrillage est valide
@@ -41,20 +41,23 @@ public class Grille {
 	private boolean estValide(Cellule[][] argQuadrillage) {
 		
 		int nbColonnes = argQuadrillage.length;
-		Cellule[][] cellulesPresentes = new Cellule[argQuadrillage.length][argQuadrillage.length];
+		boolean[][] cellulesPresentes = new boolean[argQuadrillage.length][argQuadrillage.length];
 		
 		for (int i = 0; i < argQuadrillage.length; i++) {
+			/* Le quadrillage est carré */
 			if (argQuadrillage[i].length != nbColonnes) {
 				return false;
 			}
 			
+			/* A chaque coordonné il y est une Cellule (pas de trous) */
 			for (int j = 0; j < argQuadrillage.length; j++) {
                 if (argQuadrillage[i][j] == null) {
 					return false;
 				}
-				
+                cellulesPresentes[i][j] = true;
             }
-            // TODO Il n'existe pas deux Cellule avec les mêmes ocordonnée
+            // TODO Il n'existe pas deux Cellule avec les mêmes coordonnée
+			
 			
 		}
 
@@ -62,6 +65,8 @@ public class Grille {
 	}
 	
 	/**
+	 * Retourne la Cellule aux coordonnée indiqué.
+	 * Les coordonnée commence à partir de 0.
 	 * @param x La coordonnée en abscisse de la Cellule recherché 
 	 * @param y La coordonnée en ordonné de la Cellule recherché
 	 * @return La cellule au coordonné précisé 
@@ -77,18 +82,15 @@ public class Grille {
 	
 	/**
 	 * @return Cellule[][] Un tableau de tableau contenant
-	 * des boolearue si la cellule a cet indice est un bateau false sinon
+	 * des boolean true si la cellule a cet indice est un bateau false sinon
 	 */
 	public boolean[][] getBateau() {
-
 	    boolean[][] bateaux = new boolean[quadrillage.length][quadrillage.length];
-	    
 	 	for (int i = 0; i < quadrillage.length; i++) {
             for (int j = 0; j < quadrillage.length; j++) {
                 bateaux[i][j] = quadrillage[i][j].isBateau();
             }
         }
-	    
 		return bateaux;
 	}
 }
