@@ -1,88 +1,130 @@
+/*
+ * testJoueur.java                                       18 mai 2023
+ * IUT de Rodez, pas de copyright, ni "copyleft"
+ */
+
 package test.jeu.partie;
 
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.ArrayList;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import jeu.partie.Joueur;
-import jeu.plateau.Grille;
 import jeu.plateau.Cellule;
+import jeu.plateau.Grille;
 
+/**
+ * Test unitaire de Joueur
+ * @author de Saint Palais François
+ */
 public class testJoueur {
-
-    private Joueur joueur;
-    private Grille mesBateaux;
-    private Grille mesTirs;
+    
+    private ArrayList<Joueur> joueurValide;
 
     @BeforeEach
-    public void setUp() {
-        // Initialiser les objets nécessaires pour les tests
-        mesBateaux = new Grille(null);
-        mesTirs = new Grille(null);
-        joueur = new Joueur("Alice", mesBateaux, mesTirs);
+    void genrerJeuxTest() {
+        joueurValide = new ArrayList<>();
+
+        {
+            Cellule[][] quadrillageBateau = {
+                    {new Cellule(0, 0),new Cellule(0, 1)},
+                    {new Cellule(1, 0),new Cellule(1, 1)}};
+            Cellule[][] quadrillageTir = {
+                    {new Cellule(0, 0),new Cellule(0, 1)},
+                    {new Cellule(1, 0),new Cellule(1, 1)}};
+            Grille mesBateaux = new Grille(quadrillageBateau);
+            Grille mesTirs = new Grille(quadrillageTir);
+            
+            joueurValide.add(new Joueur("Alice", mesBateaux, mesTirs));            
+        }
     }
 
     @Test
-    public void testConstructeurAvecNomValide() {
-        Assertions.assertEquals("Alice", joueur.getNom());
+    void testConstructeurAvecNomValide() {
+        Cellule[][] quadrillageBateau = {{new Cellule(0, 0),new Cellule(0, 1)},
+                {new Cellule(1, 0),new Cellule(1, 1)}};
+        Cellule[][] quadrillageTir = {{new Cellule(0, 0),new Cellule(0, 1)},
+                     {new Cellule(1, 0),new Cellule(1, 1)}};
+        Grille mesBateaux = new Grille(quadrillageBateau);
+        Grille mesTirs = new Grille(quadrillageTir);
+        
+        assertDoesNotThrow(()->new Joueur("Alice", mesBateaux, mesTirs));
+        assertDoesNotThrow(()->new Joueur("AlexandreLeGrandVIII", mesBateaux, mesTirs));
     }
 
     @Test
-    public void testConstructeurAvecNomInvalide() {
-        Assertions.assertThrows(IllegalArgumentException.class, 
+    void testConstructeurAvecNomInvalide() {
+        Cellule[][] quadrillageBateau = {{new Cellule(0, 0),new Cellule(0, 1)},
+                {new Cellule(1, 0),new Cellule(1, 1)}};
+        Cellule[][] quadrillageTir = {{new Cellule(0, 0),new Cellule(0, 1)},
+                     {new Cellule(1, 0),new Cellule(1, 1)}};
+        Grille mesBateaux = new Grille(quadrillageBateau);
+        Grille mesTirs = new Grille(quadrillageTir);
+        assertThrows(IllegalArgumentException.class, 
                                 () -> new Joueur("", mesBateaux, mesTirs));
+        assertThrows(IllegalArgumentException.class, 
+                () -> new Joueur("TropDeCaractères12345", mesBateaux, mesTirs));
+        assertThrows(IllegalArgumentException.class, 
+                () -> new Joueur(null, mesBateaux, mesTirs));
     }
 
     @Test
-    public void testConstructeurAvecGrillesNonNull() {
-        Assertions.assertNotNull(joueur.getGrilleBateaux());
-        Assertions.assertNotNull(joueur.getGrilleTirs());
+    void testConstructeurAvecGrillesNonNull() {
+        assertNotNull(joueurValide.get(0).getGrilleBateaux());
+        assertNotNull(joueurValide.get(0).getGrilleTirs());
     }
 
     @Test
-    public void testTirSurCelluleTouchee() {
+    void testTirSurCelluleTouchee() {
         Cellule cellule = new Cellule(1,1);
         cellule.setEstTouche(true);
 
-        joueur.tir(cellule);
+        joueurValide.get(0).tir(cellule);
 
         // Vérifier que la cellule n'est pas touchée à nouveau
-        Assertions.assertFalse(cellule.isTouche());
+        assertFalse(cellule.isTouche());
     }
 
     @Test
-    public void testTirSurCelluleBateau() {
+    void testTirSurCelluleBateau() {
         Cellule cellule = new Cellule(1,1);
         cellule.setEstBateau(true);
 
-        joueur.tir(cellule);
+        joueurValide.get(0).tir(cellule);
 
         // Vérifier que la cellule est touchée
-        Assertions.assertTrue(cellule.isTouche());
+        assertTrue(cellule.isTouche());
     }
 
     @Test
-    public void testTirSurCelluleVide() {
+    void testTirSurCelluleVide() {
         Cellule cellule = new Cellule(1,1);
 
-        joueur.tir(cellule);
+        joueurValide.get(0).tir(cellule);
 
         // Vérifier que la cellule n'est pas touchée
-        Assertions.assertFalse(cellule.isTouche());
+        assertFalse(cellule.isTouche());
     }
 
     
 
 @Test
-    public void testGetNbTouche() {
+    void testGetNbTouche() {
         // Préparer la grille de tirs avec des cellules touchées
-        mesTirs.getQuadrillage()[0][0].setEstTouche(true);
-        mesTirs.getQuadrillage()[1][1].setEstTouche(true);
+        joueurValide.get(0).getGrilleTirs().getQuadrillage()[0][0].setEstTouche(true);
+        joueurValide.get(0).getGrilleTirs().getQuadrillage()[1][1].setEstTouche(true);
 
-        int nbTouche = joueur.getNbTouche();
+        int nbTouche = joueurValide.get(0).getNbTouche();
 
         // Vérifier que le nombre de cellules touchées est correct
-        Assertions.assertEquals(2, nbTouche);
+        assertEquals(2, nbTouche);
+    }
+
+    @Test
+    void testGetNom() {
+        assertEquals("Alice", joueurValide.get(0).getNom());
     }
 }
