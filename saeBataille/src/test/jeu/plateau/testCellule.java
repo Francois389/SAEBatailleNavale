@@ -14,7 +14,8 @@ import org.junit.jupiter.api.DisplayName;
 import jeu.plateau.Cellule;
 /**
  * Tests unitaire de la classe Cellule
- * @author quent
+ * @author Costes Quentin
+ * @author de Saint Palais François
  *
  */
 class testCellule {
@@ -78,7 +79,12 @@ class testCellule {
      */
     @Test
     void testSetEstBateau() {
-        fail("Not yet implemented");
+        for (int i = 0; i < celluleValide.size(); i++) {
+        	celluleValide.get(i).setEstBateau(true);
+        	assertTrue(celluleValide.get(i).isBateau());
+        	celluleValide.get(i).setEstBateau(false);
+        	assertFalse(celluleValide.get(i).isBateau());
+        }
     }
 
     /**
@@ -99,7 +105,10 @@ class testCellule {
     @Test
     void testSetEstTouche() {
     	for (int i = 0; i < celluleValide.size(); i++) {
-			
+			celluleValide.get(i).setEstTouche(true);
+			assertTrue(celluleValide.get(i).isTouche());
+			celluleValide.get(i).setEstTouche(false);
+			assertFalse(celluleValide.get(i).isTouche());
 		}
     }
 
