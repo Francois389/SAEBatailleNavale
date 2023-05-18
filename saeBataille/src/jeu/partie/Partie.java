@@ -6,7 +6,7 @@ package jeu.partie;
 
 /**
  * stockage d'unne partie de bataille navale
- * @author quent
+ * @author Costes Quentin
  *
  */
 public class Partie {

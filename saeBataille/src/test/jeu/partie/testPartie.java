@@ -15,7 +15,7 @@ import jeu.plateau.Cellule;
 
 /**
  * teste de la classe Partie
- * @author quent
+ * @author Costes Quentin
  *
  */
 class testPartie {
