@@ -11,19 +11,22 @@ import jeu.plateau.Cellule;
  * //TODO Commenter la responsabilités de la classe Joueur
  * @author Costes Quentin
  * @author de Saint Palais Francois
- * @author Denamiel Clement
+ * @author Denamiel Clément
  * @author Descriaud Lucas
  *
  */
 public class Joueur {
+    
+    /** Le nombre maximal de caractères autorisé pour le nom du joueur */
+    private final static int LONGUEUR_MAX_NOM = 20;
 
-	/** le nom du joueur */
+	/** Le nom du joueur */
 	private String nom;
 	
-	/** la grille ou les bateaux sont places */
+	/** La grille ou les bateaux sont places */
 	private Grille mesBateaux;
 
-	/** la grille des tirs effectues */
+	/** La grille des tirs effectues */
 	private Grille mesTirs;
 	
 	
@@ -38,7 +41,7 @@ public class Joueur {
 	public Joueur(String nom, Grille mesBateaux, Grille mesTirs) {
 		
 		if (!isValide(nom)) {
-			throw new IllegalArgumentException("arguments invalides");
+			throw new IllegalArgumentException("Erreur : Arguments invalides");
 		}
 		
 		this.nom = nom;
@@ -47,36 +50,38 @@ public class Joueur {
 	}
 	
 	/**
-	 * verifie la validite du nom d'un joueur
-	 * - ne doit pas etre vide
-	 * - ne doit pas etre trop grand
+	 * Vérifie la validité du nom d'un joueur. <br>
+	 * Le nom d'un joueur est valide si :
+	 * <ul>
+	 *     <li>Il n'est pas vide</li>
+	 *     <li>Il est composé de maximum 
+	 *     {@value jeu.partie.Joueur#LONGUEUR_MAX_NOM} caractères</li>
+	 * </ul>
 	 */
 	private static boolean isValide(String nom) {
-		return 0 < nom.length() && nom.length() <= 20;	
+		return !nom.isBlank() && nom.length() <= LONGUEUR_MAX_NOM;	
 	}
 	
 	/** 
-	 *
-	 * @param cible 
+	 * Le joueur à attaqué une Cellule.
+	 * <ul>
+	 *     <li>Si la Cellule est déjà touché on ne fais rien.</li>
+	 *     <li>Si la Cellule n'est pas touché mais que ce n'est pas 
+	 *     un bateau, on ne fais rien.</li>
+	 *     <li>Si la Cellule n'est pas touché et que c'est un bateau,
+	 *      alors on marque qu'elle est touché.</li>
+	 * @param cible La Cellule ciblé
 	 */
 	public void tir(Cellule cible) {
-		if (cible.isTouche()) {
-			// si la cible est deja une cellule touchee
-		} else {
-			if (cible.isBateau()) {
-				// gg le joueur est trop fort
-				cible.setEstTouche(true);
-			} else {
-				// domage, skill issue
-			}
+		if (!cible.isTouche() && cible.isBateau()) {
+		    cible.setEstTouche(true);
+		    //Le joueur est trop fort, gg
 		}
-		
 	}
 	
 	
 	/** 
-	 * retourne le nombre de bateaux ennemis touches par
-	 * le joueur
+	 * Renvoie le nombre de bateaux ennemis touches par le joueur.
 	 */
 	public int getNbTouche() {
 		
