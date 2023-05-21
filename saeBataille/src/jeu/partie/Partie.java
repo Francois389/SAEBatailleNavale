@@ -44,8 +44,12 @@ public class Partie {
     /**
      * setter du nombre de tours
      * @param nbTour modifie la valeur de nbTour
+     * @throws si le nombre de tours est invalide
      */
-    public void setNbTour(int nbTour) {
+    public void setNbTour(int nbTour) throws IllegalArgumentException {
+        if (nbTour < 0 || nbTour <= this.getNbTour()) {
+            throw new IllegalArgumentException("nombre de tours invalides");
+        }
         this.nbTour = nbTour;
     }
 

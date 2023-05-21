@@ -126,5 +126,6 @@ public class testJoueur {
     @Test
     void testGetNom() {
         assertEquals("Alice", joueurValide.get(0).getNom());
+        assertNotEquals("Quentin", joueurValide.get(0).getNom());
     }
 }
