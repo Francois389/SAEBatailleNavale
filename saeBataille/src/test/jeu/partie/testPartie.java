@@ -4,7 +4,6 @@
  */
 package test.jeu.partie;
 
-import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
@@ -88,7 +87,7 @@ class testPartie {
      * Test method for {@link jeu.partie.Partie#setNbTour(int)}.
      */
     @Test
-    void testSetNbTour() {
+    void testSetNbTour() {        
         assertDoesNotThrow(PartiesValide.get(0).setNbTour(4));
         assertDoesNotThrow(PartiesValide.get(0).setNbTour(14));
         assertThrows(IllegalArgumentException.class, PartiesValide.get(0).setNbTour(-2));
@@ -113,7 +112,7 @@ class testPartie {
         Grille mesTirs = new Grille(quadrillageTir);
         
         Joueur j1 = new Joueur("Quentin",new Grille(quadrillageBateau),new Grille (quadrillageTir));
-        Joueur j2 = new Joueur("François",new Grille(quadrillageBateau),new Grille (quadrillageTir));
+        Joueur j2 = new Joueur("Françis",new Grille(quadrillageBateau),new Grille (quadrillageTir));
         Partie partie = new Partie(j1, j2);
         
         
@@ -170,6 +169,6 @@ class testPartie {
         
         assertEquals(j2, partie.getJoueurActuel());
         assertNotEquals(j1, partie.getJoueurActuel());
-        }
+    }
 
 }
