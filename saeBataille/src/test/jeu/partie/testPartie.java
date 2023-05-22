@@ -88,13 +88,13 @@ class testPartie {
      */
     @Test
     void testSetNbTour() {        
-        assertDoesNotThrow(PartiesValide.get(0).setNbTour(4));
-        assertDoesNotThrow(PartiesValide.get(0).setNbTour(14));
-        assertThrows(IllegalArgumentException.class, PartiesValide.get(0).setNbTour(-2));
+        assertDoesNotThrow(()->PartiesValide.get(0).setNbTour(4));
+        assertDoesNotThrow(()->PartiesValide.get(0).setNbTour(14));
+        assertThrows(IllegalArgumentException.class, ()->PartiesValide.get(0).setNbTour(-2));
         
         // on ne peut pas reculer dans les tours
         PartiesValide.get(0).setNbTour(5);
-        assertThrows(IllegalArgumentException.class, PartiesValide.get(0).setNbTour(4));
+        assertThrows(IllegalArgumentException.class, ()->PartiesValide.get(0).setNbTour(4));
     }
 
     /**
