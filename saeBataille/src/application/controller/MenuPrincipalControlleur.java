@@ -30,7 +30,7 @@ public class MenuPrincipalControlleur {
 	
 	@FXML
 	private void creerNouvellePartie() throws IOException {
-	    Main.activerPositionBateau();
+	    Main.activerPersonalisePartie();
     }
 	    
 	

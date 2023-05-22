@@ -12,7 +12,7 @@ public class PositionBateauController {
     private Button retour;
     
     @FXML
-    private void menuPrincipal() throws IOException {
-        Main.activerMenuPrincipale();
+    private void personalisePartie() throws IOException {
+        Main.activerPersonalisePartie();
     }
 }

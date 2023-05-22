@@ -13,12 +13,17 @@ import javafx.scene.Scene;
  */
 public class Main extends Application {
     
+    
+    /** largeur maximal de la fenetre*/
+    private static final int LARGEUR = 720;
     /** Scene du menu principale*/
     private static Scene menuPrincipale;
     
     /** Scene du menu de positionnement des bateaux*/
     private static Scene positionBateau;
     
+    /** Scene du menu de personalisation de partie*/
+    private static Scene personalisePartie;
     /** 
      * Fenêtre principale de l'application
      * La scène qui lui est associée sera modifiée en fonction
@@ -28,17 +33,28 @@ public class Main extends Application {
     
     
     /**
-     * Les methodes suivant change la scene de
-     * la fenetre principale
+     * change la scene de la fenetre principale en menuPrincipale
      */
     public static void activerMenuPrincipale() {
         fenetrePrincipale.setScene(menuPrincipale);
     }
     
+    /**
+     * change la scene de la fenetre principale en positionBateau
+     */
     public static void activerPositionBateau() {
         fenetrePrincipale.setScene(positionBateau); 
     }
     
+    /**
+     * change la scene de la fenetre principale en personalisePartie
+     */
+    public static void activerPersonalisePartie() {
+        fenetrePrincipale.setScene(personalisePartie); 
+    }
+    
+    
+
     public static void quitter() {
         fenetrePrincipale.close();
     }
@@ -51,7 +67,7 @@ public class Main extends Application {
 			Parent conteneur = chargeurFXML.load();
 			
 			// Creation scene principale
-			menuPrincipale = new Scene(conteneur , 720 , 480);
+			menuPrincipale = new Scene(conteneur , LARGEUR , 480);
 			
 			// Chargment de la vue postionBateau dans le conteneur
 			FXMLLoader chargeurFXMLPositionBateau = new FXMLLoader();
@@ -59,6 +75,14 @@ public class Main extends Application {
             conteneur = chargeurFXMLPositionBateau.load();
             
             positionBateau = new Scene(conteneur , 720 , 480);
+            
+            // Chargement de la vue personalisePartie
+            FXMLLoader chargeurFXMLPersonalisePartie = new FXMLLoader();
+            chargeurFXMLPersonalisePartie.setLocation(getClass().getResource("vue/personalisePartie.fxml"));
+            conteneur = chargeurFXMLPersonalisePartie.load();
+         
+            personalisePartie = new Scene(conteneur , 720  , 480);
+            
             
             primaryStage.setTitle("Bataille Navale");
             

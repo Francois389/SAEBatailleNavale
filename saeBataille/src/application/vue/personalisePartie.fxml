@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" style="-fx-background-color: lightgrey;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" style="-fx-background-color: lightgrey;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.PersonalisePartieController">
    <children>
       <Label alignment="CENTER" contentDisplay="TOP" text="Personalise ta partie">
          <font>
@@ -74,7 +74,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button fx:id="buttonAnnuler" ellipsisString="8" mnemonicParsing="false" style="-fx-background-color: blue; -fx-border-radius: 5px;" text="Annuler" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
+            <Button fx:id="buttonAnnuler" ellipsisString="8" mnemonicParsing="false" onAction="#menuPrincipal" style="-fx-background-color: blue; -fx-border-radius: 5px;" text="Annuler" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
                <font>
                   <Font size="24.0" />
                </font>
@@ -85,7 +85,7 @@
                   <DropShadow />
                </effect>
             </Button>
-            <Button fx:id="buttonValider" mnemonicParsing="false" style="-fx-background-color: blue;" text="Valider" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
+            <Button fx:id="buttonValider" mnemonicParsing="false" onAction="#positionBateau" style="-fx-background-color: blue;" text="Valider" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
                <font>
                   <Font size="24.0" />
                </font>
