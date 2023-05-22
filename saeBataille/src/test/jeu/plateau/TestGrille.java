@@ -1,5 +1,5 @@
 /**
- * testGrille.java                       16 mai 2023
+ * TestGrille.java                       16 mai 2023
  * IUT de Rodez, pas de copyleft, pas de copyright
  */
 package test.jeu.plateau;
@@ -20,7 +20,7 @@ import org.junit.jupiter.api.BeforeEach;
  * @author de Saint Palais François
  *
  */
-class testGrille {
+class TestGrille {
     
     private ArrayList<Grille> grilleValide;
     

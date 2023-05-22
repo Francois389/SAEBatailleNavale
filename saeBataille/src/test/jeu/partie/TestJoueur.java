@@ -1,5 +1,5 @@
 /*
- * testJoueur.java                                       18 mai 2023
+ * TestJoueur.java                                       18 mai 2023
  * IUT de Rodez, pas de copyright, ni "copyleft"
  */
 
@@ -20,7 +20,7 @@ import jeu.plateau.Grille;
  * Test unitaire de Joueur
  * @author de Saint Palais François
  */
-public class testJoueur {
+public class TestJoueur {
     
     private ArrayList<Joueur> joueurValide;
 

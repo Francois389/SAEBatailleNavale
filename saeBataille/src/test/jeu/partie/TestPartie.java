@@ -1,5 +1,5 @@
 /**
- * testPartie.java                       16 mai 2023
+ * TestPartie.java                       16 mai 2023
  * IUT de Rodez, pas de copyleft, pas de copyright
  */
 package test.jeu.partie;
@@ -21,7 +21,7 @@ import jeu.plateau.Cellule;
  * @author Costes Quentin
  *
  */
-class testPartie {
+class TestPartie {
     
     private ArrayList<Partie> PartiesValide;
 
@@ -36,9 +36,7 @@ class testPartie {
             Cellule[][] quadrillageTir = {
                     {new Cellule(0, 0),new Cellule(0, 1)},
                     {new Cellule(1, 0),new Cellule(1, 1)}};
-            Grille mesBateaux = new Grille(quadrillageBateau);
-            Grille mesTirs = new Grille(quadrillageTir);
-            
+           
             
             
             PartiesValide.add(new Partie(new Joueur("Quentin",new Grille(quadrillageBateau),new Grille (quadrillageTir)),
@@ -93,7 +91,7 @@ class testPartie {
         assertThrows(IllegalArgumentException.class, ()->PartiesValide.get(0).setNbTour(-2));
         
         // on ne peut pas reculer dans les tours
-        PartiesValide.get(0).setNbTour(5);
+        PartiesValide.get(0).setNbTour(15);
         assertThrows(IllegalArgumentException.class, ()->PartiesValide.get(0).setNbTour(4));
     }
 

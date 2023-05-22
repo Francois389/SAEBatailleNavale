@@ -1,5 +1,5 @@
 /**
- * testCellule.java                       16 mai 2023
+ * TestCellule.java                       16 mai 2023
  * IUT de Rodez, pas de copyleft, pas de copyright
  */
 package test.jeu.plateau;
@@ -18,7 +18,7 @@ import jeu.plateau.Cellule;
  * @author de Saint Palais François
  *
  */
-class testCellule {
+class TestCellule {
 
 	private ArrayList<Cellule> celluleValide;
 	
