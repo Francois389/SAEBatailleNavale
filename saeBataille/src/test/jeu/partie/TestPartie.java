@@ -76,7 +76,7 @@ class TestPartie {
         assertEquals(0, partie.getNbTour());
         assertNotEquals(14567, partie.getNbTour());
         
-        partie.setNbTour(1);
+        partie.incrementNbTour();
         assertEquals(1, partie.getNbTour());
         assertNotEquals(0, partie.getNbTour());
     }
@@ -85,14 +85,14 @@ class TestPartie {
      * Test method for {@link jeu.partie.Partie#setNbTour(int)}.
      */
     @Test
-    void testSetNbTour() {        
-        assertDoesNotThrow(()->PartiesValide.get(0).setNbTour(4));
-        assertDoesNotThrow(()->PartiesValide.get(0).setNbTour(14));
-        assertThrows(IllegalArgumentException.class, ()->PartiesValide.get(0).setNbTour(-2));
-        
-        // on ne peut pas reculer dans les tours
-        PartiesValide.get(0).setNbTour(15);
-        assertThrows(IllegalArgumentException.class, ()->PartiesValide.get(0).setNbTour(4));
+    void testIncrementNbTour() {        
+		Partie partie = PartiesValide.get(0);
+		assertEquals(0, partie.getNbTour());
+		
+		partie.incrementNbTour();
+		partie.incrementNbTour();
+		partie.incrementNbTour();
+		assertEquals(3, partie.getNbTour());
     }
 
     /**
@@ -152,8 +152,6 @@ class TestPartie {
         Cellule[][] quadrillageTir = {
                 {new Cellule(0, 0),new Cellule(0, 1)},
                 {new Cellule(1, 0),new Cellule(1, 1)}};
-        Grille mesBateaux = new Grille(quadrillageBateau);
-        Grille mesTirs = new Grille(quadrillageTir);
         
         Joueur j1 = new Joueur("Quentin",new Grille(quadrillageBateau),new Grille (quadrillageTir));
         Joueur j2 = new Joueur("Françis",new Grille(quadrillageBateau),new Grille (quadrillageTir));
@@ -163,7 +161,7 @@ class TestPartie {
         assertEquals(j1, partie.getJoueurActuel());
         assertNotEquals(j2, partie.getJoueurActuel());
         
-        partie.setNbTour(1);        
+        partie.incrementNbTour();        
         
         assertEquals(j2, partie.getJoueurActuel());
         assertNotEquals(j1, partie.getJoueurActuel());

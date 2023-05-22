@@ -43,8 +43,7 @@ public class Partie {
 
     /**
      * setter du nombre de tours
-     * @param nbTour modifie la valeur de nbTour
-     * @throws si le nombre de tours est invalide
+     * incremente de 1 la valeur du nombre de tours
      */
     public void incrementNbTour() {
 		nbTour++;
@@ -67,11 +66,14 @@ public class Partie {
     }
     
     /**
-     * retourn le joueur qui joue actuellement en fonction du nombre de tours
-     * @return 
+     * retourne le joueur qui joue actuellement en fonction du nombre de tours
+     * @return joueur qui joue actuelement
      */
-    public int getJoueurActuel() {
-        return this.getNbTour() % 2;
+    public Joueur getJoueurActuel() {
+        return this.getNbTour() % 2 == 0
+        	   ? joueur1
+        	   : joueur2;
+        
     }
     
     
