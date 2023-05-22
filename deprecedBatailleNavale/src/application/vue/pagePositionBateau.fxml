@@ -35,12 +35,12 @@
                <children>
                   <HBox prefHeight="100.0" prefWidth="250.0">
                      <children>
-                        <ImageView fitHeight="150.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="porteAvions" fitHeight="150.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
                               <Insets bottom="10.0" left="20.0" top="15.0" />
                            </HBox.margin>
                            <image>
-                              <Image url="@image/Group%202.png" />
+                              <Image url="@../../../../saeBataille/src/application/vue/image/porteAvions.png" />
                            </image>
                         </ImageView>
                         <ImageView fitHeight="120.0" fitWidth="30.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">

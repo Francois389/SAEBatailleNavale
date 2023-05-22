@@ -1,5 +1,6 @@
-package application;
+package application.controller;
 
+import application.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
@@ -25,13 +26,13 @@ public class PersonalisePartieController {
     private RadioButton radioOrdinateur;
     
     @FXML
-    private void Annuler() {
-        System.out.println("Annulation");
+    private void menuPrincipal() {
+        Main.activerMenuPrincipale();
     }
     
     @FXML
-    private void Valider() {
-        System.out.println("Validation");
+    private void positionBateau() {
+        Main.activerPositionBateau();
     }
     
  
