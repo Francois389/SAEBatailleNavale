@@ -59,7 +59,7 @@ public class Joueur {
 	 * </ul>
 	 */
 	private static boolean isValide(String nom) {
-		return !nom.isBlank() && nom.length() <= LONGUEUR_MAX_NOM;	
+		return nom != null && !nom.isBlank() && nom.length() <= LONGUEUR_MAX_NOM;	
 	}
 	
 	/** 
@@ -76,6 +76,8 @@ public class Joueur {
 		if (!cible.isTouche() && cible.isBateau()) {
 		    cible.setEstTouche(true);
 		    //Le joueur est trop fort, gg
+		} else {
+			cible.setEstTouche(false);
 		}
 	}
 	

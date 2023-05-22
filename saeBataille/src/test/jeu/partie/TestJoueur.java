@@ -114,8 +114,8 @@ public class TestJoueur {
 @Test
     void testGetNbTouche() {
         // Préparer la grille de tirs avec des cellules touchées
-        joueurValide.get(0).getGrilleTirs().getQuadrillage()[0][0].setEstTouche(true);
-        joueurValide.get(0).getGrilleTirs().getQuadrillage()[1][1].setEstTouche(true);
+        joueurValide.get(0).getGrilleTirs().getCellule(0, 0).setEstTouche(true);
+        joueurValide.get(0).getGrilleTirs().getCellule(1, 1)[1][1].setEstTouche(true);
 
         int nbTouche = joueurValide.get(0).getNbTouche();
 
