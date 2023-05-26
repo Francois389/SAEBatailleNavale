@@ -1,0 +1,139 @@
+{
+  "partie": {
+    "joueur1": {
+      "nom": "François",
+      "mesBateaux": {
+        "quadrillage": [
+          [
+            {
+              "x": 0,
+              "y": 0,
+              "estBateau": false,
+              "estTouche": false
+            },
+            {
+              "x": 0,
+              "y": 1,
+              "estBateau": false,
+              "estTouche": false
+            }
+          ],
+          [
+            {
+              "x": 1,
+              "y": 0,
+              "estBateau": false,
+              "estTouche": false
+            },
+            {
+              "x": 1,
+              "y": 1,
+              "estBateau": false,
+              "estTouche": false
+            }
+          ]
+        ]
+      },
+      "mesTirs": {
+        "quadrillage": [
+          [
+            {
+              "x": 0,
+              "y": 0,
+              "estBateau": false,
+              "estTouche": false
+            },
+            {
+              "x": 0,
+              "y": 1,
+              "estBateau": false,
+              "estTouche": false
+            }
+          ],
+          [
+            {
+              "x": 1,
+              "y": 0,
+              "estBateau": false,
+              "estTouche": false
+            },
+            {
+              "x": 1,
+              "y": 1,
+              "estBateau": false,
+              "estTouche": false
+            }
+          ]
+        ]
+      }
+    },
+    "joueur2": {
+      "nom": "Quentin",
+      "mesBateaux": {
+        "quadrillage": [
+          [
+            {
+              "x": 0,
+              "y": 0,
+              "estBateau": false,
+              "estTouche": false
+            },
+            {
+              "x": 0,
+              "y": 1,
+              "estBateau": false,
+              "estTouche": false
+            }
+          ],
+          [
+            {
+              "x": 1,
+              "y": 0,
+              "estBateau": false,
+              "estTouche": false
+            },
+            {
+              "x": 1,
+              "y": 1,
+              "estBateau": false,
+              "estTouche": false
+            }
+          ]
+        ]
+      },
+      "mesTirs": {
+        "quadrillage": [
+          [
+            {
+              "x": 0,
+              "y": 0,
+              "estBateau": false,
+              "estTouche": false
+            },
+            {
+              "x": 0,
+              "y": 1,
+              "estBateau": false,
+              "estTouche": false
+            }
+          ],
+          [
+            {
+              "x": 1,
+              "y": 0,
+              "estBateau": false,
+              "estTouche": false
+            },
+            {
+              "x": 1,
+              "y": 1,
+              "estBateau": false,
+              "estTouche": false
+            }
+          ]
+        ]
+      }
+    },
+    "nbTour": 0
+  }
+}
