@@ -35,9 +35,8 @@ public class MenuPrincipalControlleur {
 	    
 	
 	@FXML
-	private void chargerPartie() {
-		System.out.println("Charger une partie cliqué");
-		System.out.println(btnChargerPartie.getWidth());
+	private void chargerPartie()  throws IOException {
+		Main.activerSauvegardePartie();
 	}
 	
 	@FXML
