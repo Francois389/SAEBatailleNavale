@@ -122,7 +122,7 @@
                   </HBox>
                </children>
             </VBox>
-            <GridPane fx:id="grille" gridLinesVisible="true" style="-fx-background-color: blue;">
+            <GridPane fx:id="grille" gridLinesVisible="true" onMouseClicked="#clicGridPane" style="-fx-background-color: blue;">
               <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="30.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="30.0" />

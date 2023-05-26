@@ -1,13 +1,18 @@
 package application.controller;
 
-import java.awt.event.MouseEvent;
 import java.io.IOException;
 
 import application.Main;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
+import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.InputEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 
 public class PositionBateauController {
@@ -42,6 +47,7 @@ public class PositionBateauController {
 	@FXML
 	private void clicTorpilleurs() {
         System.out.println("torpilleurs");
+        
     }
 
 	@FXML
@@ -57,11 +63,19 @@ public class PositionBateauController {
 	    grille.setRowSpan(croisseur , 4);
 	}
 	
-	//@FXML
-	//private void clicGridPane(MouseEvent event) {
-		//System.out.println(event.getX());
-		//System.out.println(event.getY());
+	@FXML
+	private void clicGridPane() {
+        grille.setOnMouseClicked((EventHandler<MouseEvent>) new EventHandler<MouseEvent>() {
+        	@Override
+        	public void handle(MouseEvent event) {
+        		int x = (int) event.getX() / 30;
+        		int y = (int) event.getY() / 30;
+        		
+        		System.out.println("("+x+"; "+y+")");
+        	}
+        });
 		
-        
-	//}
+	}
+	
+	
 }
