@@ -14,8 +14,11 @@ import javafx.scene.Scene;
 public class Main extends Application {
     
     
-    /** largeur maximal de la fenetre*/
+    /** largeur maximale de la fenetre*/
     private static final int LARGEUR = 720;
+    
+    /** hauteur maximale de la fenetre*/
+    private static final int HAUTEUR = 480;
     /** Scene du menu principale*/
     private static Scene menuPrincipale;
     
@@ -53,11 +56,16 @@ public class Main extends Application {
         fenetrePrincipale.setScene(personalisePartie); 
     }
     
-    
-
+    /** 
+     * ferme la fenetre
+     */
     public static void quitter() {
         fenetrePrincipale.close();
     }
+    
+    
+    
+    
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -67,21 +75,21 @@ public class Main extends Application {
 			Parent conteneur = chargeurFXML.load();
 			
 			// Creation scene principale
-			menuPrincipale = new Scene(conteneur , LARGEUR , 480);
+			menuPrincipale = new Scene(conteneur , LARGEUR , HAUTEUR);
 			
 			// Chargment de la vue postionBateau dans le conteneur
 			FXMLLoader chargeurFXMLPositionBateau = new FXMLLoader();
             chargeurFXMLPositionBateau.setLocation(getClass().getResource("vue/pagePositionBateau.fxml"));  
             conteneur = chargeurFXMLPositionBateau.load();
             
-            positionBateau = new Scene(conteneur , 720 , 480);
+            positionBateau = new Scene(conteneur , LARGEUR , HAUTEUR);
             
             // Chargement de la vue personalisePartie
             FXMLLoader chargeurFXMLPersonalisePartie = new FXMLLoader();
             chargeurFXMLPersonalisePartie.setLocation(getClass().getResource("vue/personalisePartie.fxml"));
             conteneur = chargeurFXMLPersonalisePartie.load();
          
-            personalisePartie = new Scene(conteneur , 720  , 480);
+            personalisePartie = new Scene(conteneur , LARGEUR  , HAUTEUR);
             
             
             primaryStage.setTitle("Bataille Navale");

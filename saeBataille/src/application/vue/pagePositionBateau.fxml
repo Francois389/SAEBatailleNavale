@@ -54,7 +54,7 @@
                <children>
                   <HBox prefHeight="100.0" prefWidth="250.0">
                      <children>
-                        <ImageView fx:id="porteAvions" fitHeight="150.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="porteAvions" fitHeight="150.0" fitWidth="30.0" onMouseClicked="#clicPorteAvions" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
                               <Insets bottom="10.0" left="20.0" top="15.0" />
                            </HBox.margin>
@@ -62,7 +62,7 @@
                               <Image url="@image/porteAvions.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="120.0" fitWidth="30.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="croisseur" fitHeight="120.0" fitWidth="30.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#clicCroiseur" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
                               <Insets left="50.0" top="15.0" />
                            </HBox.margin>
@@ -88,7 +88,7 @@
                   </HBox>
                   <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <ImageView fitHeight="90.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="90.0" fitWidth="30.0" onMouseClicked="#clicContreTorpilleur" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
                               <Insets bottom="10.0" left="20.0" top="15.0" />
                            </HBox.margin>
@@ -96,7 +96,7 @@
                               <Image url="@image/contreTorpillleur.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="60.0" fitWidth="30.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="60.0" fitWidth="30.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#clicTorpilleurs" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
                               <Insets left="50.0" top="15.0" />
                            </HBox.margin>
@@ -122,7 +122,7 @@
                   </HBox>
                </children>
             </VBox>
-            <GridPane gridLinesVisible="true" style="-fx-background-color: blue;">
+            <GridPane fx:id="grille" gridLinesVisible="true" onMouseClicked="#clicGridPane" style="-fx-background-color: blue;">
               <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="30.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="30.0" />
@@ -136,11 +136,11 @@
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="30.0" />
               </columnConstraints>
               <rowConstraints>
+                  <RowConstraints maxHeight="1.7976931348623157E308" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="1.7976931348623157E308" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="1.7976931348623157E308" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
