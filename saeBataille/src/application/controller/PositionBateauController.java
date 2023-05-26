@@ -53,15 +53,15 @@ public class PositionBateauController {
 	private void clicCroiseur() {
 	    System.out.println("croisseur");
 	    System.out.println(croisseur);
-	    grille.add(croisseur, 2, 3);
+	    grille.add(croisseur, 2, 3); // TODO modfier les coordonnees par le retour de la fonction clic grille pane
 	    grille.setRowSpan(croisseur , 4);
 	}
 	
-	@FXML
-	private void clicGridPane(MouseEvent event) {
-		System.out.println(event.getX());
-		System.out.println(event.getY());
+	//@FXML
+	//private void clicGridPane(MouseEvent event) {
+		//System.out.println(event.getX());
+		//System.out.println(event.getY());
 		
         
-	}
+	//}
 }
