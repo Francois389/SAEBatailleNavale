@@ -41,7 +41,7 @@
               "x": 0,
               "y": 0,
               "estBateau": false,
-              "estTouche": false
+              "estTouche": true
             },
             {
               "x": 0,

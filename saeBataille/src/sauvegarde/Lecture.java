@@ -65,6 +65,12 @@ public class Lecture {
         
         JsonObject tout = lire("FvsQ");
         tout.get(CLE).getAsJsonObject();
+        Partie partie = interprete(tout);
+        
+        System.out.println(partie.getNbTour());
+        System.out.println(partie.getJoueur1().getNom());
+        System.out.println(partie.getJoueur2().getNom());
+        System.out.println(partie.getJoueur2().getNbTouche());
     }
     
     public static JsonObject lire (String sauvegarde) {
@@ -81,9 +87,37 @@ public class Lecture {
         return tout;
     }
     
-    public static Partie interprete() {
-        
-        return null;
+    public static Partie interprete(JsonObject jsonObject) {
+        Gson gson = new Gson();
+
+        // Lecture des informations de la partie
+        JsonObject partieObj = jsonObject.getAsJsonObject("partie");
+        int nbTour = partieObj.get("nbTour").getAsInt();
+
+        // Lecture du joueur 1
+        JsonObject joueur1Obj = partieObj.getAsJsonObject("joueur1");
+        String nomJoueur1 = joueur1Obj.get("nom").getAsString();
+        JsonObject mesBateauxJoueur1Obj = joueur1Obj.getAsJsonObject("mesBateaux");
+        Grille mesBateauxJoueur1 = gson.fromJson(mesBateauxJoueur1Obj, Grille.class);
+        JsonObject mesTirsJoueur1Obj = joueur1Obj.getAsJsonObject("mesTirs");
+        Grille mesTirsJoueur1 = gson.fromJson(mesTirsJoueur1Obj, Grille.class);
+        Joueur joueur1 = new Joueur(nomJoueur1, mesBateauxJoueur1, mesTirsJoueur1);
+
+        // Lecture du joueur 2
+        JsonObject joueur2Obj = partieObj.getAsJsonObject("joueur2");
+        String nomJoueur2 = joueur2Obj.get("nom").getAsString();
+        JsonObject mesBateauxJoueur2Obj = joueur2Obj.getAsJsonObject("mesBateaux");
+        Grille mesBateauxJoueur2 = gson.fromJson(mesBateauxJoueur2Obj, Grille.class);
+        JsonObject mesTirsJoueur2Obj = joueur2Obj.getAsJsonObject("mesTirs");
+        Grille mesTirsJoueur2 = gson.fromJson(mesTirsJoueur2Obj, Grille.class);
+        Joueur joueur2 = new Joueur(nomJoueur2, mesBateauxJoueur2, mesTirsJoueur2);
+
+        // Création de la partie avec les données récupérées
+        return new Partie(joueur1, joueur2, nbTour);
     }
+
+
+
+
 
 }
