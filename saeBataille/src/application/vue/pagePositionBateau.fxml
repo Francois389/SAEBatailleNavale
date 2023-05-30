@@ -88,7 +88,7 @@
                   </HBox>
                   <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <ImageView fitHeight="90.0" fitWidth="30.0" onMouseClicked="#clicContreTorpilleur" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="contreTorpilleur" fitHeight="90.0" fitWidth="30.0" onMouseClicked="#clicContreTorpilleur" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
                               <Insets bottom="10.0" left="20.0" top="15.0" />
                            </HBox.margin>
@@ -96,7 +96,7 @@
                               <Image url="@image/contreTorpillleur.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="60.0" fitWidth="30.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#clicTorpilleurs" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="torpilleur" fitHeight="60.0" fitWidth="30.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#clicTorpilleurs" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
                               <Insets left="50.0" top="15.0" />
                            </HBox.margin>
