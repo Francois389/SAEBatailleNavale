@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.control.Label;
 
 import jeu.plateau.Grille;
 import jeu.plateau.Cellule;
@@ -17,6 +18,14 @@ import jeu.plateau.Cellule;
 public class PositionBateauController {
 	
 	final static private int TAILLE_GRILLE_PIXEL = 30;
+	
+	final static private int COLONNE_MIN = 0 ;
+	
+	final static private int COLONNE_MAX = 9 ;
+	
+	final static private int LIGNE_MIN = 0;
+	
+	final static private int LIGNE_MAX = 9;
 	
 	private boolean clicActive = false;
 	
@@ -37,6 +46,10 @@ public class PositionBateauController {
     
     @FXML
     private ImageView contreTorpilleur;
+    
+    @FXML
+    private Label labelPorteAvions;
+    
     
     private ImageView bateauCourant;
     private Grille grilleJoueur = new Grille(creerTableauGrille());    
@@ -107,6 +120,23 @@ public class PositionBateauController {
 	
 	@FXML
 	private void clicGridPane() {
+		
+		
+	}
+	
+	
+	private void activerClic() {
+		
+//		grille.setOnMouseClicked((EventHandler<MouseEvent>) new EventHandler<MouseEvent>() {
+//        	@Override
+//        	public void handle(MouseEvent event) {
+//        		int x = (int) event.getX() / TAILLE_GRILLE_PIXEL;
+//        		int y = (int) event.getY() / TAILLE_GRILLE_PIXEL;
+//        		
+//        		placerBateau(bateauCourant, x, y);
+//        	}
+//        });
+		
 		for (Node elt : grille.getChildren()) {
 			elt.setOnMouseExited((EventHandler<MouseEvent>) new EventHandler<MouseEvent>() {
 	        	@Override
@@ -114,25 +144,14 @@ public class PositionBateauController {
 	        		int x = (int) event.getX() / TAILLE_GRILLE_PIXEL;
 	        		int y = (int) event.getY() / TAILLE_GRILLE_PIXEL;
 	        		System.out.println("("+x+"; "+y+")");
-//	        		placerBateau(bateauCourant, x, y);
+	        		if (COLONNE_MIN<= x && x <= COLONNE_MAX 
+	        			&& LIGNE_MIN <= y && y <= LIGNE_MAX)  {
+						placerBateau(bateauCourant, x, y);
+					}
 	        	}
 	        });
+			
 		}
-		
-	}
-	
-	
-	private void activerClic() {
-		
-		grille.setOnMouseClicked((EventHandler<MouseEvent>) new EventHandler<MouseEvent>() {
-        	@Override
-        	public void handle(MouseEvent event) {
-        		int x = (int) event.getX() / TAILLE_GRILLE_PIXEL;
-        		int y = (int) event.getY() / TAILLE_GRILLE_PIXEL;
-        		
-        		placerBateau(bateauCourant, x, y);
-        	}
-        });
 	}
 	
 	private void placerBateau(ImageView bateau ,int x, int y) {
@@ -140,6 +159,9 @@ public class PositionBateauController {
 			grille.getChildren().remove(bateau);
 		}
 		grille.add(bateau, x, y);
+		if (bateauCourant.equals(porteAvions)) {
+			labelPorteAvions.setText("0/1");
+		}
 	}
 	
 }
