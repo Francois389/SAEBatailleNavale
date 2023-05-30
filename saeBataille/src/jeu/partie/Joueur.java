@@ -91,7 +91,7 @@ public class Joueur {
 		
 		for (Cellule[] cells : tableau) {
 			for (Cellule cell : cells) {
-				if (cell.isTouche()) {
+				if (cell.isTouche() && cell.isBateau()) {
 					nbTouche++;
 				}
 			}
@@ -116,7 +116,24 @@ public class Joueur {
 		return mesTirs;
 	}
 	
-	
+	/** @return nombre de tirs ratés */
+	public int getTirRatés() {
+	    
+	    Cellule[][] tableau = mesTirs.getQuadrillage();
+        
+        int nbRatés = 0;
+        
+        for (Cellule[] cells : tableau) {
+            for (Cellule cell : cells) {
+                if (cell.isTouche() && !cell.isBateau()) {
+                    nbRatés++;
+                }
+            }
+        }
+        
+        return nbRatés;
+	    
+	}
 
 
 }
