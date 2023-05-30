@@ -4,14 +4,8 @@
  */
 package jeu.plateau;
 
-
-import java.lang.reflect.Array;
-import java.util.Arrays;
-
-import jeu.plateau.Cellule;
-
 /**
- * //TODO Commenter la responsabilités de la classe Grille
+ * Une grille de Cellule
  * @author Costes Quentin
  * @author de Saint Palais François
  * @author Denamiel Clément
@@ -51,22 +45,34 @@ public class Grille {
 		
 		int nbColonnes = argQuadrillage.length;
 		boolean[][] cellulesPresentes = new boolean[argQuadrillage.length][argQuadrillage[0].length];
-		
+		boolean[][] cellulesDejaPresentes = new boolean[argQuadrillage.length][argQuadrillage[0].length];
+	    
+		/* Le quadrillage est carré */
 		for (int i = 0; i < argQuadrillage.length; i++) {
-			/* Le quadrillage est carré */
 			if (argQuadrillage[i].length != argQuadrillage.length) {
 				return false;
 			}
-			
-			/* A chaque coordonné il y est une Cellule (pas de trous) */
+		}
+		
+		/* A chaque coordonné il y est une Cellule (pas de trous) */
+        for (int i = 0; i < argQuadrillage.length; i++) {	
 			for (int j = 0; j < argQuadrillage.length; j++) {
                 if (argQuadrillage[i][j] == null) {
 					return false;
 				}
                 cellulesPresentes[i][j] = true;
             }
-            // TODO Il n'existe pas deux Cellule avec les mêmes coordonnée
-			
+        }
+        
+        // TODO Il n'existe pas deux Cellule avec les mêmes coordonnée
+        for (int i = 0; i < argQuadrillage.length; i++) {
+			for (int j = 0; j < argQuadrillage[i].length; j++) {
+                Cellule selectionne = argQuadrillage[i][j];
+                if (cellulesDejaPresentes[selectionne.getX()][selectionne.getY()]) {
+                    return false;
+                }
+                cellulesDejaPresentes[selectionne.getX()][selectionne.getY()] = true;
+            }
 			
 		}
 
