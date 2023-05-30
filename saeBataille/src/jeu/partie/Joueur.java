@@ -97,7 +97,7 @@ public class Joueur {
 			}
 		}
 		
-		return getNbTouche();
+		return nbTouche;
 	}
 	
 

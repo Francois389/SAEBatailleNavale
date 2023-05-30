@@ -27,3 +27,5 @@ hs_err_pid*
 /.metadata/
 batailleNavale/.classpath
 .classpath
+/*Le dossier des sauvegardes des parties*/
+sauvegardes/
