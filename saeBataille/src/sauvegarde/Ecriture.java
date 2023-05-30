@@ -1,19 +1,16 @@
-/**
- * 
+/*
+ * Ecriture.java                                         26 mai 2023
+ * IUT de Rodez, pas de copyright, ni "copyleft"
  */
 
 package sauvegarde;
 
-import sauvegarde.Lecture;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.Writer;
-import java.util.ArrayList;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import jeu.partie.Joueur;
@@ -27,8 +24,10 @@ import jeu.plateau.Grille;
  */
 public class Ecriture {
 
+    /** Chemin du dossier de sauvegarde en partant du project */
     protected static final String DOSSIER_SAUVEGARDE = "sauvegardes";
     
+    /** Dans le JSON, la Partie sera dans la valeur de cette clé*/
     protected static final String CLE = "partie";
 
     
@@ -75,8 +74,8 @@ public class Ecriture {
     }
     
     /**
-     * Créer un fichier à l'adresse indiqué
-     * @param chemin Complet du futur fichier ex:"c:/dossier/fichier.txt"
+     * Créer un fichier au chemin indiqué
+     * @param chemin Complet du futur fichier ex:"c:/dossier/fichier.json"
      */
     private static void creationFichier(String chemin) {
         try {
