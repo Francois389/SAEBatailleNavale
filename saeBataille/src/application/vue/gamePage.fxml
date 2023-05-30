@@ -8,6 +8,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
@@ -16,7 +18,10 @@
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" text="Menu" />
+                  <Button mnemonicParsing="false" text="Menu">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin></Button>
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0">
@@ -38,9 +43,46 @@
                   </Label>
                </children>
             </HBox>
+            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label text="nombre de tirs : 0">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Circle fill="#ff2121" radius="10.0" stroke="#ffffff00" strokeMiterLimit="5.0" strokeType="INSIDE" />
+                                    <Label text=" : 0">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <SVGPath content="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" scaleX="3.0" scaleY="3.0" />
+                                    <Label text=" : 0">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
          </children>
       </HBox>
-      <HBox prefHeight="340.0" prefWidth="600.0" style="-fx-background-color: #AAAAAA;">
+      <HBox prefHeight="340.0" prefWidth="600.0" style="-fx-background-color: #D6D6D6;">
          <children>
             <VBox fx:id="boutonMenu" alignment="CENTER" prefHeight="340.0" prefWidth="300.0" spacing="30.0">
                <children>
