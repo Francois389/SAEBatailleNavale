@@ -5,6 +5,9 @@
 package jeu.plateau;
 
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 import jeu.plateau.Cellule;
 
 /**
@@ -23,7 +26,13 @@ public class Grille {
 		if (!estValide(argQuadrillage)) {
             throw new IllegalArgumentException("Erreur : Le quadrillage est invalide");
         }
-		quadrillage = argQuadrillage;
+		Cellule[][] temp = new Cellule[argQuadrillage.length][argQuadrillage[0].length];
+		for (int i = 0; i < argQuadrillage.length; i++) {
+            for (int j = 0; j < argQuadrillage[i].length; j++) {
+                temp[i][j] = new Cellule(argQuadrillage[i][j].getX(), argQuadrillage[i][j].getY());
+            }
+        }
+		quadrillage = temp;
 	}
 	
 	/**
@@ -38,14 +47,14 @@ public class Grille {
 	 * @param argQuadrillage Le quadrillage testé
 	 * @return Renvoie true si le quadrillage est valide
 	 */
-	private boolean estValide(Cellule[][] argQuadrillage) {
+	private static boolean estValide(Cellule[][] argQuadrillage) {
 		
 		int nbColonnes = argQuadrillage.length;
-		boolean[][] cellulesPresentes = new boolean[argQuadrillage.length][argQuadrillage.length];
+		boolean[][] cellulesPresentes = new boolean[argQuadrillage.length][argQuadrillage[0].length];
 		
 		for (int i = 0; i < argQuadrillage.length; i++) {
 			/* Le quadrillage est carré */
-			if (argQuadrillage[i].length != nbColonnes) {
+			if (argQuadrillage[i].length != argQuadrillage.length) {
 				return false;
 			}
 			
@@ -72,6 +81,10 @@ public class Grille {
 	 * @return La cellule au coordonné précisé 
 	 */
 	public Cellule getCellule(int x, int y) {
+	    if (   x < 0 || quadrillage.length < x 
+	        || y < 0 || quadrillage[0].length < y) {
+            throw new IllegalArgumentException(String.format("Erreur : %d ou %d invalide", x,y));
+        }
 		return quadrillage[x][y];
 	}
 	

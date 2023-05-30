@@ -99,7 +99,7 @@ public class Joueur {
 			}
 		}
 		
-		return getNbTouche();
+		return nbTouche;
 	}
 	
 
@@ -108,37 +108,20 @@ public class Joueur {
 		return nom;
 	}
 	
-	/** @return le nom du joueur */
+	/** @return la grille ou les bateaux sont places */
 	public Grille getGrilleBateaux() {
 		return mesBateaux;
 	}
 	
-	/** @return le nom du joueur */
+	/** @return la grille des tirs effectues */
 	public Grille getGrilleTirs() {
 		return mesTirs;
 	}
+
+    @Override
+    public String toString() {
+        return "Joueur [nom=" + nom + ",\n mesBateaux=" + mesBateaux + ",\n mesTirs=" + mesTirs + "]";
+    }
 	
 	
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
