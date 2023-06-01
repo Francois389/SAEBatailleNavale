@@ -59,7 +59,7 @@ public class Joueur {
 	 * </ul>
 	 */
 	private static boolean isValide(String nom) {
-		return !nom.isBlank() && nom.length() <= LONGUEUR_MAX_NOM;	
+		return nom != null && !nom.isBlank() && nom.length() <= LONGUEUR_MAX_NOM;	
 	}
 	
 	/** 
@@ -76,6 +76,8 @@ public class Joueur {
 		if (!cible.isTouche() && cible.isBateau()) {
 		    cible.setEstTouche(true);
 		    //Le joueur est trop fort, gg
+		} else {
+			cible.setEstTouche(false);
 		}
 	}
 	
@@ -91,13 +93,13 @@ public class Joueur {
 		
 		for (Cellule[] cells : tableau) {
 			for (Cellule cell : cells) {
-				if (cell.isTouche()) {
+				if (cell.isTouche() && cell.isBateau()) {
 					nbTouche++;
 				}
 			}
 		}
 		
-		return getNbTouche();
+		return nbTouche;
 	}
 	
 
@@ -106,17 +108,39 @@ public class Joueur {
 		return nom;
 	}
 	
-	/** @return le nom du joueur */
+	/** @return la grille ou les bateaux sont places */
 	public Grille getGrilleBateaux() {
 		return mesBateaux;
 	}
 	
-	/** @return le nom du joueur */
+	/** @return la grille des tirs effectues */
 	public Grille getGrilleTirs() {
 		return mesTirs;
 	}
+
+    @Override
+    public String toString() {
+        return "Joueur [nom=" + nom + ",\n mesBateaux=" + mesBateaux + ",\n mesTirs=" + mesTirs + "]";
+    }
 	
-	
+	/** @return nombre de tirs ratés */
+	public int getTirRatés() {
+	    
+	    Cellule[][] tableau = mesTirs.getQuadrillage();
+        
+        int nbRatés = 0;
+        
+        for (Cellule[] cells : tableau) {
+            for (Cellule cell : cells) {
+                if (cell.isTouche() && !cell.isBateau()) {
+                    nbRatés++;
+                }
+            }
+        }
+        
+        return nbRatés;
+	    
+	}
 
 
 }

@@ -38,7 +38,9 @@ public class TestJoueur {
             Grille mesBateaux = new Grille(quadrillageBateau);
             Grille mesTirs = new Grille(quadrillageTir);
             
-            joueurValide.add(new Joueur("Alice", mesBateaux, mesTirs));            
+            joueurValide.add(new Joueur("Alice", mesBateaux, mesTirs)); 
+            joueurValide.add(new Joueur("Quentin",new Grille(quadrillageBateau),new Grille (quadrillageTir)));
+            joueurValide.add(new Joueur("François",new Grille(quadrillageBateau),new Grille (quadrillageTir)));
         }
     }
 
@@ -112,15 +114,28 @@ public class TestJoueur {
     
 
 @Test
-    void testGetNbTouche() {
-        // Préparer la grille de tirs avec des cellules touchées
-        joueurValide.get(0).getGrilleTirs().getQuadrillage()[0][0].setEstTouche(true);
-        joueurValide.get(0).getGrilleTirs().getQuadrillage()[1][1].setEstTouche(true);
-
-        int nbTouche = joueurValide.get(0).getNbTouche();
-
-        // Vérifier que le nombre de cellules touchées est correct
-        assertEquals(2, nbTouche);
+    void testGetNbTouche() {    
+        {       
+            // Préparer la grille de tirs avec des cellules touchée
+            for (Cellule[] cells : joueurValide.get(1).getGrilleTirs().getQuadrillage()) {
+                for (Cellule cellule : cells) {
+                    System.out.println(cellule.toString());
+                }
+            }
+            joueurValide.get(0).getGrilleTirs().getCellule(0, 0).setEstTouche(true);
+            joueurValide.get(0).getGrilleTirs().getCellule(1, 1).setEstTouche(true);
+            // Vérifier que le nombre de cellules touchées est correct
+            assertEquals(2, joueurValide.get(0).getNbTouche());
+        }
+        for (Cellule[] cells : joueurValide.get(1).getGrilleTirs().getQuadrillage()) {
+            for (Cellule cellule : cells) {
+                System.out.println(cellule.toString());
+            }
+        }
+        assertEquals(0, joueurValide.get(1).getNbTouche());
+//        for (int i = 0; i < array.length; i++) {
+//            
+//        }
     }
 
     @Test
