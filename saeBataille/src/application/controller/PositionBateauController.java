@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.control.Label;
@@ -50,10 +51,14 @@ public class PositionBateauController {
     @FXML
     private Label labelPorteAvions;
     
+    boolean porteAvionsPivote = false ;
+    boolean croisseurPivote = false ;
+    
     
     private ImageView bateauCourant;
-    private Grille grilleJoueur = new Grille(creerTableauGrille());    
-    
+    private Grille grilleJoueur = new Grille(creerTableauGrille());
+
+	
     private Cellule[][] creerTableauGrille() {
     	Cellule[][] retour = new Cellule[10][10];
     
@@ -74,16 +79,26 @@ public class PositionBateauController {
     
     @FXML
     private void clicPorteAvions() {
-		if (!clicActive){
+    	if (!clicActive){
 			activerClic();
 		}
 		bateauCourant = porteAvions ;
-        System.out.println("clic porte avions");
-        System.out.println(porteAvions);
-        System.out.println(grille);
- //       grille.add(porteAvions , 0 , 5);
- //       grille.setRowSpan(porteAvions, 5);
-        
+        //System.out.println("clic porte avions");
+        //System.out.println(porteAvions);
+        //System.out.println(grille);
+        porteAvions.setOnMouseClicked((EventHandler<MouseEvent>) new EventHandler<MouseEvent>() {
+      	@Override
+        public void handle(MouseEvent event) {
+        	if (event.getButton() == MouseButton.SECONDARY && !porteAvionsPivote) {
+        		porteAvions.setRotate(90);
+        		porteAvionsPivote = true ;
+        	} else if (event.getButton() == MouseButton.SECONDARY && porteAvionsPivote) {
+        		porteAvions.setRotate(0);
+        		porteAvionsPivote = false ;
+        	}
+		}
+      	
+        });
     }
 
 
@@ -108,14 +123,26 @@ public class PositionBateauController {
 	
 	@FXML
 	private void clicCroiseur() {
-		if (!clicActive){
+    	if (!clicActive){
 			activerClic();
 		}
-		bateauCourant = croisseur;
-	    System.out.println("croisseur");
-	    System.out.println(croisseur);
-//	    grille.add(croisseur, 2, 3); // TODO modfier les coordonnees par le retour de la fonction clic grille pane
-//	    grille.setRowSpan(croisseur , 4);
+		bateauCourant = croisseur ;
+        //System.out.println("clic porte avions");
+        //System.out.println(porteAvions);
+        //System.out.println(grille);
+        croisseur.setOnMouseClicked((EventHandler<MouseEvent>) new EventHandler<MouseEvent>() {
+      	@Override
+        public void handle(MouseEvent event) {
+        	if (event.getButton() == MouseButton.SECONDARY && !croisseurPivote) {
+        		croisseur.setRotate(90);
+        		croisseurPivote = true ;
+        	} else if (event.getButton() == MouseButton.SECONDARY && croisseurPivote) {
+        		croisseur.setRotate(0);
+        		croisseurPivote = false ;
+        	}
+		}
+      	
+        });
 	}
 	
 	@FXML
@@ -126,16 +153,7 @@ public class PositionBateauController {
 	
 	
 	private void activerClic() {
-		
-//		grille.setOnMouseClicked((EventHandler<MouseEvent>) new EventHandler<MouseEvent>() {
-//        	@Override
-//        	public void handle(MouseEvent event) {
-//        		int x = (int) event.getX() / TAILLE_GRILLE_PIXEL;
-//        		int y = (int) event.getY() / TAILLE_GRILLE_PIXEL;
-//        		
-//        		placerBateau(bateauCourant, x, y);
-//        	}
-//        });
+		clicActive = true;		
 		
 		for (Node elt : grille.getChildren()) {
 			elt.setOnMouseExited((EventHandler<MouseEvent>) new EventHandler<MouseEvent>() {
@@ -144,6 +162,12 @@ public class PositionBateauController {
 	        		int x = (int) event.getX() / TAILLE_GRILLE_PIXEL;
 	        		int y = (int) event.getY() / TAILLE_GRILLE_PIXEL;
 	        		System.out.println("("+x+"; "+y+")");
+	        		if (event.getButton() == MouseButton.SECONDARY) {
+	    				System.out.println("clic droit");
+	    			}
+	    			if (event.getButton() == MouseButton.PRIMARY) {
+	    				verouillerbateau();
+	    			}
 	        		if (COLONNE_MIN<= x && x <= COLONNE_MAX 
 	        			&& LIGNE_MIN <= y && y <= LIGNE_MAX)  {
 						placerBateau(bateauCourant, x, y);
