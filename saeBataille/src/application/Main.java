@@ -87,24 +87,20 @@ public class Main extends Application {
 		try {
 		    Parent conteneur;
 		    // Chargement de la vue Menu principale dans le conteneur
+		    // et creation scene principale
 			conteneur = getParentFromVue("vue/MenuPrincipal.fxml");
-			
-			// Creation scene principale
 			menuPrincipale = new Scene(conteneur , LARGEUR , HAUTEUR);
 			
 			// Chargment de la vue postionBateau dans le conteneur
 			conteneur = getParentFromVue("vue/pagePositionBateau.fxml");
-            
             positionBateau = new Scene(conteneur , LARGEUR , HAUTEUR);
             
             // Chargement de la vue personalisePartie
             conteneur = getParentFromVue("vue/personalisePartie.fxml");
-         
             personalisePartie = new Scene(conteneur , LARGEUR  , HAUTEUR);
             
            // Chargement de la vue en sauvegarde partie
             conteneur = getParentFromVue("vue/pageSauvegarde.fxml");
-            
             sauvegardePartie = new Scene (conteneur , LARGEUR , HAUTEUR);
             
             // Chargement de la vue en sauvegarde partie
@@ -116,7 +112,7 @@ public class Main extends Application {
             
             
             /* chargement de la vue de la scène principale 
-             * dans le conteneu de type Parent
+             * dans le conteneur de type Parent
              */
 			primaryStage.setScene(menuPrincipale);
 			fenetrePrincipale = primaryStage;
