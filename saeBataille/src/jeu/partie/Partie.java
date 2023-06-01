@@ -34,6 +34,7 @@ public class Partie {
         this.joueur1 = joueur1;
         this.joueur2 = joueur2;
         this.nbTour = 0;
+        estSauvegarder = false;
     }
     
     /**
@@ -46,6 +47,7 @@ public class Partie {
         this.joueur1 = joueur1;
         this.joueur2 = joueur2;
         this.nbTour = nbTour;
+        estSauvegarder = false;
     }
 
     /**

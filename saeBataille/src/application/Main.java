@@ -57,6 +57,11 @@ public class Main extends Application {
         fenetrePrincipale.setScene(personalisePartie); 
     }
     
+    public static void activerChargerPartie() {
+        // TODO Auto-generated method stub
+        
+    }
+    
     /** 
      * ferme la fenetre
      */
@@ -110,4 +115,6 @@ public class Main extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
+
+
 }
