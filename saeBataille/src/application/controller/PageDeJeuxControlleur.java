@@ -45,7 +45,7 @@ public class PageDeJeuxControlleur extends Application {
                     + "\nVoulez vous continuer sans sauvegarder ?"); 
             Optional<ButtonType> option = boiteAlerte.showAndWait(); 
             if (option.get() == ButtonType.YES) {
-                Main.quitter();
+                Main.activerSauvegardePartie();
             }
         }
     }
@@ -53,11 +53,23 @@ public class PageDeJeuxControlleur extends Application {
     @FXML
     void menuRetourAuMenu() {
         System.out.println("Retour au menu");
+        if (!partieEnCours.isEstSauvegarder()) {
+            Alert boiteAlerte = new Alert(Alert.AlertType.CONFIRMATION ,"",
+                    ButtonType.YES, ButtonType.NO);
+            
+            boiteAlerte.setHeaderText("Attention votre partie n'est pas sauvegarder."
+                    + "\nVoulez vous continuer sans sauvegarder ?"); 
+            Optional<ButtonType> option = boiteAlerte.showAndWait(); 
+            if (option.get() == ButtonType.YES) {
+                Main.activerMenuPrincipale();
+            }
+        }
     }
     
     @FXML
     void menuSauvegarder() {
         System.out.println("sauvegarde");
+        Main.activerSauvegardePartie();
     }
     
     @FXML

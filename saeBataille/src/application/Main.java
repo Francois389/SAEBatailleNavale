@@ -86,12 +86,13 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 		    Parent conteneur;
+		    
 		    // Chargement de la vue Menu principale dans le conteneur
 		    // et creation scene principale
 			conteneur = getParentFromVue("vue/MenuPrincipal.fxml");
 			menuPrincipale = new Scene(conteneur , LARGEUR , HAUTEUR);
 			
-			// Chargment de la vue postionBateau dans le conteneur
+			// Chargement de la vue postionBateau dans le conteneur
 			conteneur = getParentFromVue("vue/pagePositionBateau.fxml");
             positionBateau = new Scene(conteneur , LARGEUR , HAUTEUR);
             
