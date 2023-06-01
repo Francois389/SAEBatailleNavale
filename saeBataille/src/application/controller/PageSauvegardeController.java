@@ -23,7 +23,8 @@ import javafx.stage.Stage;
  * @author François de Saint Palais
  */
 public class PageSauvegardeController {
-
+    
+    final String STYLE_BOUTTONS = "-fx-background-color: blue; -fx-background-radius: 10;";
     @FXML
     private Button retour;
     
@@ -62,22 +63,27 @@ public class PageSauvegardeController {
             switch (i) {
             case 0: {   
                 buttonPartie1.setText(files[i].substring(0, files[i].lastIndexOf(".")));
+                buttonPartie1.setStyle(STYLE_BOUTTONS);
                 break;
             }
             case 1: {
                 buttonPartie2.setText(files[i].substring(0, files[i].lastIndexOf(".")));
+                buttonPartie2.setStyle(STYLE_BOUTTONS);
                 break;
             }
             case 2: {
                 buttonPartie3.setText(files[i].substring(0, files[i].lastIndexOf(".")));
+                buttonPartie3.setStyle(STYLE_BOUTTONS);
                 break;
             }
             case 3: {
                 buttonPartie4.setText(files[i].substring(0, files[i].lastIndexOf(".")));
+                buttonPartie4.setStyle(STYLE_BOUTTONS);
                 break;
             }
             case 4: {
                 buttonPartie5.setText(files[i].substring(0, files[i].lastIndexOf(".")));
+                buttonPartie5.setStyle(STYLE_BOUTTONS);
                 break;
             }
             }
@@ -94,30 +100,25 @@ public class PageSauvegardeController {
     @FXML
     private void loadPartie1() {
         System.out.println("charger partie 1");
-        Lecture.interprete(Lecture.lire(partie1));
     }
     
     @FXML
     private void loadPartie2() {
         System.out.println("charger partie 2");
-        Lecture.interprete(Lecture.lire(partie2));
     }
     
     @FXML
     private void loadPartie3() {
         System.out.println("charger partie 3");
-        Lecture.interprete(Lecture.lire(partie3));
     }
     
     @FXML
     private void loadPartie4() {
         System.out.println("charger partie 4");
-        Lecture.interprete(Lecture.lire(partie4)); 
     }
     
     @FXML
     private void loadPartie5() {
         System.out.println("charger partie 5");
-        Lecture.interprete(Lecture.lire(partie5));
     }
 }

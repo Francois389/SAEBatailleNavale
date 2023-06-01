@@ -100,20 +100,17 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="70.0">
          <children>
-            <Button fx:id="buttonAnnuler" ellipsisString="8" graphicTextGap="6.0" mnemonicParsing="false" onAction="#menuPrincipal" style="-fx-background-color: blue; -fx-background-radius: 25;" text="Annuler" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="buttonAnnuler" mnemonicParsing="false" onAction="#menuPrincipal" style="-fx-background-color: blue; -fx-background-radius: 25;" text="Annuler" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">>
                <font>
-                  <Font name="Arial" size="47.0" />
+                  <Font name="Arial" size="30.0" />
                </font>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
                <effect>
                   <DropShadow />
                </effect>
             </Button>
             <Button fx:id="buttonValider" mnemonicParsing="false" onAction="#positionBateau" style="-fx-background-color: blue; -fx-background-radius: 25;" text="Valider" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
                <font>
-                  <Font size="24.0" />
+                  <Font name="Arial" size="30.0" />
                </font>
                <effect>
                   <DropShadow />

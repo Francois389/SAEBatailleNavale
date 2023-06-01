@@ -29,7 +29,7 @@
          <children>
             <VBox alignment="CENTER" prefHeight="308.0" prefWidth="360.0" spacing="45.0">
                <children>
-                  <Button fx:id="buttonPartie1" mnemonicParsing="false" onAction="#loadPartie1" style="-fx-background-color: blue; -fx-background-radius: 10;" text="Vide" textFill="WHITE">
+                  <Button fx:id="buttonPartie1" mnemonicParsing="false" onAction="#loadPartie1" style="-fx-background-color: grey; -fx-background-radius: 10;" text="Vide" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="24.0" />
                      </font>
@@ -40,7 +40,7 @@
                         <DropShadow />
                      </effect>
                   </Button>
-                  <Button fx:id="buttonPartie3" cancelButton="true" mnemonicParsing="false" onAction="#loadPartie3" style="-fx-background-color: blue; -fx-background-radius: 10;" text="Vide" textFill="WHITE">
+                  <Button fx:id="buttonPartie3" cancelButton="true" mnemonicParsing="false" onAction="#loadPartie3" style="-fx-background-color: grey; -fx-background-radius: 10;" text="Vide" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="24.0" />
                      </font>
@@ -48,7 +48,7 @@
                         <DropShadow />
                      </effect>
                   </Button>
-                  <Button fx:id="buttonPartie5" mnemonicParsing="false" onAction="#loadPartie5" style="-fx-background-color: blue; -fx-background-radius: 10;" text="Vide" textFill="WHITE">
+                  <Button fx:id="buttonPartie5" mnemonicParsing="false" onAction="#loadPartie5" style="-fx-background-color: grey; -fx-background-radius: 10;" text="Vide" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="24.0" />
                      </font>
@@ -60,7 +60,7 @@
             </VBox>
             <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="308.0" prefWidth="360.0" spacing="45.0">
                <children>
-                  <Button fx:id="buttonPartie2" mnemonicParsing="false" onAction="#loadPartie2" style="-fx-background-color: blue; -fx-background-radius: 10;" text="Vide" textFill="WHITE">
+                  <Button fx:id="buttonPartie2" mnemonicParsing="false" onAction="#loadPartie2" style="-fx-background-color: grey; -fx-background-radius: 10;" text="Vide" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="24.0" />
                      </font>
@@ -68,7 +68,7 @@
                         <DropShadow />
                      </effect>
                   </Button>
-                  <Button fx:id="buttonPartie4" mnemonicParsing="false" onAction="#loadPartie4" style="-fx-background-color: blue; -fx-background-radius: 10;" text="Vide" textFill="WHITE">
+                  <Button fx:id="buttonPartie4" mnemonicParsing="false" onAction="#loadPartie4" style="-fx-background-color: grey; -fx-background-radius: 10;" text="Vide" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="24.0" />
                      </font>
