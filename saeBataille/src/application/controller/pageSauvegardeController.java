@@ -23,6 +23,23 @@ public class pageSauvegardeController {
     private Button retour;
     
     @FXML
+    private Button partie1;
+    
+    @FXML
+    private Button partie2;
+    
+    @FXML
+    private Button partie3;
+    
+    @FXML
+    private Button partie4;
+    
+    @FXML
+    private Button partie5;
+    
+    
+    
+    @FXML
     private void retourMainMenu() throws IOException {
         Main.activerMenuPrincipale();
     }
