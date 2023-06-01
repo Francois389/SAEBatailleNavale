@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -12,18 +14,33 @@
 <?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.PageDeJeuxControlleur">
    <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="Menu">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#menuChargerUnePartie" text="Charger une partie" />
+                  <MenuItem mnemonicParsing="false" onAction="#menuRetourAuMenu" text="Retour au menu" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Partie">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#menuSauvegarder" text="Sauvegarder" />
+                  <MenuItem mnemonicParsing="false" onAction="#menuAbandonner" text="Abandonner" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Aide">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#menuCommentJouer" text="Comment jouer" />
+                  <MenuItem mnemonicParsing="false" onAction="#menuCredit" text="Credit" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
       <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="600.0">
          <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0">
-               <children>
-                  <Button mnemonicParsing="false" text="Menu">
-                     <HBox.margin>
-                        <Insets left="10.0" />
-                     </HBox.margin></Button>
-               </children>
-            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" />
             <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0">
                <children>
                   <Label alignment="CENTER" style="-fx-text-fill: #00FF00;" text="Joueur 1">
