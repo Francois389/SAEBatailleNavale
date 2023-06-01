@@ -4,11 +4,8 @@
  */
 package jeu.plateau;
 
-
-import jeu.plateau.Cellule;
-
 /**
- * //TODO Commenter la responsabilités de la classe Grille
+ * Une grille de Cellule
  * @author Costes Quentin
  * @author de Saint Palais François
  * @author Denamiel Clément
@@ -23,7 +20,13 @@ public class Grille {
 		if (!estValide(argQuadrillage)) {
             throw new IllegalArgumentException("Erreur : Le quadrillage est invalide");
         }
-		quadrillage = argQuadrillage;
+		Cellule[][] temp = new Cellule[argQuadrillage.length][argQuadrillage[0].length];
+		for (int i = 0; i < argQuadrillage.length; i++) {
+            for (int j = 0; j < argQuadrillage[i].length; j++) {
+                temp[i][j] = new Cellule(argQuadrillage[i][j].getX(), argQuadrillage[i][j].getY());
+            }
+        }
+		quadrillage = temp;
 	}
 	
 	/**
@@ -38,26 +41,38 @@ public class Grille {
 	 * @param argQuadrillage Le quadrillage testé
 	 * @return Renvoie true si le quadrillage est valide
 	 */
-	private boolean estValide(Cellule[][] argQuadrillage) {
+	private static boolean estValide(Cellule[][] argQuadrillage) {
 		
 		int nbColonnes = argQuadrillage.length;
-		boolean[][] cellulesPresentes = new boolean[argQuadrillage.length][argQuadrillage.length];
-		
+		boolean[][] cellulesPresentes = new boolean[argQuadrillage.length][argQuadrillage[0].length];
+		boolean[][] cellulesDejaPresentes = new boolean[argQuadrillage.length][argQuadrillage[0].length];
+	    
+		/* Le quadrillage est carré */
 		for (int i = 0; i < argQuadrillage.length; i++) {
-			/* Le quadrillage est carré */
-			if (argQuadrillage[i].length != nbColonnes) {
+			if (argQuadrillage[i].length != argQuadrillage.length) {
 				return false;
 			}
-			
-			/* A chaque coordonné il y est une Cellule (pas de trous) */
+		}
+		
+		/* A chaque coordonné il y est une Cellule (pas de trous) */
+        for (int i = 0; i < argQuadrillage.length; i++) {	
 			for (int j = 0; j < argQuadrillage.length; j++) {
                 if (argQuadrillage[i][j] == null) {
 					return false;
 				}
                 cellulesPresentes[i][j] = true;
             }
-            // TODO Il n'existe pas deux Cellule avec les mêmes coordonnée
-			
+        }
+        
+        // TODO Il n'existe pas deux Cellule avec les mêmes coordonnée
+        for (int i = 0; i < argQuadrillage.length; i++) {
+			for (int j = 0; j < argQuadrillage[i].length; j++) {
+                Cellule selectionne = argQuadrillage[i][j];
+                if (cellulesDejaPresentes[selectionne.getX()][selectionne.getY()]) {
+                    return false;
+                }
+                cellulesDejaPresentes[selectionne.getX()][selectionne.getY()] = true;
+            }
 			
 		}
 
@@ -72,6 +87,10 @@ public class Grille {
 	 * @return La cellule au coordonné précisé 
 	 */
 	public Cellule getCellule(int x, int y) {
+	    if (   x < 0 || quadrillage.length <= x 
+	        || y < 0 || quadrillage[0].length <= y) {
+            throw new IllegalArgumentException(String.format("Erreur : %d ou %d invalide", x,y));
+        }
 		return quadrillage[x][y];
 	}
 	
