@@ -28,6 +28,10 @@ public class Main extends Application {
     
     /** Scene du menu de personalisation de partie*/
     private static Scene personalisePartie;
+    
+    /** Scene de la page de sauvegarde de partie */
+    private static Scene sauvegardePartie;
+    
     /** 
      * Fenêtre principale de l'application
      * La scène qui lui est associée sera modifiée en fonction
@@ -57,9 +61,11 @@ public class Main extends Application {
         fenetrePrincipale.setScene(personalisePartie); 
     }
     
-    public static void activerChargerPartie() {
-        // TODO Auto-generated method stub
-        
+    /**
+     * change la scene de la fenetre principale en pageSauvegarde
+     */
+    public static void activerSauvegardePartie() {
+        fenetrePrincipale.setScene(sauvegardePartie);
     }
     
     /** 
@@ -96,6 +102,13 @@ public class Main extends Application {
             conteneur = chargeurFXMLPersonalisePartie.load();
          
             personalisePartie = new Scene(conteneur , LARGEUR  , HAUTEUR);
+            
+           // Chargement de la vue en sauvegarde partie
+            FXMLLoader chargeurSauvegardePartie = new FXMLLoader();
+            chargeurSauvegardePartie.setLocation(getClass().getResource("vue/pageSauvegarde.fxml"));
+            conteneur = chargeurSauvegardePartie.load();
+            
+            sauvegardePartie = new Scene (conteneur , LARGEUR , HAUTEUR);
             
             
             primaryStage.setTitle("Bataille Navale");
