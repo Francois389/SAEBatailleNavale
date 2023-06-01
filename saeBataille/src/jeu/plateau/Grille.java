@@ -87,8 +87,8 @@ public class Grille {
 	 * @return La cellule au coordonné précisé 
 	 */
 	public Cellule getCellule(int x, int y) {
-	    if (   x < 0 || quadrillage.length < x 
-	        || y < 0 || quadrillage[0].length < y) {
+	    if (   x < 0 || quadrillage.length <= x 
+	        || y < 0 || quadrillage[0].length <= y) {
             throw new IllegalArgumentException(String.format("Erreur : %d ou %d invalide", x,y));
         }
 		return quadrillage[x][y];

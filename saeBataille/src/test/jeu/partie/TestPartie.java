@@ -49,8 +49,8 @@ class TestPartie {
      */
     @Test
     void testConstructeurPartie() {
-        Cellule[][] tabCellule = {{new Cellule(1, 2)}};
-        Cellule[][] tabCellule2 = {{new Cellule(1, 2)}};
+        Cellule[][] tabCellule = {{new Cellule(0, 0)}};
+        Cellule[][] tabCellule2 = {{new Cellule(0, 0)}};
         assertDoesNotThrow(()->new Partie(new Joueur("Quentin",new Grille(tabCellule),new Grille (tabCellule)),
                                           new Joueur("François",new Grille(tabCellule2),new Grille (tabCellule2))));
     }
