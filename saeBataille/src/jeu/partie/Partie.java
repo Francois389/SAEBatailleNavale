@@ -20,6 +20,9 @@ public class Partie {
     /** nombre de tours */
     private int nbTour;
     
+    /** Indique si la partie à été sauvegarder */
+    private boolean estSauvegarder;
+    
     
     /**
      * constructeur de la classe Partie
@@ -87,7 +90,18 @@ public class Partie {
         	   : joueur2;
         
     }
-    
-    
 
+    /**
+     * @return the estSauvegarder
+     */
+    public boolean isEstSauvegarder() {
+        return estSauvegarder;
+    }
+
+    /**
+     * @param etat l'état de sauvegarde de la partie
+     */
+    public void setEstSauvegarder(boolean etat) {
+        this.estSauvegarder = etat;
+    }
 }
