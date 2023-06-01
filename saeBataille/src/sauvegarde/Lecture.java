@@ -48,6 +48,8 @@ public class Lecture {
             // on récupère une valeur (ici une liste) avec une clé (ici sommets)
             JsonObject partie = tout.get(CLE).getAsJsonObject();
             System.out.println(tout);
+            System.out.println(partie);
+            
 
             System.out.println(tout.get(CLE).getAsJsonObject().get("joueur1").getAsJsonObject().get("nom").getAsString());
         } catch (FileNotFoundException e) {

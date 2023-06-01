@@ -4,7 +4,6 @@ import java.awt.event.MouseEvent;
 import java.io.IOException;
 
 import application.Main;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;

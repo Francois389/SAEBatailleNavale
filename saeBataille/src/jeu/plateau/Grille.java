@@ -43,7 +43,6 @@ public class Grille {
 	 */
 	private static boolean estValide(Cellule[][] argQuadrillage) {
 		
-		int nbColonnes = argQuadrillage.length;
 		boolean[][] cellulesPresentes = new boolean[argQuadrillage.length][argQuadrillage[0].length];
 		boolean[][] cellulesDejaPresentes = new boolean[argQuadrillage.length][argQuadrillage[0].length];
 	    
