@@ -19,6 +19,7 @@ public class Main extends Application {
     
     /** hauteur maximale de la fenetre*/
     private static final int HAUTEUR = 480;
+
     /** Scene du menu principale*/
     private static Scene menuPrincipale;
     
