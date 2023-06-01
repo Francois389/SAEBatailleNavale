@@ -4,13 +4,13 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" style="-fx-background-color: lightgrey;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.PersonalisePartieController">
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: lightgrey;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label alignment="CENTER" contentDisplay="TOP" text="Personalise ta partie">
          <font>
@@ -73,44 +73,22 @@
             </RadioButton>
          </children>
       </HBox>
-      <Label alignment="CENTER" contentDisplay="TOP" text="Renomer les joueurs :" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="26.0" />
-         </font>
-         <effect>
-            <DropShadow />
-         </effect>
-      </Label>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <TextField style="-fx-background-color: FFF;" text="Joueur 1">
+            <Button fx:id="buttonAnnuler" ellipsisString="8" mnemonicParsing="false" style="-fx-background-color: blue; -fx-border-radius: 5px;" text="Annuler" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
                <font>
-                  <Font size="20.0" />
+                  <Font size="24.0" />
                </font>
                <HBox.margin>
-                  <Insets right="80.0" />
+                  <Insets right="70.0" />
                </HBox.margin>
-            </TextField>
-            <TextField style="-fx-background-color: FFF;" text="Joueur 2">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </TextField>
-         </children>
-      </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="70.0">
-         <children>
-            <Button fx:id="buttonAnnuler" mnemonicParsing="false" onAction="#menuPrincipal" style="-fx-background-color: blue; -fx-background-radius: 25;" text="Annuler" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">>
-               <font>
-                  <Font name="Arial" size="30.0" />
-               </font>
                <effect>
                   <DropShadow />
                </effect>
             </Button>
-            <Button fx:id="buttonValider" mnemonicParsing="false" onAction="#positionBateau" style="-fx-background-color: blue; -fx-background-radius: 25;" text="Valider" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
+            <Button fx:id="buttonValider" mnemonicParsing="false" style="-fx-background-color: blue;" text="Valider" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
                <font>
-                  <Font name="Arial" size="30.0" />
+                  <Font size="24.0" />
                </font>
                <effect>
                   <DropShadow />

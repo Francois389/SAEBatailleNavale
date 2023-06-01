@@ -96,5 +96,12 @@ public class Cellule {
         Cellule autre = (Cellule) arg;
         return getY() == autre.getY() && getX() == autre.getX(); 
     }
+
+
+    @Override
+    public String toString() {
+        return "Cellule [x=" + x + ", y=" + y + ", estBateau=" + estBateau + ", estTouche=" + estTouche + "]";
+    }
 	
+    
 }

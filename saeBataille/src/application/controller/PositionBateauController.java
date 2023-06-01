@@ -69,11 +69,13 @@ public class PositionBateauController {
     boolean porteAvionsPivote = false ;
     boolean croiseurPivote = false ;
     boolean contreTorpilleurPivote = false ;
+
     boolean torpilleurPivote1 = false ;
     boolean torpilleurPivote2 = false ; 
     
     boolean torpilleur1Place = false ;
     boolean torpilleur2Place = false ;
+
     
     private ImageView bateauCourant;
     private Grille grilleJoueur = new Grille(creerTableauGrille());
@@ -289,7 +291,52 @@ public class PositionBateauController {
 		}
 		
 		grille.add(bateau, x, y);
+		switch (bateau.getId()) {
+		case "porteAvions":
+			if (porteAvionsPivote) {
+				x += (int) (x + 75)/30;				
+			} else {
+				y += (int) (y + 75)/30;
+			}
+			break;
+		case "croiseur":
+			if (croiseurPivote) {
+				bateau.setTranslateX(75);
+			} else {
+				bateau.setTranslateY(75);
+			}
+			break;
+		case "contreTorpilleur":
+			if (contreTorpilleurPivote) {
+				x += (int) (x + 45)/30;				
+			} else {
+				y += (int) (y + 45)/30;
+			}
+			break;
+		case "torpilleur1":
+			if (torpilleurPivote1) {
+				x += (int) (x + 30)/30;				
+				bateau.setTranslateX(-15);
+			} else {
+				y += (int) (y + 30)/30;
+				bateau.setTranslateY(-15);
+			}
+			break;
+		case "torpilleur2":
+			if (torpilleurPivote2) {
+				x += (int) (x + 30)/30;				
+				bateau.setTranslateX(-15);
+			} else {
+				y += (int) (y + 30)/30;
+				bateau.setTranslateY(-15);
+			}
+			break;
+		default:
+			break;
+		}
+		grille.add(bateau, x, y);
 	}
+
 	
 	private void affichageTorpilleur() {
 		if ((torpilleur1Place &&  !torpilleur2Place)
@@ -298,8 +345,8 @@ public class PositionBateauController {
 		} else if (torpilleur1Place && torpilleur2Place) {
 			labelTorpilleur.setText("0/2");
 		} else {
-			labelTorpilleur.setText("2/2");
+			labelTorpilleur.setText("2/2");	
 		}
 	}
-	
+		
 }

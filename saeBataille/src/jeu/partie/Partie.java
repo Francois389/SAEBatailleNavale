@@ -32,6 +32,18 @@ public class Partie {
         this.joueur2 = joueur2;
         this.nbTour = 0;
     }
+    
+    /**
+     * constructeur de la classe Partie
+     * @param joueur1
+     * @param joueur2
+     */
+    public Partie(Joueur joueur1, Joueur joueur2, int nbTour) {
+
+        this.joueur1 = joueur1;
+        this.joueur2 = joueur2;
+        this.nbTour = nbTour;
+    }
 
     /**
      * getter du nombre de tours
