@@ -30,6 +30,8 @@ public class PositionBateauController {
 	
 	private boolean clicActive = false;
 	
+	private boolean bateauSelectionne = false;
+	
     @FXML
     private ImageView porteAvions ;
     
@@ -37,7 +39,7 @@ public class PositionBateauController {
     private GridPane grille ;
     
     @FXML 
-    ImageView croisseur;
+    private ImageView croisseur;
     
     @FXML
     private Button retour;
@@ -51,9 +53,19 @@ public class PositionBateauController {
     @FXML
     private Label labelPorteAvions;
     
-    boolean porteAvionsPivote = false ;
-    boolean croisseurPivote = false ;
+    @FXML
+    private Label labelCroisseur ;
     
+    @FXML
+    private Label labelContreTorpilleur;
+    
+    @FXML
+    private Label labelTorpilleur;
+    
+    boolean porteAvionsPivote = false ;
+    boolean croiseurPivote = false ;
+    boolean contreTorpilleurPivote = false ;
+    boolean torpilleurPivote = false ;
     
     private ImageView bateauCourant;
     private Grille grilleJoueur = new Grille(creerTableauGrille());
@@ -82,6 +94,7 @@ public class PositionBateauController {
     	if (!clicActive){
 			activerClic();
 		}
+    	bateauSelectionne = true;
 		bateauCourant = porteAvions ;
         //System.out.println("clic porte avions");
         //System.out.println(porteAvions);
@@ -95,18 +108,25 @@ public class PositionBateauController {
         	} else if (event.getButton() == MouseButton.SECONDARY && porteAvionsPivote) {
         		porteAvions.setRotate(0);
         		porteAvionsPivote = false ;
-        	}
+        	} else if (event.getButton() == MouseButton.PRIMARY) {
+        		bateauSelectionne = !bateauSelectionne;
+        		if (!bateauSelectionne) {
+        			labelPorteAvions.setText("0/1");
+        		}
+			}
 		}
       	
         });
     }
 
+   
 
 	@FXML
 	private void clicTorpilleurs() {
 		if (!clicActive){
 			activerClic();
 		}
+		bateauSelectionne = true;
 		bateauCourant = torpilleur;
         System.out.println("torpilleurs");
         
@@ -117,8 +137,25 @@ public class PositionBateauController {
 		if (!clicActive){
 			activerClic();
 		}
-//		bateauCourant = ;
-	    System.out.println("contre torpilleur");
+    	bateauSelectionne = true;
+		bateauCourant = contreTorpilleur ;
+        contreTorpilleur.setOnMouseClicked((EventHandler<MouseEvent>) new EventHandler<MouseEvent>() {
+	      	@Override
+	        public void handle(MouseEvent event) {
+	        	if (event.getButton() == MouseButton.SECONDARY && !contreTorpilleurPivote) {
+	        		contreTorpilleur.setRotate(90);
+	        		contreTorpilleurPivote = true ;
+	        	} else if (event.getButton() == MouseButton.SECONDARY && contreTorpilleurPivote) {
+	        		contreTorpilleur.setRotate(0);
+	        		contreTorpilleurPivote = false ;
+	        	} else if (event.getButton() == MouseButton.PRIMARY) {
+	        		bateauSelectionne = !bateauSelectionne;
+	        		if (!bateauSelectionne) {
+	        			labelContreTorpilleur.setText("0/1");
+	        		}
+				}
+	      	}
+        });
 	}
 	
 	@FXML
@@ -126,22 +163,27 @@ public class PositionBateauController {
     	if (!clicActive){
 			activerClic();
 		}
+    	bateauSelectionne = true;
 		bateauCourant = croisseur ;
         //System.out.println("clic porte avions");
         //System.out.println(porteAvions);
         //System.out.println(grille);
         croisseur.setOnMouseClicked((EventHandler<MouseEvent>) new EventHandler<MouseEvent>() {
-      	@Override
-        public void handle(MouseEvent event) {
-        	if (event.getButton() == MouseButton.SECONDARY && !croisseurPivote) {
-        		croisseur.setRotate(90);
-        		croisseurPivote = true ;
-        	} else if (event.getButton() == MouseButton.SECONDARY && croisseurPivote) {
-        		croisseur.setRotate(0);
-        		croisseurPivote = false ;
-        	}
-		}
-      	
+	      	@Override
+	        public void handle(MouseEvent event) {
+	        	if (event.getButton() == MouseButton.SECONDARY && !croiseurPivote) {
+	        		croisseur.setRotate(90);
+	        		croiseurPivote = true ;
+	        	} else if (event.getButton() == MouseButton.SECONDARY && croiseurPivote) {
+	        		croisseur.setRotate(0);
+	        		croiseurPivote = false ;
+	        	} else if (event.getButton() == MouseButton.PRIMARY) {
+	        		bateauSelectionne = !bateauSelectionne;
+	        		if (!bateauSelectionne) {
+	        			labelCroisseur.setText("0/1");
+	        		}
+				}
+	      	}
         });
 	}
 	
@@ -162,18 +204,15 @@ public class PositionBateauController {
 	        		int x = (int) event.getX() / TAILLE_GRILLE_PIXEL;
 	        		int y = (int) event.getY() / TAILLE_GRILLE_PIXEL;
 	        		System.out.println("("+x+"; "+y+")");
-	        		if (event.getButton() == MouseButton.SECONDARY) {
-	    				System.out.println("clic droit");
-	    			}
-	    			if (event.getButton() == MouseButton.PRIMARY) {
-	    				verouillerbateau();
-	    			}
+	        			    			
 	        		if (COLONNE_MIN<= x && x <= COLONNE_MAX 
-	        			&& LIGNE_MIN <= y && y <= LIGNE_MAX)  {
+	        			&& LIGNE_MIN <= y && y <= LIGNE_MAX
+	        			&& bateauSelectionne)  {
 						placerBateau(bateauCourant, x, y);
 					}
 	        	}
 	        });
+			
 			
 		}
 	}
@@ -182,10 +221,42 @@ public class PositionBateauController {
 		if (grille.getChildren().contains(bateau)) {
 			grille.getChildren().remove(bateau);
 		}
-		grille.add(bateau, x, y);
-		if (bateauCourant.equals(porteAvions)) {
-			labelPorteAvions.setText("0/1");
+		
+		switch (bateau.getId()) {
+		case "porteAvions":
+			if (porteAvionsPivote) {
+				x += (int) (x + 75)/30;				
+			} else {
+				y += (int) (y + 75)/30;
+			}
+			break;
+		case "croiseur":
+			if (croiseurPivote) {
+				bateau.setTranslateX(75);
+			} else {
+				bateau.setTranslateY(75);
+			}
+			break;
+		case "contreTorpilleur":
+			if (contreTorpilleurPivote) {
+				x += (int) (x + 45)/30;				
+			} else {
+				y += (int) (y + 45)/30;
+			}
+			break;
+		case "torpilleur":
+			if (torpilleurPivote) {
+				x += (int) (x + 30)/30;				
+				bateau.setTranslateX(-15);
+			} else {
+				y += (int) (y + 30)/30;
+				bateau.setTranslateY(-15);
+			}
+			break;
+		default:
+			break;
 		}
+		grille.add(bateau, x, y);
 	}
 	
 }
