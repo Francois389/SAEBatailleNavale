@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" style="-fx-background-color: lightgrey;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.pageSauvegardeController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" style="-fx-background-color: lightgrey;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.PageSauvegardeController">
    <children>
       <HBox alignment="CENTER" prefHeight="80.0" prefWidth="200.0" style="-fx-background-color: white;">
          <children>
@@ -29,7 +29,7 @@
          <children>
             <VBox alignment="CENTER" prefHeight="308.0" prefWidth="360.0" spacing="45.0">
                <children>
-                  <Button fx:id="partie1" mnemonicParsing="false" style="-fx-background-color: blue; -fx-background-radius: 10;" text="Partie 1" textFill="WHITE">
+                  <Button fx:id="buttonPartie1" mnemonicParsing="false" onAction="#loadPartie1" style="-fx-background-color: blue; -fx-background-radius: 10;" text="Vide" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="24.0" />
                      </font>
@@ -40,7 +40,7 @@
                         <DropShadow />
                      </effect>
                   </Button>
-                  <Button fx:id="partie3" cancelButton="true" mnemonicParsing="false" style="-fx-background-color: blue; -fx-background-radius: 10;" text="Partie 3" textFill="WHITE">
+                  <Button fx:id="buttonPartie3" cancelButton="true" mnemonicParsing="false" onAction="#loadPartie3" style="-fx-background-color: blue; -fx-background-radius: 10;" text="Vide" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="24.0" />
                      </font>
@@ -48,7 +48,7 @@
                         <DropShadow />
                      </effect>
                   </Button>
-                  <Button fx:id="partie5" mnemonicParsing="false" style="-fx-background-color: blue; -fx-background-radius: 10;" text="Partie 5" textFill="WHITE">
+                  <Button fx:id="buttonPartie5" mnemonicParsing="false" onAction="#loadPartie5" style="-fx-background-color: blue; -fx-background-radius: 10;" text="Vide" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="24.0" />
                      </font>
@@ -60,7 +60,7 @@
             </VBox>
             <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="308.0" prefWidth="360.0" spacing="45.0">
                <children>
-                  <Button fx:id="partie2" mnemonicParsing="false" style="-fx-background-color: blue; -fx-background-radius: 10;" text="Partie 2" textFill="WHITE">
+                  <Button fx:id="buttonPartie2" mnemonicParsing="false" onAction="#loadPartie2" style="-fx-background-color: blue; -fx-background-radius: 10;" text="Vide" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="24.0" />
                      </font>
@@ -68,7 +68,7 @@
                         <DropShadow />
                      </effect>
                   </Button>
-                  <Button fx:id="partie4" mnemonicParsing="false" style="-fx-background-color: blue; -fx-background-radius: 10;" text="Partie 4" textFill="WHITE">
+                  <Button fx:id="buttonPartie4" mnemonicParsing="false" onAction="#loadPartie4" style="-fx-background-color: blue; -fx-background-radius: 10;" text="Vide" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="24.0" />
                      </font>

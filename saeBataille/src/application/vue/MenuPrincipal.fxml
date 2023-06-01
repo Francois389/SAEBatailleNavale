@@ -2,7 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -20,25 +20,16 @@
          <font>
             <Font size="30.0" />
          </font>
-         <effect>
-            <DropShadow />
-         </effect>
       </Button>
       <Button fx:id="btnChargerPartie" layoutX="284.0" layoutY="232.0" mnemonicParsing="false" onAction="#chargerPartie" style="-fx-background-color: blue; -fx-background-radius: 25;" text="Charger une partie" textFill="WHITE">
          <font>
             <Font size="30.0" />
          </font>
-         <effect>
-            <DropShadow />
-         </effect>
       </Button>
       <Button fx:id="btnQuitter" layoutX="284.0" layoutY="254.0" mnemonicParsing="false" onAction="#quitter" style="-fx-background-color: blue; -fx-background-radius: 25;" text="Quitter" textFill="WHITE">
          <font>
             <Font size="30.0" />
          </font>
-         <effect>
-            <DropShadow />
-         </effect>
       </Button>
    </children>
    <padding>
