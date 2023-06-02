@@ -34,8 +34,7 @@ public class Main extends Application {
     /** Scene de la page de sauvegarde de partie */
     private static Scene sauvegardePartie;
     
-    private static Scene chargerPartie;
-    
+    /** Scene de la page de jeux */
     private static Scene pageDeJeux;
     
     /** 
@@ -78,6 +77,13 @@ public class Main extends Application {
         fenetrePrincipale.setScene(chargerPartie);
     }
     
+    /**
+     * change la scene de la fenetre principale en page de jeux
+     */
+    public static void activerPageDeJeux() {
+        fenetrePrincipale.setScene(pageDeJeux);
+    }
+    
     /** 
      * ferme la fenetre
      */
@@ -85,7 +91,9 @@ public class Main extends Application {
         fenetrePrincipale.close();
     }
 
-
+    
+    
+    
     
 	@Override
 	public void start(Stage primaryStage) {
@@ -105,6 +113,10 @@ public class Main extends Application {
             conteneur = getParentFromVue("vue/personalisePartie.fxml");
             personalisePartie = new Scene(conteneur , LARGEUR  , HAUTEUR);
             
+           // Chargement de la vue sauvegarde partie
+            conteneur = getParentFromVue("vue/pageChargerPartie.fxml");
+            sauvegardePartie = new Scene (conteneur , LARGEUR , HAUTEUR);
+
             //Page pour charger une partie
             conteneur = getParentFromVue("vue/pageChargerPartie.fxml");
             chargerPartie = new Scene (conteneur , LARGEUR , HAUTEUR);

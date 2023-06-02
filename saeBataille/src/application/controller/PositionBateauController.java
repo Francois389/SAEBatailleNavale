@@ -185,8 +185,7 @@ public class PositionBateauController {
         		torpilleurPivote2 = false ;
         	} else if (event.getButton() == MouseButton.PRIMARY) {
         		bateauSelectionne = !bateauSelectionne;
-        		
-        		if (!bateauSelectionne) {
+          		if (!bateauSelectionne) {
         			torpilleur2Place  = true ;
         			affichageTorpilleur();
         		} else {
@@ -286,11 +285,10 @@ public class PositionBateauController {
 	}
 	
 	private void placerBateau(ImageView bateau ,int x, int y) {
+		System.out.println(bateau);
 		if (grille.getChildren().contains(bateau)) {
 			grille.getChildren().remove(bateau);
 		}
-		
-		grille.add(bateau, x, y);
 		switch (bateau.getId()) {
 		case "porteAvions":
 			if (porteAvionsPivote) {
@@ -301,6 +299,7 @@ public class PositionBateauController {
 			break;
 		case "croiseur":
 			if (croiseurPivote) {
+				x += (int)(x+15)/30;
 				bateau.setTranslateX(75);
 			} else {
 				bateau.setTranslateY(75);
@@ -315,7 +314,7 @@ public class PositionBateauController {
 			break;
 		case "torpilleur1":
 			if (torpilleurPivote1) {
-				x += (int) (x + 30)/30;				
+				x += (int) (x + 15)/30;				
 				bateau.setTranslateX(-15);
 			} else {
 				y += (int) (y + 30)/30;
@@ -323,9 +322,17 @@ public class PositionBateauController {
 			}
 			break;
 		case "torpilleur2":
+			
 			if (torpilleurPivote2) {
-				x += (int) (x + 30)/30;				
-				bateau.setTranslateX(-15);
+				System.out.println(torpilleurPivote2);
+				//x += (int) (x - 15)/30;
+				//y += (int) (y-15)/30;
+				if (x == 0 ) {
+					bateau.setTranslateY(0);
+				}
+				
+				bateau.setTranslateX(15);
+				
 			} else {
 				y += (int) (y + 30)/30;
 				bateau.setTranslateY(-15);
@@ -336,7 +343,6 @@ public class PositionBateauController {
 		}
 		grille.add(bateau, x, y);
 	}
-
 	
 	private void affichageTorpilleur() {
 		if ((torpilleur1Place &&  !torpilleur2Place)
