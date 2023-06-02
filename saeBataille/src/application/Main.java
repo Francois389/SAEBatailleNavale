@@ -100,8 +100,12 @@ public class Main extends Application {
             conteneur = getParentFromVue("vue/personalisePartie.fxml");
             personalisePartie = new Scene(conteneur , LARGEUR  , HAUTEUR);
             
-           // Chargement de la vue en sauvegarde partie
-            conteneur = getParentFromVue("vue/pageSauvegarde.fxml");
+           // Chargement de la vue sauvegarde partie
+            conteneur = getParentFromVue("vue/pageSauvegardePartie.fxml");
+            sauvegardePartie = new Scene (conteneur , LARGEUR , HAUTEUR);
+
+            //Page pour charger une partie
+            conteneur = getParentFromVue("vue/pageChargerPartie.fxml");
             sauvegardePartie = new Scene (conteneur , LARGEUR , HAUTEUR);
             
             // Chargement de la vue en sauvegarde partie
