@@ -33,6 +33,8 @@ public class PersonalisePartieController {
     
     @FXML
     private void positionBateau() {
+        Main a = new Main();
+        a.chargementPageDependante();
         Main.activerPositionBateau();
     }
     

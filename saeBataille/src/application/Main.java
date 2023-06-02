@@ -28,11 +28,15 @@ public class Main extends Application {
     /** Scene du menu de positionnement des bateaux*/
     private static Scene positionBateau;
     
-    /** Scene du menu de personalisation de partie*/
+    /** Scene du menu de personnalisation de partie*/
     private static Scene personalisePartie;
     
     /** Scene de la page de sauvegarde de partie */
     private static Scene sauvegardePartie;
+    
+    private static Scene chargerPartie;
+    
+    private static Scene pageDeJeux;
     
     /** 
      * Fenêtre principale de l'application
@@ -52,7 +56,7 @@ public class Main extends Application {
     /**
      * change la scene de la fenetre principale en positionBateau
      */
-    public static void activerPositionBateau() {
+    public static  void activerPositionBateau() {
         fenetrePrincipale.setScene(positionBateau); 
     }
     
@@ -69,6 +73,10 @@ public class Main extends Application {
     public static void activerSauvegardePartie() {
         fenetrePrincipale.setScene(sauvegardePartie);
     }
+
+    public static void activerChargerPartie() {
+        fenetrePrincipale.setScene(chargerPartie);
+    }
     
     /** 
      * ferme la fenetre
@@ -77,10 +85,7 @@ public class Main extends Application {
         fenetrePrincipale.close();
     }
 
-    private Scene pageDeJeux;
-    
-    
-    
+
     
 	@Override
 	public void start(Stage primaryStage) {
@@ -100,13 +105,9 @@ public class Main extends Application {
             conteneur = getParentFromVue("vue/personalisePartie.fxml");
             personalisePartie = new Scene(conteneur , LARGEUR  , HAUTEUR);
             
-           // Chargement de la vue sauvegarde partie
-            conteneur = getParentFromVue("vue/pageSauvegardePartie.fxml");
-            sauvegardePartie = new Scene (conteneur , LARGEUR , HAUTEUR);
-
             //Page pour charger une partie
             conteneur = getParentFromVue("vue/pageChargerPartie.fxml");
-            sauvegardePartie = new Scene (conteneur , LARGEUR , HAUTEUR);
+            chargerPartie = new Scene (conteneur , LARGEUR , HAUTEUR);
             
             // Chargement de la vue en sauvegarde partie
             conteneur = getParentFromVue("vue/pageDeJeux.fxml");
@@ -144,5 +145,21 @@ public class Main extends Application {
 		launch(args);
 	}
 
+	/**
+	 * Certaine page on besoin d'une Partie initialisé
+	 * or cela n'est fais qu'avec la page personaliserPartie 
+	 * ou la page chargerPartie.
+	 * Tenter de charger les pages dépendante sans Partie initialisé conduit 
+	 * à une erreur et l'application de ce lancera pas.
+	 */
+	public void chargementPageDependante() {
+        try {
+            // Chargement de la vue sauvegarde partie
+            sauvegardePartie = new Scene (getParentFromVue("vue/pageSauvegardePartie.fxml") , LARGEUR , HAUTEUR);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Le chemin n'est pas bon");
+        }
+	}
 
 }
