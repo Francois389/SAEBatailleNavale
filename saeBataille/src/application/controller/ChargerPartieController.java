@@ -22,7 +22,7 @@ import javafx.stage.Stage;
  * Gère l'interactivité entre le menu et l'utilisateur.
  * @author François de Saint Palais
  */
-public class PageSauvegardeController {
+public class ChargerPartieController {
     
     final String STYLE_BOUTTONS = "-fx-background-color: blue; -fx-background-radius: 10;";
     @FXML

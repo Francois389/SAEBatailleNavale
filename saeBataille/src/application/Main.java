@@ -105,7 +105,7 @@ public class Main extends Application {
             
            // Chargement de la vue en sauvegarde partie
             FXMLLoader chargeurSauvegardePartie = new FXMLLoader();
-            chargeurSauvegardePartie.setLocation(getClass().getResource("vue/pageSauvegarde.fxml"));
+            chargeurSauvegardePartie.setLocation(getClass().getResource("vue/pageChargerPartie.fxml"));
             conteneur = chargeurSauvegardePartie.load();
             
             sauvegardePartie = new Scene (conteneur , LARGEUR , HAUTEUR);
