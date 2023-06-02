@@ -10,8 +10,10 @@ import application.modele.Modele;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
+import jeu.partie.Joueur;
 import jeu.partie.Partie;
 
 /**
@@ -83,6 +85,22 @@ public class PageDeJeuxControlleur extends Application {
     }
     
     @FXML
+    void menuNouvellePartie() {
+        System.out.println("Nouvelle partie");
+        if (!partieEnCours.isEstSauvegarder()) {
+            Alert boiteAlerte = new Alert(Alert.AlertType.CONFIRMATION ,"",
+                    ButtonType.YES, ButtonType.NO);
+            
+            boiteAlerte.setHeaderText("Attention votre partie n'est pas sauvegarder."
+                    + "\nVoulez vous continuer sans sauvegarder ?"); 
+            Optional<ButtonType> option = boiteAlerte.showAndWait(); 
+            if (option.get() == ButtonType.YES) {
+                Main.activerPersonalisePartie();
+            }
+        }
+    }
+    
+    @FXML
     void menuSauvegarder() {
         System.out.println("sauvegarde");
         Main.activerSauvegardePartie();
@@ -91,6 +109,23 @@ public class PageDeJeuxControlleur extends Application {
     @FXML
     void menuAbandonner() {
         System.out.println("Abandonner");
+        ButtonType btnAbandonner = new ButtonType("Abandonner");
+        ButtonType btnAnnuler = new ButtonType("Annuler");
+        if (!partieEnCours.isEstSauvegarder()) {
+            Alert boiteAlerte = new Alert(Alert.AlertType.CONFIRMATION ,"",
+                    btnAbandonner, btnAnnuler);
+            
+            boiteAlerte.setHeaderText("Êtes vous sur de vouloir abandonner ?"); 
+            Optional<ButtonType> option = boiteAlerte.showAndWait(); 
+            if (option.get() == btnAbandonner) {
+                Joueur perdant = Modele.getPartieEnCours().getJoueurActuel();
+                Joueur gagnant = Modele.getPartieEnCours().getAutreJoueur();
+                System.out.println(perdant.getNom() + " abandonne.");
+                Modele.setJoueurGagnant(gagnant);
+                System.out.println(gagnant.getNom() + " gagne !");
+                Main.activerResultat();
+            }
+        }
     }
     
     @FXML

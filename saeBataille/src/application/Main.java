@@ -16,10 +16,10 @@ import javafx.scene.Scene;
 public class Main extends Application {
     
     
-    /** largeur maximale de la fenetre*/
+    /** largeur maximale de la fenêtre*/
     private static final int LARGEUR = 720;
     
-    /** hauteur maximale de la fenetre*/
+    /** hauteur maximale de la fenêtre*/
     private static final int HAUTEUR = 480;
 
     /** Scene du menu principale*/
@@ -37,12 +37,15 @@ public class Main extends Application {
     /** Scene de la page de jeux */
     private static Scene pageDeJeux;
     
+    private static Scene resultat;
+
     /** 
      * Fenêtre principale de l'application
      * La scène qui lui est associée sera modifiée en fonction
      * des clic sur les boutons
      */
     private static Stage fenetrePrincipale;
+
     
     
     /**
@@ -89,6 +92,10 @@ public class Main extends Application {
      */
     public static void quitter() {
         fenetrePrincipale.close();
+    }
+    
+    public static void activerResultat() {
+        fenetrePrincipale.setScene(resultat);
     }
 
     
@@ -168,10 +175,13 @@ public class Main extends Application {
         try {
             // Chargement de la vue sauvegarde partie
             sauvegardePartie = new Scene (getParentFromVue("vue/pageSauvegardePartie.fxml") , LARGEUR , HAUTEUR);
+            resultat = new Scene (getParentFromVue("vue/pageResultat.fxml") , LARGEUR , HAUTEUR);
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Le chemin n'est pas bon");
         }
 	}
+
+    
 
 }
