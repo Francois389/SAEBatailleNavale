@@ -22,6 +22,7 @@
             <items>
               <MenuItem mnemonicParsing="false" onAction="#menuChargerUnePartie" text="Charger une partie" />
                   <MenuItem mnemonicParsing="false" onAction="#menuRetourAuMenu" text="Retour au menu" />
+                  <MenuItem mnemonicParsing="false" text="Quitter" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Partie">

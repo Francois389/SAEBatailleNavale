@@ -67,6 +67,22 @@ public class PageDeJeuxControlleur extends Application {
     }
     
     @FXML
+    void menuQuitter() {
+        System.out.println("Quitter");
+        if (!partieEnCours.isEstSauvegarder()) {
+            Alert boiteAlerte = new Alert(Alert.AlertType.CONFIRMATION ,"",
+                    ButtonType.YES, ButtonType.NO);
+            
+            boiteAlerte.setHeaderText("Attention votre partie n'est pas sauvegarder."
+                    + "\nVoulez vous continuer sans sauvegarder ?"); 
+            Optional<ButtonType> option = boiteAlerte.showAndWait(); 
+            if (option.get() == ButtonType.YES) {
+                Main.quitter();
+            }
+        }
+    }
+    
+    @FXML
     void menuSauvegarder() {
         System.out.println("sauvegarde");
         Main.activerSauvegardePartie();
