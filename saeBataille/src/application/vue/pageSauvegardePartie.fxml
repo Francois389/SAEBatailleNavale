@@ -8,7 +8,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sauvegarde de la partie">
@@ -49,8 +48,13 @@
             </TextField>
          </children>
       </HBox>
-      <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="200.0">
          <children>
+            <Button mnemonicParsing="false" style="-fx-background-color: grey;" text="Retour" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
             <Button mnemonicParsing="false" style="-fx-background-color: blue;" text="Valider" textFill="WHITE">
                <font>
                   <Font size="24.0" />
@@ -60,9 +64,6 @@
          <VBox.margin>
             <Insets />
          </VBox.margin>
-         <padding>
-            <Insets right="50.0" />
-         </padding>
       </HBox>
    </children>
 </VBox>
