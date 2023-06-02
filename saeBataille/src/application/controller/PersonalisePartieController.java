@@ -1,6 +1,7 @@
 package application.controller;
 
 import application.Main;
+import application.modele.Modele;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;

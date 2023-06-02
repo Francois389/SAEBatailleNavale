@@ -30,7 +30,7 @@ public class DebugGoToPage extends Application {
         try {
             Parent conteneur;
             
-            conteneur = getParentFromVue("vue/pageDeJeux.fxml");
+            conteneur = getParentFromVue("vue/pageSauvegardePartie.fxml");
             pageVoulue = new Scene(conteneur , LARGEUR  , HAUTEUR);
             
             primaryStage.setTitle("Bataille Navale");
