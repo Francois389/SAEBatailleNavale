@@ -17,6 +17,8 @@ public class Modele {
 
     private static Partie partieEnCours;
     
+    private static Joueur joueurGagnant;
+    
     private static boolean partieEstCreer;
     
     public static void creerUneNouvellePartie(String nom1, String nom2) {
@@ -64,4 +66,18 @@ public class Modele {
     public static void setPartieEnCours(Partie partieEnCours) {
         Modele.partieEnCours = partieEnCours;
     }
+
+    /** @return the joueurGagnant */
+    public static Joueur getJoueurGagnant() {
+        return joueurGagnant;
+    }
+
+    /**
+     * @param joueurGagnant the joueurGagnant to set
+     */
+    public static void setJoueurGagnant(Joueur joueurGagnant) {
+        Modele.joueurGagnant = joueurGagnant;
+    }
+    
+    
 }
