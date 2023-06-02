@@ -27,7 +27,7 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Partie">
             <items>
-                  <MenuItem mnemonicParsing="false" text="Nouvelle Partie" />
+                  <MenuItem mnemonicParsing="false" text="Unspecified Action" />
               <MenuItem mnemonicParsing="false" onAction="#menuSauvegarder" text="Sauvegarder" />
                   <MenuItem mnemonicParsing="false" onAction="#menuAbandonner" text="Abandonner" />
             </items>

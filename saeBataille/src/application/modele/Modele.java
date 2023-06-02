@@ -32,6 +32,7 @@ public class Modele {
         Joueur joueur2 = new Joueur(nom2, new Grille(quadrillage),new Grille(quadrillage));
         partieEnCours = new Partie(joueur1, joueur2);
         partieEstCreer = true;
+        joueurGagnant = joueur1;
     }
     
     /**

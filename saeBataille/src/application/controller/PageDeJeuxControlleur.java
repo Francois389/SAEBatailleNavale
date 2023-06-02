@@ -123,6 +123,7 @@ public class PageDeJeuxControlleur extends Application {
                 System.out.println(perdant.getNom() + " abandonne.");
                 Modele.setJoueurGagnant(gagnant);
                 System.out.println(gagnant.getNom() + " gagne !");
+                Main.activerResultat();
             }
         }
     }
