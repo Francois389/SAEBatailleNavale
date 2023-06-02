@@ -1,5 +1,6 @@
 package application.controller;
 
+import jeu.partie.Partie;
 import java.io.File;
 import java.io.IOException;
 import sauvegarde.Lecture;
@@ -8,6 +9,7 @@ import java.util.Iterator;
 import java.util.Optional;
 
 import application.Main;
+import application.modele.Modele;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -62,28 +64,38 @@ public class ChargerPartieController {
         for (int i = 0; i < files.length; i++) {
             switch (i) {
             case 0: {   
-                buttonPartie1.setText(files[i].substring(0, files[i].lastIndexOf(".")));
+                partie1 = files[i].substring(0, files[i].lastIndexOf("."));
+                buttonPartie1.setText(partie1);
                 buttonPartie1.setStyle(STYLE_BOUTTONS);
+                buttonPartie1.setDisable(false);
                 break;
             }
             case 1: {
-                buttonPartie2.setText(files[i].substring(0, files[i].lastIndexOf(".")));
+                partie2 = files[i].substring(0, files[i].lastIndexOf("."));
+                buttonPartie2.setText(partie2);
                 buttonPartie2.setStyle(STYLE_BOUTTONS);
+                buttonPartie2.setDisable(false);
                 break;
             }
             case 2: {
-                buttonPartie3.setText(files[i].substring(0, files[i].lastIndexOf(".")));
+                partie3 = files[i].substring(0, files[i].lastIndexOf("."));
+                buttonPartie3.setText(partie3);
                 buttonPartie3.setStyle(STYLE_BOUTTONS);
+                buttonPartie3.setDisable(false);
                 break;
             }
             case 3: {
-                buttonPartie4.setText(files[i].substring(0, files[i].lastIndexOf(".")));
+                partie4 = files[i].substring(0, files[i].lastIndexOf("."));
+                buttonPartie4.setText(partie4);
                 buttonPartie4.setStyle(STYLE_BOUTTONS);
+                buttonPartie4.setDisable(false);
                 break;
             }
             case 4: {
-                buttonPartie5.setText(files[i].substring(0, files[i].lastIndexOf(".")));
+                partie5 = files[i].substring(0, files[i].lastIndexOf("."));
+                buttonPartie5.setText(partie5);
                 buttonPartie5.setStyle(STYLE_BOUTTONS);
+                buttonPartie5.setDisable(false);
                 break;
             }
             }
@@ -99,26 +111,41 @@ public class ChargerPartieController {
     
     @FXML
     private void loadPartie1() {
-        System.out.println("charger partie 1");
+       System.out.println("charger partie 1");
+       Partie partie = Lecture.interprete(Lecture.lire(partie1));
+       Modele.setPartieEnCours(partie);
+       Main.activerPageDeJeux();
     }
     
     @FXML
     private void loadPartie2() {
         System.out.println("charger partie 2");
+        Partie partie = Lecture.interprete(Lecture.lire(partie2));
+        Modele.setPartieEnCours(partie);
+        Main.activerPageDeJeux();
     }
     
     @FXML
     private void loadPartie3() {
         System.out.println("charger partie 3");
+        Partie partie = Lecture.interprete(Lecture.lire(partie3));
+        Modele.setPartieEnCours(partie);
+        Main.activerPageDeJeux();
     }
     
     @FXML
     private void loadPartie4() {
         System.out.println("charger partie 4");
+        Partie partie = Lecture.interprete(Lecture.lire(partie4));
+        Modele.setPartieEnCours(partie);
+        Main.activerPageDeJeux();
     }
     
     @FXML
     private void loadPartie5() {
         System.out.println("charger partie 5");
+        Partie partie = Lecture.interprete(Lecture.lire(partie5));
+        Modele.setPartieEnCours(partie);
+        Main.activerPageDeJeux();
     }
 }
