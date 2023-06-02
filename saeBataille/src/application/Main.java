@@ -38,6 +38,8 @@ public class Main extends Application {
     private static Scene pageDeJeux;
     
     private static Scene resultat;
+    
+    private static Scene chargerPartie;
 
     /** 
      * Fenêtre principale de l'application
@@ -45,6 +47,8 @@ public class Main extends Application {
      * des clic sur les boutons
      */
     private static Stage fenetrePrincipale;
+
+
 
     
     
