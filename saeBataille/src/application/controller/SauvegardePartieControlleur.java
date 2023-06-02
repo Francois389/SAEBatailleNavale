@@ -28,8 +28,8 @@ public class SauvegardePartieControlleur {
     
     @FXML
     void initialize() {
-        //TODO remove STUB
-        Modele.creerUneNouvellePartie("test", "AZERTYUIOP"); //STUB
+//        //TODO remove STUB
+//        Modele.creerUneNouvellePartie("test", "AZERTYUIOP"); //STUB
         affichageJoueur1.setText(Modele.getPartieEnCours().getJoueur1().getNom());
         affichageJoueur2.setText(Modele.getPartieEnCours().getJoueur2().getNom());
         nomSauvegarde.setText(affichageJoueur1.getText() 

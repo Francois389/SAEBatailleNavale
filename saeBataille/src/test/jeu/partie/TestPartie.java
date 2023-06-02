@@ -66,8 +66,6 @@ class TestPartie {
         Cellule[][] quadrillageTir = {
                 {new Cellule(0, 0),new Cellule(0, 1)},
                 {new Cellule(1, 0),new Cellule(1, 1)}};
-        Grille mesBateaux = new Grille(quadrillageBateau);
-        Grille mesTirs = new Grille(quadrillageTir);
         
         Joueur j1 = new Joueur("Quentin",new Grille(quadrillageBateau),new Grille (quadrillageTir));
         Joueur j2 = new Joueur("Françis",new Grille(quadrillageBateau),new Grille (quadrillageTir));
@@ -106,8 +104,6 @@ class TestPartie {
         Cellule[][] quadrillageTir = {
                 {new Cellule(0, 0),new Cellule(0, 1)},
                 {new Cellule(1, 0),new Cellule(1, 1)}};
-        Grille mesBateaux = new Grille(quadrillageBateau);
-        Grille mesTirs = new Grille(quadrillageTir);
         
         Joueur j1 = new Joueur("Quentin",new Grille(quadrillageBateau),new Grille (quadrillageTir));
         Joueur j2 = new Joueur("Françis",new Grille(quadrillageBateau),new Grille (quadrillageTir));
@@ -129,8 +125,6 @@ class TestPartie {
         Cellule[][] quadrillageTir = {
                 {new Cellule(0, 0),new Cellule(0, 1)},
                 {new Cellule(1, 0),new Cellule(1, 1)}};
-        Grille mesBateaux = new Grille(quadrillageBateau);
-        Grille mesTirs = new Grille(quadrillageTir);
         
         Joueur j1 = new Joueur("Quentin",new Grille(quadrillageBateau),new Grille (quadrillageTir));
         Joueur j2 = new Joueur("Françis",new Grille(quadrillageBateau),new Grille (quadrillageTir));
