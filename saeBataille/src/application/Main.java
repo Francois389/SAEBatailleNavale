@@ -1,5 +1,7 @@
 package application;
 	
+import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -74,6 +76,8 @@ public class Main extends Application {
     public static void quitter() {
         fenetrePrincipale.close();
     }
+
+    private Scene pageDeJeux;
     
     
     
@@ -81,41 +85,39 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+		    Parent conteneur;
+		    
 		    // Chargement de la vue Menu principale dans le conteneur
-			FXMLLoader chargeurFXML = new FXMLLoader();
-			chargeurFXML.setLocation(getClass().getResource("vue/MenuPrincipal.fxml"));  
-			Parent conteneur = chargeurFXML.load();
-			
-			// Creation scene principale
+		    // et creation scene principale
+			conteneur = getParentFromVue("vue/MenuPrincipal.fxml");
 			menuPrincipale = new Scene(conteneur , LARGEUR , HAUTEUR);
 			
-			// Chargment de la vue postionBateau dans le conteneur
-			FXMLLoader chargeurFXMLPositionBateau = new FXMLLoader();
-            chargeurFXMLPositionBateau.setLocation(getClass().getResource("vue/pagePositionBateau.fxml"));  
-            conteneur = chargeurFXMLPositionBateau.load();
-            
+			// Chargement de la vue postionBateau dans le conteneur
+			conteneur = getParentFromVue("vue/pagePositionBateau.fxml");
             positionBateau = new Scene(conteneur , LARGEUR , HAUTEUR);
             
             // Chargement de la vue personalisePartie
-            FXMLLoader chargeurFXMLPersonalisePartie = new FXMLLoader();
-            chargeurFXMLPersonalisePartie.setLocation(getClass().getResource("vue/personalisePartie.fxml"));
-            conteneur = chargeurFXMLPersonalisePartie.load();
-         
+            conteneur = getParentFromVue("vue/personalisePartie.fxml");
             personalisePartie = new Scene(conteneur , LARGEUR  , HAUTEUR);
             
-           // Chargement de la vue en sauvegarde partie
-            FXMLLoader chargeurSauvegardePartie = new FXMLLoader();
-            chargeurSauvegardePartie.setLocation(getClass().getResource("vue/pageChargerPartie.fxml"));
-            conteneur = chargeurSauvegardePartie.load();
-            
+           // Chargement de la vue sauvegarde partie
+            conteneur = getParentFromVue("vue/pageSauvegardePartie.fxml");
             sauvegardePartie = new Scene (conteneur , LARGEUR , HAUTEUR);
+
+            //Page pour charger une partie
+            conteneur = getParentFromVue("vue/pageChargerPartie.fxml");
+            sauvegardePartie = new Scene (conteneur , LARGEUR , HAUTEUR);
+            
+            // Chargement de la vue en sauvegarde partie
+            conteneur = getParentFromVue("vue/pageDeJeux.fxml");
+            pageDeJeux = new Scene (conteneur , LARGEUR , HAUTEUR);
             
             
             primaryStage.setTitle("Bataille Navale");
             
             
             /* chargement de la vue de la scène principale 
-             * dans le conteneu de type Parent
+             * dans le conteneur de type Parent
              */
 			primaryStage.setScene(menuPrincipale);
 			fenetrePrincipale = primaryStage;
@@ -124,8 +126,23 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 	}
+
+    /**
+     * @param chemin 
+     * @return
+     * @throws IOException
+     */
+    private Parent getParentFromVue(String chemin) throws IOException {
+        Parent conteneur;
+        FXMLLoader chargeurPageDeJeux = new FXMLLoader();
+        chargeurPageDeJeux.setLocation(getClass().getResource(chemin));
+        conteneur = chargeurPageDeJeux.load();
+        return conteneur;
+    }
 	
 	public static void main(String[] args) {
 		launch(args);
 	}
+
+
 }

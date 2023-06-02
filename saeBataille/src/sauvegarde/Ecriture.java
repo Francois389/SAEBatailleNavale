@@ -71,6 +71,7 @@ public class Ecriture {
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
+        partieASauvegarde.setEstSauvegarder(true);
     }
     
     /**
