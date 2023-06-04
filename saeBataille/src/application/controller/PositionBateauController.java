@@ -1,6 +1,5 @@
 package application.controller;
 
-import java.awt.Image;
 import java.io.IOException;
 
 import application.Main;
@@ -9,15 +8,14 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
-import javafx.scene.control.Label;
-
-import jeu.plateau.Grille;
 import jeu.plateau.Cellule;
+import jeu.plateau.Grille;
 
 public class PositionBateauController {
 	
@@ -31,9 +29,6 @@ public class PositionBateauController {
 	
 	final static private int LIGNE_MAX = 9;
 	
-	private boolean clicActive = false;
-	
-	private boolean bateauSelectionne = false;
 	
     @FXML
     private ImageView porteAvions ;
@@ -70,6 +65,10 @@ public class PositionBateauController {
     
     @FXML
     private Text textJoueur;
+
+    private boolean clicActive = false;
+    
+    private boolean bateauSelectionne = false;
     
     boolean porteAvionsPivote = false ;
     boolean croiseurPivote = false ;
@@ -113,6 +112,12 @@ public class PositionBateauController {
     @FXML
     private void personalisePartie() throws IOException {
         Main.activerPersonalisePartie();
+    }
+    
+    @FXML
+    void valider() {
+        //TODO vérifier que tous les bateaux on été placé
+        System.out.println("Valider");
     }
     
     @FXML

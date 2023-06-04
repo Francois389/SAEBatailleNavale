@@ -49,7 +49,7 @@
                   </Text>
                </children>
             </VBox>
-            <Button mnemonicParsing="false" style="-fx-background-color: green;" text="Valider" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#valider" style="-fx-background-color: green;" text="Valider" textFill="WHITE">
                <font>
                   <Font size="24.0" />
                </font>
