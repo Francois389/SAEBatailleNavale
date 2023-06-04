@@ -11,8 +11,13 @@ import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.SVGPath;
 import javafx.stage.Stage;
 import jeu.partie.Partie;
+import jeu.plateau.Cellule;
 
 /**
  * Le controlleur de la pageDeJeux.fxml
@@ -24,9 +29,31 @@ public class PageDeJeuxControlleur extends Application {
     private Partie partieEnCours;
     
     @FXML
+    private GridPane grille ;
+    
+    @FXML
+    private SVGPath cross;
+    
+    @FXML
+    private Circle circle;
+    
+    @FXML
     public void initialize() {
+        System.out.println("ici");
         Modele.creerUneNouvellePartie("Coucou", "Oui");
-        partieEnCours = Modele.getPartieEnCours();
+        partieEnCours = Modele.getPartieEnCours();  
+        
+        for (int i = 0; i < 11; i++) {
+            for (int j = 0; j < 11; j++) {
+                if (   Modele.getPartieEnCours().getJoueur1().getGrilleTirs().getQuadrillage()[0][0].isTouche() 
+                    && Modele.getPartieEnCours().getJoueur1().getGrilleTirs().getQuadrillage()[0][0].isBateau()) {
+                    SVGPath temp = null;
+                    temp.setContent(cross.getContent());
+                    grille.add(temp, i, j);
+                    System.out.println("rond en " + i + j);
+                }
+            }
+        }
     }
 
     @Override

@@ -74,7 +74,7 @@
                            <children>
                               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <Circle fill="#ff2121" radius="10.0" stroke="#ffffff00" strokeMiterLimit="5.0" strokeType="INSIDE" />
+                                    <Circle fx:id="circle" fill="#ff2121" radius="10.0" stroke="#ffffff00" strokeMiterLimit="5.0" strokeType="INSIDE" />
                                     <Label text=" : 0">
                                        <font>
                                           <Font size="20.0" />
@@ -84,7 +84,7 @@
                               </HBox>
                               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <SVGPath content="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" scaleX="3.0" scaleY="3.0" />
+                                    <SVGPath fx:id="cross" content="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" scaleX="3.0" scaleY="3.0" />
                                     <Label text=" : 0">
                                        <font>
                                           <Font size="20.0" />

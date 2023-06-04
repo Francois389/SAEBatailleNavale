@@ -2,9 +2,12 @@ package application;
 	
 import java.io.IOException;
 
+import application.controller.PageDeJeuxControlleur;
+import application.modele.Modele;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+import sauvegarde.Lecture;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
@@ -36,6 +39,9 @@ public class Main extends Application {
     
     /** Scene de la page de jeux */
     private static Scene pageDeJeux;
+    
+    /** Scene de la page de jeux */
+    private static Scene chargerPartie;
     
     /** 
      * Fenêtre principale de l'application
@@ -91,8 +97,6 @@ public class Main extends Application {
         fenetrePrincipale.close();
     }
 
-    
-    
     
     
 	@Override
@@ -154,6 +158,7 @@ public class Main extends Application {
     }
 	
 	public static void main(String[] args) {
+	    Modele.setPartieEnCours(Lecture.interprete(Lecture.lire("FvsQ")));
 		launch(args);
 	}
 
