@@ -51,9 +51,8 @@ public class PersonalisePartieController {
     @FXML
     private void positionBateau() {
         Main a = new Main();
-        a.chargementPageDependante();
-
         Modele.creerUneNouvellePartie(joueur1.getText(), joueur2.getText());
+        a.chargementPageDependante();
         Main.activerPositionBateau();
     }    
 }
