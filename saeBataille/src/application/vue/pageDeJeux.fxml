@@ -110,7 +110,7 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <GridPane alignment="CENTER" gridLinesVisible="true" prefHeight="300.0" prefWidth="280.0" style="-fx-background-color: blue;">
+                  <GridPane fx:id="grilleJoueur" alignment="CENTER" gridLinesVisible="true" prefHeight="300.0" prefWidth="280.0" style="-fx-background-color: blue;">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="10.0" prefWidth="100.0" />
@@ -149,7 +149,7 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <GridPane alignment="CENTER" gridLinesVisible="true" prefHeight="300.0" prefWidth="280.0" style="-fx-background-color: blue;">
+                  <GridPane fx:id="grilleEnemie" alignment="CENTER" gridLinesVisible="true" prefHeight="300.0" prefWidth="280.0" style="-fx-background-color: blue;">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="10.0" prefWidth="100.0" />

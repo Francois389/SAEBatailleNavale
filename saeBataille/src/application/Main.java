@@ -182,6 +182,7 @@ public class Main extends Application {
             // Chargement de la vue sauvegarde partie
             sauvegardePartie = new Scene (getParentFromVue("vue/pageSauvegardePartie.fxml") , LARGEUR , HAUTEUR);
             resultat = new Scene (getParentFromVue("vue/pageResultat.fxml") , LARGEUR , HAUTEUR);
+            pageDeJeux = new Scene (getParentFromVue("vue/pageDeJeux.fxml") , LARGEUR , HAUTEUR);
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Le chemin n'est pas bon");

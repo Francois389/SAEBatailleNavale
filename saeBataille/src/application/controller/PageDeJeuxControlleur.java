@@ -30,7 +30,10 @@ public class PageDeJeuxControlleur extends Application {
     private Partie partieEnCours;
     
     @FXML
-    private GridPane grille ;
+    private GridPane grilleEnemie ;
+    
+    @FXML
+    private GridPane grilleJoueur;
     
     @FXML
     private SVGPath cross;
@@ -40,21 +43,130 @@ public class PageDeJeuxControlleur extends Application {
     
     @FXML
     public void initialize() {
-        System.out.println("ici");
-        Modele.creerUneNouvellePartie("Coucou", "Oui");
-        partieEnCours = Modele.getPartieEnCours();  
+        System.out.println("initialize controler page jeux");
         
-        for (int i = 0; i < 11; i++) {
-            for (int j = 0; j < 11; j++) {
-                if (   Modele.getPartieEnCours().getJoueur1().getGrilleTirs().getQuadrillage()[0][0].isTouche() 
-                    && Modele.getPartieEnCours().getJoueur1().getGrilleTirs().getQuadrillage()[0][0].isBateau()) {
-                    SVGPath temp = null;
-                    temp.setContent(cross.getContent());
-                    grille.add(temp, i, j);
-                    System.out.println("rond en " + i + j);
+        // SVGPath temp = new SVGPath();
+        // temp.setContent(cross.getContent());
+        
+        if (Modele.getPartieEnCours().getJoueurActuel() == Modele.getPartieEnCours().getJoueur1()) {
+            for (int i = 0; i < Modele.getPartieEnCours().getJoueur1().getGrilleTirs().getQuadrillage().length; i++) {
+                for (int j = 0; j < Modele.getPartieEnCours().getJoueur1().getGrilleTirs().getQuadrillage()[i].length; j++) {
+                    if (   Modele.getPartieEnCours().getJoueur1().getGrilleTirs().getQuadrillage()[i][j].isTouche() 
+                        && Modele.getPartieEnCours().getJoueur2().getGrilleBateaux().getQuadrillage()[i][j].isBateau()) {
+                        
+                        Circle temp = new Circle();
+                        temp.setRadius(circle.getRadius());
+                        
+                        grilleEnemie.add(temp, i, j);
+                        System.out.println("rond en " + i + "; "+ j);
+                    }
+                }
+            }
+            
+            for (int i = 0; i < Modele.getPartieEnCours().getJoueur1().getGrilleTirs().getQuadrillage().length; i++) {
+                for (int j = 0; j < Modele.getPartieEnCours().getJoueur1().getGrilleTirs().getQuadrillage()[i].length; j++) {
+                    if (   Modele.getPartieEnCours().getJoueur1().getGrilleTirs().getQuadrillage()[i][j].isTouche() 
+                        && ! Modele.getPartieEnCours().getJoueur2().getGrilleBateaux().getQuadrillage()[i][j].isBateau()) {
+                        
+                        SVGPath temp = new SVGPath();
+                        temp.setContent(cross.getContent());
+                        
+                        grilleEnemie.add(temp, i, j);
+                        System.out.println("croix en " + i + "; "+ j);
+                    }
+                }
+            }
+            
+            for (int i = 0; i < Modele.getPartieEnCours().getJoueur2().getGrilleTirs().getQuadrillage().length; i++) {
+                for (int j = 0; j < Modele.getPartieEnCours().getJoueur2().getGrilleTirs().getQuadrillage()[i].length; j++) {
+                    if (   Modele.getPartieEnCours().getJoueur2().getGrilleTirs().getQuadrillage()[i][j].isTouche() 
+                        && Modele.getPartieEnCours().getJoueur1().getGrilleBateaux().getQuadrillage()[i][j].isBateau()) {
+                        
+                        Circle temp = new Circle();
+                        temp.setRadius(circle.getRadius());
+                        
+                        grilleJoueur.add(temp, i, j);
+                        System.out.println("rond en " + i + "; "+ j);
+                    }
+                }
+            }
+            
+            for (int i = 0; i < Modele.getPartieEnCours().getJoueur2().getGrilleTirs().getQuadrillage().length; i++) {
+                for (int j = 0; j < Modele.getPartieEnCours().getJoueur2().getGrilleTirs().getQuadrillage()[i].length; j++) {
+                    if (   Modele.getPartieEnCours().getJoueur2().getGrilleTirs().getQuadrillage()[i][j].isTouche() 
+                        && ! Modele.getPartieEnCours().getJoueur1().getGrilleBateaux().getQuadrillage()[i][j].isBateau()) {
+                        
+                        SVGPath temp = new SVGPath();
+                        temp.setContent(cross.getContent());
+                        
+                        grilleJoueur.add(temp, i, j);
+                        System.out.println("croix en " + i + "; "+ j);
+                    }
+                }
+            }
+            
+            
+            
+            
+        } else {
+            for (int i = 0; i < Modele.getPartieEnCours().getJoueur2().getGrilleTirs().getQuadrillage().length; i++) {
+                for (int j = 0; j < Modele.getPartieEnCours().getJoueur2().getGrilleTirs().getQuadrillage()[i].length; j++) {
+                    if (   Modele.getPartieEnCours().getJoueur2().getGrilleTirs().getQuadrillage()[i][j].isTouche() 
+                        && Modele.getPartieEnCours().getJoueur1().getGrilleBateaux().getQuadrillage()[i][j].isBateau()) {
+                        
+                        Circle temp = new Circle();
+                        temp.setRadius(circle.getRadius());
+                        
+                        grilleEnemie.add(temp, i, j);
+                        System.out.println("rond en " + i + "; "+ j);
+                    }
+                }
+            }
+            
+            for (int i = 0; i < Modele.getPartieEnCours().getJoueur2().getGrilleTirs().getQuadrillage().length; i++) {
+                for (int j = 0; j < Modele.getPartieEnCours().getJoueur2().getGrilleTirs().getQuadrillage()[i].length; j++) {
+                    if (   Modele.getPartieEnCours().getJoueur2().getGrilleTirs().getQuadrillage()[i][j].isTouche() 
+                        && ! Modele.getPartieEnCours().getJoueur1().getGrilleBateaux().getQuadrillage()[i][j].isBateau()) {
+                        
+                        SVGPath temp = new SVGPath();
+                        temp.setContent(cross.getContent());
+                        
+                        grilleEnemie.add(temp, i, j);
+                        System.out.println("croix en " + i + "; "+ j);
+                    }
+                }
+            }
+            
+            for (int i = 0; i < Modele.getPartieEnCours().getJoueur1().getGrilleTirs().getQuadrillage().length; i++) {
+                for (int j = 0; j < Modele.getPartieEnCours().getJoueur1().getGrilleTirs().getQuadrillage()[i].length; j++) {
+                    if (   Modele.getPartieEnCours().getJoueur1().getGrilleTirs().getQuadrillage()[i][j].isTouche() 
+                        && Modele.getPartieEnCours().getJoueur2().getGrilleBateaux().getQuadrillage()[i][j].isBateau()) {
+                        
+                        Circle temp = new Circle();
+                        temp.setRadius(circle.getRadius());
+                        
+                        grilleJoueur.add(temp, i, j);
+                        System.out.println("rond en " + i + "; "+ j);
+                    }
+                }
+            }
+            
+            for (int i = 0; i < Modele.getPartieEnCours().getJoueur1().getGrilleTirs().getQuadrillage().length; i++) {
+                for (int j = 0; j < Modele.getPartieEnCours().getJoueur1().getGrilleTirs().getQuadrillage()[i].length; j++) {
+                    if (   Modele.getPartieEnCours().getJoueur1().getGrilleTirs().getQuadrillage()[i][j].isTouche() 
+                        && ! Modele.getPartieEnCours().getJoueur2().getGrilleBateaux().getQuadrillage()[i][j].isBateau()) {
+                        
+                        SVGPath temp = new SVGPath();
+                        temp.setContent(cross.getContent());
+                        
+                        grilleJoueur.add(temp, i, j);
+                        System.out.println("croix en " + i + "; "+ j);
+                    }
                 }
             }
         }
+        
+        
     }
 
     @Override

@@ -114,6 +114,11 @@ public class ChargerPartieController {
        System.out.println("charger partie 1");
        Partie partie = Lecture.interprete(Lecture.lire(partie1));
        Modele.setPartieEnCours(partie);
+       
+       Main a = new Main();
+
+       a.chargementPageDependante();
+       
        Main.activerPageDeJeux();
     }
     
