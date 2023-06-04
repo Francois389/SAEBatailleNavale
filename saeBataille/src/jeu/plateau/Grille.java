@@ -111,4 +111,16 @@ public class Grille {
         }
 		return bateaux;
 	}
+	
+	@Override
+	public String toString() {
+		String affichage = "";
+		for (int i = 0 ; i < quadrillage.length ; i++) {
+			for (int j = 0 ;  j < quadrillage.length ; j++)  {
+				affichage+= "\n"+ quadrillage[i][j];
+			}
+		}
+		return affichage ;
+	}
+
 }

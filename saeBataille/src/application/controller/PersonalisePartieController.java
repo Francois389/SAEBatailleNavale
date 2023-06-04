@@ -5,6 +5,8 @@ import application.modele.Modele;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 
 public class PersonalisePartieController {
     
@@ -27,6 +29,21 @@ public class PersonalisePartieController {
     private RadioButton radioOrdinateur;
     
     @FXML
+    private TextField joueur1;
+    @FXML
+    private TextField joueur2;
+    
+    @FXML
+    void initialize() {
+        ToggleGroup groupePlacementBateau = new ToggleGroup();
+        ToggleGroup jouerContre = new ToggleGroup();
+        radioAutomatique.setToggleGroup(groupePlacementBateau);
+        radioManuel.setToggleGroup(groupePlacementBateau);
+        radioAutreJoueur.setToggleGroup(jouerContre);
+        radioOrdinateur.setToggleGroup(jouerContre);
+    }
+    
+    @FXML
     private void menuPrincipal() {
         Main.activerMenuPrincipale();
     }
@@ -34,11 +51,8 @@ public class PersonalisePartieController {
     @FXML
     private void positionBateau() {
         Main a = new Main();
+        Modele.creerUneNouvellePartie(joueur1.getText(), joueur2.getText());
         a.chargementPageDependante();
         Main.activerPositionBateau();
-    }
-    
- 
-    
-
+    }    
 }

@@ -84,13 +84,23 @@ public class Partie {
     
     /**
      * retourne le joueur qui joue actuellement en fonction du nombre de tours
-     * @return joueur qui joue actuelement
+     * @return joueur qui joue actuellement
      */
     public Joueur getJoueurActuel() {
         return this.getNbTour() % 2 == 0
         	   ? joueur1
         	   : joueur2;
-        
+    }
+
+    /**
+     * retourne le joueur qui ne joue pas actuellement 
+     * en fonction du nombre de tours
+     * @return joueur qui ne joue pas actuellement
+     */
+    public Joueur getAutreJoueur() {
+        return this.getNbTour() % 2 == 1
+                ? joueur1
+                : joueur2;
     }
 
     /**

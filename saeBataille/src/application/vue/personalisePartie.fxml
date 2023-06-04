@@ -83,7 +83,7 @@
       </Label>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <TextField style="-fx-background-color: FFF;" text="Joueur 1">
+            <TextField fx:id="joueur1" style="-fx-background-color: FFF;" text="Joueur 1">
                <font>
                   <Font size="20.0" />
                </font>
@@ -91,7 +91,7 @@
                   <Insets right="80.0" />
                </HBox.margin>
             </TextField>
-            <TextField style="-fx-background-color: FFF;" text="Joueur 2">
+            <TextField fx:id="joueur2" style="-fx-background-color: FFF;" text="Joueur 2">
                <font>
                   <Font size="20.0" />
                </font>
