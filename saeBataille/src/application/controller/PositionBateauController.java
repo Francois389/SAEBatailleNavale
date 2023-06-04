@@ -13,6 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Text;
 import javafx.scene.control.Label;
 
 import jeu.plateau.Grille;
@@ -67,6 +68,9 @@ public class PositionBateauController {
     @FXML
     private Label labelTorpilleur;
     
+    @FXML
+    private Text textJoueur;
+    
     boolean porteAvionsPivote = false ;
     boolean croiseurPivote = false ;
     boolean contreTorpilleurPivote = false ;
@@ -83,6 +87,16 @@ public class PositionBateauController {
     int coordoneeAplacerX = 0 ; 
     int coordonneAplacerY = 0 ;
 	
+    @FXML
+    void initialize() {
+        textJoueur.setText(Modele.getPartieEnCours().getJoueurActuel().getNom());
+    }
+    
+    
+    /**
+     * //TODO Commentez la fonction de la méthode
+     * @return
+     */
     private Cellule[][] creerTableauGrille() {
     	Cellule[][] retour = new Cellule[10][10];
     
@@ -273,7 +287,9 @@ public class PositionBateauController {
 		
 	}
 	
-	
+	/**
+	 * //TODO Commentez la fonction de la méthode
+	 */
 	private void activerClic() {
 		clicActive = true;		
 		
@@ -297,6 +313,12 @@ public class PositionBateauController {
 		}
 	}
 	
+	/**
+	 * //TODO Commentez la fonction de la méthode
+	 * @param bateau
+	 * @param x
+	 * @param y
+	 */
 	private void placerBateau(ImageView bateau ,int x, int y) {
  		if (grille.getChildren().contains(bateau)) {
 			grille.getChildren().remove(bateau);
@@ -359,6 +381,10 @@ public class PositionBateauController {
 		
 		grille.add(bateau, x, y);
 	}
+	
+	/**
+	 * //TODO Commentez la fonction de la méthode
+	 */
 	private void affichageTorpilleur() {
 		if ((torpilleur1Place &&  !torpilleur2Place)
 			 || (!torpilleur1Place && torpilleur2Place)) {

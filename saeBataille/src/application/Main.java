@@ -116,9 +116,7 @@ public class Main extends Application {
 			conteneur = getParentFromVue("vue/MenuPrincipal.fxml");
 			menuPrincipale = new Scene(conteneur , LARGEUR , HAUTEUR);
 			
-			// Chargement de la vue postionBateau dans le conteneur
-			conteneur = getParentFromVue("vue/pagePositionBateau.fxml");
-            positionBateau = new Scene(conteneur , LARGEUR , HAUTEUR);
+			
             
             // Chargement de la vue personalisePartie
             conteneur = getParentFromVue("vue/personalisePartie.fxml");
@@ -180,9 +178,10 @@ public class Main extends Application {
             // Chargement de la vue sauvegarde partie
             sauvegardePartie = new Scene (getParentFromVue("vue/pageSauvegardePartie.fxml") , LARGEUR , HAUTEUR);
             resultat = new Scene (getParentFromVue("vue/pageResultat.fxml") , LARGEUR , HAUTEUR);
+            // Chargement de la vue postionBateau dans le conteneur
+            positionBateau = new Scene(getParentFromVue("vue/pagePositionBateau.fxml") , LARGEUR , HAUTEUR);
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("Le chemin n'est pas bon");
         }
 	}
 
