@@ -18,7 +18,7 @@ import javafx.scene.control.Label;
 import jeu.plateau.Grille;
 import jeu.plateau.Cellule;
 
-public class PositionBateauController {
+public class PositionBateauController2 {
 	
 	final static private int TAILLE_GRILLE_PIXEL = 30;
 	
