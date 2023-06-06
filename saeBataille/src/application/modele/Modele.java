@@ -3,7 +3,6 @@
  */
 package application.modele;
 
-import application.controller.PageDeJeuxControlleur;
 import jeu.partie.Joueur;
 import jeu.partie.Partie;
 import jeu.plateau.Cellule;

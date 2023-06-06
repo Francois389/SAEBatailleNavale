@@ -5,7 +5,6 @@
 package sauvegarde;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 import com.google.gson.Gson;
@@ -95,7 +94,7 @@ public class Lecture {
         Gson gson = new Gson();
 
         // Lecture des informations de la partie
-        JsonObject partieObj = jsonObject.getAsJsonObject("partie");
+        JsonObject partieObj = jsonObject.getAsJsonObject(CLE);
         int nbTour = partieObj.get("nbTour").getAsInt();
 
         // Lecture du joueur 1

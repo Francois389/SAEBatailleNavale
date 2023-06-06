@@ -4,7 +4,6 @@
  */
 package jeu.partie;
 
-import java.util.Objects;
 
 /**
  * stockage d'unne partie de bataille navale

@@ -7,27 +7,20 @@ import java.util.Optional;
 
 import application.Main;
 import application.modele.Modele;
-import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.event.EventType;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.SVGPath;
-import javafx.stage.Stage;
 import jeu.partie.Joueur;
 import jeu.partie.Partie;
 import jeu.plateau.Cellule;
-import jeu.plateau.Grille;
 
 /**
  * Le controlleur de la pageDeJeux.fxml
@@ -195,8 +188,6 @@ public class PageDeJeuxControlleur {
         Joueur joueur1 = Modele.getPartieEnCours().getJoueur1();
         Joueur joueur2 = Modele.getPartieEnCours().getJoueur2();
         
-        Cellule[][] tirJ1 = joueur1.getGrilleTirs().getQuadrillage();
-        Cellule[][] tirJ2 = joueur2.getGrilleTirs().getQuadrillage();
         Cellule[][] bateauJ1 = joueur1.getGrilleBateaux().getQuadrillage();
         Cellule[][] bateauJ2 = joueur2.getGrilleBateaux().getQuadrillage();
         
@@ -357,7 +348,7 @@ public class PageDeJeuxControlleur {
                 Modele.setJoueurGagnant(gagnant);
                 System.out.println(gagnant.getNom() + " gagne !");
                 Main a = new Main ();
-                a.chargementResultat();
+                a.chargementPageDependante();
                 Main.activerResultat();
             }
         }

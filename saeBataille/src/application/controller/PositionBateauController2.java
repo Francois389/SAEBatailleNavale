@@ -15,9 +15,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.scene.control.Label;
-import javafx.scene.control.Labeled;
-import jeu.plateau.Grille;
-import jeu.plateau.Cellule;
 
 
 public class PositionBateauController2 {
@@ -99,23 +96,6 @@ public class PositionBateauController2 {
         //TODO vérifier que tous les bateaux on été placé
         System.out.println("Valider");
     }
-   
-	
-    private Cellule[][] creerTableauGrille() {
-    	Cellule[][] retour = new Cellule[10][10];
-    
-    	for (int i = 0; i < retour.length; i++) {
-    		for (int j = 0; j < retour.length; j++) {
-    			retour[i][j] = new Cellule(i,j);
-    		}
-    		
-    		
-    	}
-    	
-    	return retour;
-    }
-
-    
     
     @FXML
     private void personalisePartie() throws IOException {

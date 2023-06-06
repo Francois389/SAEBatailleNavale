@@ -4,23 +4,16 @@ import java.io.IOException;
 
 import application.controller.ControllerTransition;
 import application.controller.PageDeJeuxControlleur;
-import application.controller.PositionBateauController;
-import application.controller.PageDeJeuxControlleur;
 import application.modele.Modele;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 import jeu.partie.Joueur;
 import jeu.partie.Partie;
-import jeu.plateau.Grille;
-import sauvegarde.Lecture;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-
-import jeu.partie.Joueur;
-import jeu.partie.Partie;
-import jeu.plateau.Grille;
 import jeu.plateau.Cellule;
+import jeu.plateau.Grille;
 
 /**
  * Classe qui va lancer l'application de jeu.
@@ -233,7 +226,6 @@ public class Main extends Application {
 	 * à une erreur et l'application de ce lancera pas.
 	 */
 	public void chargementPageDependante() {
-	    System.out.println("ùOEISF PIODJ");
         try {
             // Chargement de la vue sauvegarde partie
             sauvegardePartie = new Scene (getParentFromVue("vue/pageSauvegardePartie.fxml") , LARGEUR , HAUTEUR);
@@ -288,7 +280,7 @@ public class Main extends Application {
        		e.printStackTrace();
         }
    }
-   public void chargementSauvegardePartie() {
+    public void chargementSauvegardePartie() {
 	   try {
 		   sauvegardePartie = new Scene (getParentFromVue("vue/pageSauvegardePartie.fxml") , LARGEUR , HAUTEUR);
    	   } catch (IOException e) {
