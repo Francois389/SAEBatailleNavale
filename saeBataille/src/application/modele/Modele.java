@@ -3,6 +3,7 @@
  */
 package application.modele;
 
+import application.controller.PageDeJeuxControlleur;
 import jeu.partie.Joueur;
 import jeu.partie.Partie;
 import jeu.plateau.Cellule;
@@ -30,9 +31,9 @@ public class Modele {
         }
         Joueur joueur1 = new Joueur(nom1, new Grille(quadrillage),new Grille(quadrillage));
         Joueur joueur2 = new Joueur(nom2, new Grille(quadrillage),new Grille(quadrillage));
-        partieEnCours = new Partie(joueur1, joueur2);
-        partieEstCreer = true;
-        joueurGagnant = joueur1;
+        Modele.partieEnCours = new Partie(joueur1, joueur2);
+        Modele.partieEstCreer = true;
+        Modele.joueurGagnant = joueur1;
     }
     
     /**
@@ -58,26 +59,31 @@ public class Modele {
      * @return the partieEnCours
      */
     public static Partie getPartieEnCours() {
-        return partieEnCours;
+    	System.out.println("getter");
+    	System.out.println(partieEnCours);
+        return Modele.partieEnCours;
     }
 
     /**
      * @param partieEnCours the partieEnCours to set
      */
     public static void setPartieEnCours(Partie nouvellePartieEnCours) {
-        partieEnCours = nouvellePartieEnCours;
+    	System.out.println("setter partie");
+    	System.out.println(nouvellePartieEnCours);
+        Modele.partieEnCours = nouvellePartieEnCours;
     }
 
     /** @return the joueurGagnant */
     public static Joueur getJoueurGagnant() {
-        return joueurGagnant;
+        return Modele.joueurGagnant;
     }
 
     /**
      * @param joueurGagnant the joueurGagnant to set
      */
     public static void setJoueurGagnant(Joueur nouveauJoueurGagnant) {
-        joueurGagnant = nouveauJoueurGagnant;
+    	
+        Modele.joueurGagnant = nouveauJoueurGagnant;
     }
     
     

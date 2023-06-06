@@ -208,7 +208,6 @@ public class Main extends Application {
         Joueur j2 = new Joueur("Joueur2",new Grille(quadrillageBateau),new Grille (quadrillageTir));
         Partie partie = new Partie(j1, j2);
         
-        
 	    Modele.setPartieEnCours(partie);
 		launch(args);
 	}
@@ -229,6 +228,9 @@ public class Main extends Application {
             positionBateau = new Scene(getParentFromVue("vue/pagePositionBateau.fxml") , LARGEUR , HAUTEUR);
             pageDeJeux = new Scene(getParentFromVue("vue/pageDeJeux.fxml") , LARGEUR , HAUTEUR);
             chargerPartie = new Scene(getParentFromVue("vue/pageChargerPartie.fxml") , LARGEUR , HAUTEUR);
+            System.out.println("page inde");
+            System.out.println(Modele.getPartieEnCours());
+            System.out.println();
         } catch (IOException e) {
             e.printStackTrace();
         }
