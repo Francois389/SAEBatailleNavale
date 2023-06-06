@@ -106,7 +106,7 @@ public class TestJoueur {
         Cellule cellule = new Cellule(1,1);
 
         joueurValide.get(0).tir(cellule);
-
+        System.out.println(joueurValide.get(0).getGrilleTirs().getQuadrillage()[1][1]);
         // Vérifier que la cellule n'est pas touchée
         assertFalse(cellule.isTouche());
     }
