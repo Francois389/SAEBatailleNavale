@@ -86,7 +86,7 @@ public class Joueur {
 	
 	
 	/** 
-	 * Renvoie le nombre de bateaux ennemis touches par le joueur.
+	 * @return le nombre de bateaux ennemis touches par le joueur.
 	 */
 	public int getNbTouche() {
 		

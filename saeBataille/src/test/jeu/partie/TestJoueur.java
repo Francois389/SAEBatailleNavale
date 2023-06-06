@@ -115,27 +115,21 @@ public class TestJoueur {
 
 @Test
     void testGetNbTouche() {    
-        {       
-            // Préparer la grille de tirs avec des cellules touchée
-            for (Cellule[] cells : joueurValide.get(1).getGrilleTirs().getQuadrillage()) {
-                for (Cellule cellule : cells) {
-                    System.out.println(cellule.toString());
-                }
-            }
+        {
             joueurValide.get(0).getGrilleTirs().getCellule(0, 0).setEstTouche(true);
             joueurValide.get(0).getGrilleTirs().getCellule(1, 1).setEstTouche(true);
             // Vérifier que le nombre de cellules touchées est correct
+            assertEquals(0, joueurValide.get(0).getNbTouche());
+
+            joueurValide.get(0).getGrilleTirs().getCellule(0, 0).setEstBateau(true);
+            joueurValide.get(0).getGrilleTirs().getCellule(1, 1).setEstBateau(true);
             assertEquals(2, joueurValide.get(0).getNbTouche());
-        }
-        for (Cellule[] cells : joueurValide.get(1).getGrilleTirs().getQuadrillage()) {
-            for (Cellule cellule : cells) {
-                System.out.println(cellule.toString());
-            }
+
+            joueurValide.get(0).getGrilleTirs().getCellule(0, 0).setEstBateau(true);
+            joueurValide.get(0).getGrilleTirs().getCellule(1, 1).setEstBateau(false);
+            assertEquals(1, joueurValide.get(0).getNbTouche());
         }
         assertEquals(0, joueurValide.get(1).getNbTouche());
-//        for (int i = 0; i < array.length; i++) {
-//            
-//        }
     }
 
     @Test
