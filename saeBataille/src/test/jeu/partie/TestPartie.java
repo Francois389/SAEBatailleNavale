@@ -161,4 +161,30 @@ class TestPartie {
         assertNotEquals(j1, partie.getJoueurActuel());
     }
 
+    /**
+     * Test method for {@link jeu.partie.Partie#getAutreJoueur()}.
+     */
+    @Test
+    void testGetAutreJoueur() {
+        Cellule[][] quadrillageBateau = {
+                {new Cellule(0, 0),new Cellule(0, 1)},
+                {new Cellule(1, 0),new Cellule(1, 1)}};
+        Cellule[][] quadrillageTir = {
+                {new Cellule(0, 0),new Cellule(0, 1)},
+                {new Cellule(1, 0),new Cellule(1, 1)}};
+        
+        Joueur j1 = new Joueur("Quentin",new Grille(quadrillageBateau),new Grille (quadrillageTir));
+        Joueur j2 = new Joueur("Françis",new Grille(quadrillageBateau),new Grille (quadrillageTir));
+        Partie partie = new Partie(j1, j2);
+        
+        
+        assertEquals(j2, partie.getAutreJoueur());
+        assertNotEquals(j1, partie.getAutreJoueur());
+        
+        partie.incrementNbTour();        
+        
+        assertEquals(j1, partie.getAutreJoueur());
+        assertNotEquals(j2, partie.getAutreJoueur());
+    }
+
 }

@@ -33,7 +33,6 @@ public class ResultatControlleur {
     
     @FXML
     void initialize() {
- 
         textResultat.setText(Modele.getJoueurGagnant().getNom() + " a gagné!");
     }
 }

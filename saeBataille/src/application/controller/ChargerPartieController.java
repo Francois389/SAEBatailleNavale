@@ -114,6 +114,12 @@ public class ChargerPartieController {
        System.out.println("charger partie 1");
        Partie partie = Lecture.interprete(Lecture.lire(partie1));
        Modele.setPartieEnCours(partie);
+       
+       
+       Main a = new Main();
+
+       a.chargementPageDependante();
+       
        Main.activerPageDeJeux();
     }
     
@@ -122,6 +128,11 @@ public class ChargerPartieController {
         System.out.println("charger partie 2");
         Partie partie = Lecture.interprete(Lecture.lire(partie2));
         Modele.setPartieEnCours(partie);
+        
+        Main a = new Main();
+
+        a.chargementPageDependante();
+        
         Main.activerPageDeJeux();
     }
     
@@ -130,6 +141,9 @@ public class ChargerPartieController {
         System.out.println("charger partie 3");
         Partie partie = Lecture.interprete(Lecture.lire(partie3));
         Modele.setPartieEnCours(partie);
+        Main a = new Main();
+
+        a.chargementPageDependante();
         Main.activerPageDeJeux();
     }
     
@@ -138,6 +152,9 @@ public class ChargerPartieController {
         System.out.println("charger partie 4");
         Partie partie = Lecture.interprete(Lecture.lire(partie4));
         Modele.setPartieEnCours(partie);
+        Main a = new Main();
+
+        a.chargementPageDependante();
         Main.activerPageDeJeux();
     }
     
@@ -146,6 +163,9 @@ public class ChargerPartieController {
         System.out.println("charger partie 5");
         Partie partie = Lecture.interprete(Lecture.lire(partie5));
         Modele.setPartieEnCours(partie);
+        Main a = new Main();
+
+        a.chargementPageDependante();
         Main.activerPageDeJeux();
     }
 }
