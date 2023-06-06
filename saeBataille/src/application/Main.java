@@ -14,6 +14,11 @@ import sauvegarde.Lecture;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
+import jeu.partie.Joueur;
+import jeu.partie.Partie;
+import jeu.plateau.Grille;
+import jeu.plateau.Cellule;
+
 /**
  * Classe qui va lancer l'application de jeu.
  * 
@@ -194,6 +199,19 @@ public class Main extends Application {
     }
 	
 	public static void main(String[] args) {
+        
+        Cellule[][] quadrillageBateau = {
+                {new Cellule(0, 0),new Cellule(0, 1)},
+                {new Cellule(1, 0),new Cellule(1, 1)}};
+        Cellule[][] quadrillageTir = {
+                {new Cellule(0, 0),new Cellule(0, 1)},
+                {new Cellule(1, 0),new Cellule(1, 1)}};
+        
+        Joueur j1 = new Joueur("Joueur1",new Grille(quadrillageBateau),new Grille (quadrillageTir));
+        Joueur j2 = new Joueur("Joueur2",new Grille(quadrillageBateau),new Grille (quadrillageTir));
+        Partie partie = new Partie(j1, j2);
+        
+	    Modele.setPartieEnCours(partie);
 		launch(args);
 	}
 
@@ -211,6 +229,11 @@ public class Main extends Application {
             resultat = new Scene (getParentFromVue("vue/pageResultat.fxml") , LARGEUR , HAUTEUR);
             // Chargement de la vue postionBateau dans le conteneur
             positionBateau = new Scene(getParentFromVue("vue/pagePositionBateau.fxml") , LARGEUR , HAUTEUR);
+            pageDeJeux = new Scene(getParentFromVue("vue/pageDeJeux.fxml") , LARGEUR , HAUTEUR);
+            chargerPartie = new Scene(getParentFromVue("vue/pageChargerPartie.fxml") , LARGEUR , HAUTEUR);
+            System.out.println("page inde");
+            System.out.println(Modele.getPartieEnCours());
+            System.out.println();
         } catch (IOException e) {
             e.printStackTrace();
         }

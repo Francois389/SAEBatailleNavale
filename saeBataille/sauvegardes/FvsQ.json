@@ -127,8 +127,8 @@
             {
               "x": 1,
               "y": 1,
-              "estBateau": false,
-              "estTouche": false
+              "estBateau": true,
+              "estTouche": true
             }
           ]
         ]

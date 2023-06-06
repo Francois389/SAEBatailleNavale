@@ -13,12 +13,14 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.SVGPath;
 import javafx.stage.Stage;
 import jeu.partie.Joueur;
 import jeu.partie.Partie;
 import jeu.plateau.Cellule;
+import jeu.plateau.Grille;
 
 /**
  * Le controlleur de la pageDeJeux.fxml
@@ -31,7 +33,7 @@ public class PageDeJeuxControlleur extends Application {
     private Partie partieEnCours;
     
     @FXML
-    private GridPane grilleEnemie ;
+    private GridPane grilleEnnemie ;
     
     @FXML
     private GridPane grilleJoueur;
@@ -42,6 +44,7 @@ public class PageDeJeuxControlleur extends Application {
     @FXML
     private Circle circle;
     
+    
     @FXML
     public void initialize() {
         
@@ -50,126 +53,118 @@ public class PageDeJeuxControlleur extends Application {
         // SVGPath temp = new SVGPath();
         // temp.setContent(cross.getContent());
         
-        if (Modele.getPartieEnCours().getJoueurActuel() == Modele.getPartieEnCours().getJoueur1()) {
-            for (int i = 0; i < Modele.getPartieEnCours().getJoueur1().getGrilleTirs().getQuadrillage().length; i++) {
-                for (int j = 0; j < Modele.getPartieEnCours().getJoueur1().getGrilleTirs().getQuadrillage()[i].length; j++) {
-                    if (   Modele.getPartieEnCours().getJoueur1().getGrilleTirs().getQuadrillage()[i][j].isTouche() 
-                        && Modele.getPartieEnCours().getJoueur2().getGrilleBateaux().getQuadrillage()[i][j].isBateau()) {
-                        
-                        Circle temp = new Circle();
-                        temp.setRadius(circle.getRadius());
-                        
-                        grilleEnemie.add(temp, i, j);
-                        System.out.println("rond en " + i + "; "+ j);
-                    }
-                }
-            }
-            
-            for (int i = 0; i < Modele.getPartieEnCours().getJoueur1().getGrilleTirs().getQuadrillage().length; i++) {
-                for (int j = 0; j < Modele.getPartieEnCours().getJoueur1().getGrilleTirs().getQuadrillage()[i].length; j++) {
-                    if (   Modele.getPartieEnCours().getJoueur1().getGrilleTirs().getQuadrillage()[i][j].isTouche() 
-                        && ! Modele.getPartieEnCours().getJoueur2().getGrilleBateaux().getQuadrillage()[i][j].isBateau()) {
-                        
-                        SVGPath temp = new SVGPath();
-                        temp.setContent(cross.getContent());
-                        
-                        grilleEnemie.add(temp, i, j);
-                        System.out.println("croix en " + i + "; "+ j);
-                    }
-                }
-            }
-            
-            for (int i = 0; i < Modele.getPartieEnCours().getJoueur2().getGrilleTirs().getQuadrillage().length; i++) {
-                for (int j = 0; j < Modele.getPartieEnCours().getJoueur2().getGrilleTirs().getQuadrillage()[i].length; j++) {
-                    if (   Modele.getPartieEnCours().getJoueur2().getGrilleTirs().getQuadrillage()[i][j].isTouche() 
-                        && Modele.getPartieEnCours().getJoueur1().getGrilleBateaux().getQuadrillage()[i][j].isBateau()) {
-                        
-                        Circle temp = new Circle();
-                        temp.setRadius(circle.getRadius());
-                        
-                        grilleJoueur.add(temp, i, j);
-                        System.out.println("rond en " + i + "; "+ j);
-                    }
-                }
-            }
-            
-            for (int i = 0; i < Modele.getPartieEnCours().getJoueur2().getGrilleTirs().getQuadrillage().length; i++) {
-                for (int j = 0; j < Modele.getPartieEnCours().getJoueur2().getGrilleTirs().getQuadrillage()[i].length; j++) {
-                    if (   Modele.getPartieEnCours().getJoueur2().getGrilleTirs().getQuadrillage()[i][j].isTouche() 
-                        && ! Modele.getPartieEnCours().getJoueur1().getGrilleBateaux().getQuadrillage()[i][j].isBateau()) {
-                        
-                        SVGPath temp = new SVGPath();
-                        temp.setContent(cross.getContent());
-                        
-                        grilleJoueur.add(temp, i, j);
-                        System.out.println("croix en " + i + "; "+ j);
-                    }
-                }
-            }
-            
-            
-            
-            
-        } else {
-            for (int i = 0; i < Modele.getPartieEnCours().getJoueur2().getGrilleTirs().getQuadrillage().length; i++) {
-                for (int j = 0; j < Modele.getPartieEnCours().getJoueur2().getGrilleTirs().getQuadrillage()[i].length; j++) {
-                    if (   Modele.getPartieEnCours().getJoueur2().getGrilleTirs().getQuadrillage()[i][j].isTouche() 
-                        && Modele.getPartieEnCours().getJoueur1().getGrilleBateaux().getQuadrillage()[i][j].isBateau()) {
-                        
-                        Circle temp = new Circle();
-                        temp.setRadius(circle.getRadius());
-                        
-                        grilleEnemie.add(temp, i, j);
-                        System.out.println("rond en " + i + "; "+ j);
-                    }
-                }
-            }
-            
-            for (int i = 0; i < Modele.getPartieEnCours().getJoueur2().getGrilleTirs().getQuadrillage().length; i++) {
-                for (int j = 0; j < Modele.getPartieEnCours().getJoueur2().getGrilleTirs().getQuadrillage()[i].length; j++) {
-                    if (   Modele.getPartieEnCours().getJoueur2().getGrilleTirs().getQuadrillage()[i][j].isTouche() 
-                        && ! Modele.getPartieEnCours().getJoueur1().getGrilleBateaux().getQuadrillage()[i][j].isBateau()) {
-                        
-                        SVGPath temp = new SVGPath();
-                        temp.setContent(cross.getContent());
-                        
-                        grilleEnemie.add(temp, i, j);
-                        System.out.println("croix en " + i + "; "+ j);
-                    }
-                }
-            }
-            
-            for (int i = 0; i < Modele.getPartieEnCours().getJoueur1().getGrilleTirs().getQuadrillage().length; i++) {
-                for (int j = 0; j < Modele.getPartieEnCours().getJoueur1().getGrilleTirs().getQuadrillage()[i].length; j++) {
-                    if (   Modele.getPartieEnCours().getJoueur1().getGrilleTirs().getQuadrillage()[i][j].isTouche() 
-                        && Modele.getPartieEnCours().getJoueur2().getGrilleBateaux().getQuadrillage()[i][j].isBateau()) {
-                        
-                        Circle temp = new Circle();
-                        temp.setRadius(circle.getRadius());
-                        
-                        grilleJoueur.add(temp, i, j);
-                        System.out.println("rond en " + i + "; "+ j);
-                    }
-                }
-            }
-            
-            for (int i = 0; i < Modele.getPartieEnCours().getJoueur1().getGrilleTirs().getQuadrillage().length; i++) {
-                for (int j = 0; j < Modele.getPartieEnCours().getJoueur1().getGrilleTirs().getQuadrillage()[i].length; j++) {
-                    if (   Modele.getPartieEnCours().getJoueur1().getGrilleTirs().getQuadrillage()[i][j].isTouche() 
-                        && ! Modele.getPartieEnCours().getJoueur2().getGrilleBateaux().getQuadrillage()[i][j].isBateau()) {
-                        
-                        SVGPath temp = new SVGPath();
-                        temp.setContent(cross.getContent());
-                        
-                        grilleJoueur.add(temp, i, j);
-                        System.out.println("croix en " + i + "; "+ j);
-                    }
-                }
-            }
-        }
         
+        Joueur joueurActuel = Modele.getPartieEnCours().getJoueurActuel();
+        Joueur joueur1 = Modele.getPartieEnCours().getJoueur1();
+        Joueur joueur2 = Modele.getPartieEnCours().getJoueur2();
+        
+        Cellule[][] tirJ1 = joueur1.getGrilleTirs().getQuadrillage();
+        Cellule[][] tirJ2 = joueur2.getGrilleTirs().getQuadrillage();
+        Cellule[][] bateauJ1 = joueur1.getGrilleBateaux().getQuadrillage();
+        Cellule[][] bateauJ2 = joueur2.getGrilleBateaux().getQuadrillage();
+        
+        
+        
+        
+        for (int i = 0; i < tirJ1.length; i++) {
+            for (int j = 0; j < tirJ1[i].length; j++) {
+            	System.out.println("("+i+"; "+j+")" + " | " 
+              + tirJ1[i][j].isTouche() + " | "
+              + tirJ2[i][j].isTouche() + " | "
+			  + bateauJ1[i][j].isTouche() + " | "
+              + bateauJ2[i][j].isTouche() + " | ");
+            	// c'est le joueur 1
+                if (joueurActuel == joueur1) {	                    
+                    if (tirJ1[i][j].isTouche() 
+                     && bateauJ2[i][j].isBateau()) {
+                        
+                        Circle temp = new Circle();
+                        temp.setRadius(circle.getRadius());
+                        temp.setStroke(Color.rgb(255, 33, 33));
+                        
+                        grilleEnnemie.add(temp, i, j);
+                        System.out.println("rond en " + i + "; "+ j);
+                    }
+                    
+                    if (tirJ1[i][j].isTouche() 
+                    && !bateauJ2[i][j].isBateau()) {
+                        
+                        SVGPath temp = new SVGPath();
+                        temp.setContent(cross.getContent());
+                        
+                        grilleEnnemie.add(temp, i, j);
+                        System.out.println("croix en " + i + "; "+ j);
+                    }
+                    
+                    if (tirJ2[i][j].isTouche() 
+                     && bateauJ1[i][j].isBateau()) {
+                        
+                        Circle temp = new Circle();
+                        temp.setRadius(circle.getRadius());
+                        temp.setStroke(Color.rgb(255, 33, 33));
+                        
+                        grilleJoueur.add(temp, i, j);
+                        System.out.println("rond en " + i + "; "+ j);
+                    }
+                    if (tirJ2[i][j].isTouche() 
+                    && !bateauJ1[i][j].isBateau()) {
+                        
+                        SVGPath temp = new SVGPath();
+                        temp.setContent(cross.getContent());
+                        
+                        grilleJoueur.add(temp, i, j);
+                        System.out.println("croix en " + i + "; "+ j);
+                    }
+            	} else  { // c'est le joueur 2
+            		if (tirJ2[i][j].isTouche() 
+                     && bateauJ1[i][j].isBateau()) {
+                        
+                        Circle temp = new Circle();
+                        temp.setRadius(circle.getRadius());
+                        temp.setStroke(Color.rgb(255, 33, 33));
+                        
+                        grilleEnnemie.add(temp, i, j);
+                        System.out.println("rond en " + i + "; "+ j);
+                    }
+            	
+            		if (tirJ2[i][j].isTouche() 
+                    && !bateauJ1[i][j].isBateau()) {
+                        
+                        SVGPath temp = new SVGPath();
+                        temp.setContent(cross.getContent());
+                        
+                        grilleEnnemie.add(temp, i, j);
+                        System.out.println("croix en " + i + "; "+ j);
+                    }
+                    
+                    if (tirJ1[i][j].isTouche() 
+                     && bateauJ2[i][j].isBateau()) {
+                        
+                        Circle temp = new Circle();
+                        temp.setRadius(circle.getRadius());
+                        temp.setStroke(Color.rgb(255, 33, 33));
+                        
+                        grilleJoueur.add(temp, i, j);
+                        System.out.println("rond en " + i + "; "+ j);
+                    }
+                    
+                    if (tirJ1[i][j].isTouche() 
+                    && !bateauJ2[i][j].isBateau()) {
+                        
+                        SVGPath temp = new SVGPath();
+                        temp.setContent(cross.getContent());
+                        
+                        grilleJoueur.add(temp, i, j);
+                        System.out.println("croix en " + i + "; "+ j);
+                    }
+            		
+            	}
+            }
+        }   
         
     }
+    
+  
 
     @Override
     public void start(Stage arg0) throws Exception {

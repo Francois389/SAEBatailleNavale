@@ -36,6 +36,8 @@ public class MenuPrincipalControlleur {
 	
 	@FXML
 	private void chargerPartie()  throws IOException {
+		Main a = new Main();
+		a.chargementPageDependante();
 		Main.activerChargerPartie();
 	}
 	
