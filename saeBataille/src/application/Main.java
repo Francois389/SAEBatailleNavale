@@ -231,9 +231,6 @@ public class Main extends Application {
             positionBateau = new Scene(getParentFromVue("vue/pagePositionBateau.fxml") , LARGEUR , HAUTEUR);
             pageDeJeux = new Scene(getParentFromVue("vue/pageDeJeux.fxml") , LARGEUR , HAUTEUR);
             chargerPartie = new Scene(getParentFromVue("vue/pageChargerPartie.fxml") , LARGEUR , HAUTEUR);
-            System.out.println("page inde");
-            System.out.println(Modele.getPartieEnCours());
-            System.out.println();
         } catch (IOException e) {
             e.printStackTrace();
         }

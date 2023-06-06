@@ -77,16 +77,16 @@ public class PageDeJeuxControlleur extends Application {
         
         for (int i = 0; i < tirJ1.length; i++) {
             for (int j = 0; j < tirJ1[i].length; j++) {
-            	System.out.println("("+i+"; "+j+")" + " | " 
-              + tirJ1[i][j].isTouche() + " | "
-              + tirJ2[i][j].isTouche() + " | "
-			  + bateauJ1[i][j].isTouche() + " | "
-              + bateauJ2[i][j].isTouche() + " | ");
             	// c'est le joueur 1
                 if (joueurActuel == joueur1) {	                    
                     if (tirJ1[i][j].isTouche() 
                      && bateauJ2[i][j].isBateau()) {
-                        printCircle(i, j, grilleEnnemie);
+                        
+                        Circle temp = new Circle();
+                        temp.setRadius(circle.getRadius());
+                        temp.setStroke(Color.rgb(255, 33, 33));
+                        
+                        grilleEnnemie.add(temp, i, j);
                     }
                     
                     if (tirJ1[i][j].isTouche() 
@@ -96,12 +96,16 @@ public class PageDeJeuxControlleur extends Application {
                         temp.setContent(cross.getContent());
                         
                         grilleEnnemie.add(temp, i, j);
-                        System.out.println("croix en " + i + "; "+ j);
                     }
                     
                     if (tirJ2[i][j].isTouche() 
                      && bateauJ1[i][j].isBateau()) {
-                        printCircle(i, j, grilleJoueur);
+                        
+                        Circle temp = new Circle();
+                        temp.setRadius(circle.getRadius());
+                        temp.setStroke(Color.rgb(255, 33, 33));
+                        
+                        grilleJoueur.add(temp, i, j);
                     }
                     if (tirJ2[i][j].isTouche() 
                     && !bateauJ1[i][j].isBateau()) {
@@ -110,12 +114,16 @@ public class PageDeJeuxControlleur extends Application {
                         temp.setContent(cross.getContent());
                         
                         grilleJoueur.add(temp, i, j);
-                        System.out.println("croix en " + i + "; "+ j);
                     }
             	} else  { // c'est le joueur 2
             		if (tirJ2[i][j].isTouche() 
                      && bateauJ1[i][j].isBateau()) {
-            		    printCircle(i, j, grilleEnnemie);
+                        
+                        Circle temp = new Circle();
+                        temp.setRadius(circle.getRadius());
+                        temp.setStroke(Color.rgb(255, 33, 33));
+                        
+                        grilleEnnemie.add(temp, i, j);
                     }
             	
             		if (tirJ2[i][j].isTouche() 
@@ -129,8 +137,13 @@ public class PageDeJeuxControlleur extends Application {
                     }
                     
                     if (tirJ1[i][j].isTouche() 
-                     && bateauJ2[i][j].isBateau()) {                       
-                        printCircle(i, j, grilleJoueur);
+                     && bateauJ2[i][j].isBateau()) {
+                        
+                        Circle temp = new Circle();
+                        temp.setRadius(circle.getRadius());
+                        temp.setStroke(Color.rgb(255, 33, 33));
+                        
+                        grilleJoueur.add(temp, i, j);
                     }
                     
                     if (tirJ1[i][j].isTouche() 
@@ -140,7 +153,6 @@ public class PageDeJeuxControlleur extends Application {
                         temp.setContent(cross.getContent());
                         
                         grilleJoueur.add(temp, i, j);
-                        System.out.println("croix en " + i + "; "+ j);
                     }
             		
             	}

@@ -59,8 +59,6 @@ public class Modele {
      * @return the partieEnCours
      */
     public static Partie getPartieEnCours() {
-    	System.out.println("getter");
-    	System.out.println(partieEnCours);
         return Modele.partieEnCours;
     }
 
@@ -68,8 +66,6 @@ public class Modele {
      * @param partieEnCours the partieEnCours to set
      */
     public static void setPartieEnCours(Partie nouvellePartieEnCours) {
-    	System.out.println("setter partie");
-    	System.out.println(nouvellePartieEnCours);
         Modele.partieEnCours = nouvellePartieEnCours;
     }
 

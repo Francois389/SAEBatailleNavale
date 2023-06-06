@@ -127,7 +127,6 @@ public class ChargerPartieController {
     private void loadPartie2() {
         System.out.println("charger partie 2");
         Partie partie = Lecture.interprete(Lecture.lire(partie2));
-        System.out.println("on charge la partie");
         Modele.setPartieEnCours(partie);
         
         Main a = new Main();
