@@ -3,9 +3,13 @@
  */
 package application.controller;
 
+import java.util.Optional;
+
 import application.Main;
 import application.modele.Modele;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import sauvegarde.Ecriture;
@@ -28,8 +32,6 @@ public class SauvegardePartieControlleur {
     
     @FXML
     void initialize() {
-//        //TODO remove STUB
-//        Modele.creerUneNouvellePartie("test", "AZERTYUIOP"); //STUB
         affichageJoueur1.setText(Modele.getPartieEnCours().getJoueur1().getNom());
         affichageJoueur2.setText(Modele.getPartieEnCours().getJoueur2().getNom());
         nomSauvegarde.setText(affichageJoueur1.getText() 
@@ -42,6 +44,18 @@ public class SauvegardePartieControlleur {
         System.out.println(nomChoisie);
         Ecriture.ecrire(Modele.getPartieEnCours(), nomChoisie);
         Main.activerMenuPrincipale();
+    }
+    
+    @FXML
+    void retour() {
+        Alert boiteAlerte = new Alert(Alert.AlertType.CONFIRMATION ,"",
+                ButtonType.YES, ButtonType.NO);
+        boiteAlerte.setHeaderText("Si vous retournez au menu votre partie, sera perdu."
+                                  + "Êtes vous sur de quitter sans sauvegarder"); 
+        Optional<ButtonType> option = boiteAlerte.showAndWait(); 
+        if (option.get() == ButtonType.YES) {
+            Main.activerMenuPrincipale();
+        }
     }
     
 }
