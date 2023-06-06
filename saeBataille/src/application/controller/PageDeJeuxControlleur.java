@@ -11,6 +11,7 @@ import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
@@ -43,6 +44,12 @@ public class PageDeJeuxControlleur extends Application {
     
     @FXML
     private Circle circle;
+    
+    @FXML
+    private Label nbCircle;
+    
+    @FXML
+    private Label nbCross;
     
     private final int CIRCLE_RADIUS = 12;
     
@@ -116,9 +123,9 @@ public class PageDeJeuxControlleur extends Application {
                         
                         SVGPath temp = new SVGPath();
                         temp.setContent(cross.getContent());
-                        
+                        temp.setScaleX(50);
+                        temp.setScaleY(50);
                         grilleEnnemie.add(temp, i, j);
-                        System.out.println("croix en " + i + "; "+ j);
                     }
                     
                     if (tirJ1[i][j].isTouche() 
@@ -158,6 +165,14 @@ public class PageDeJeuxControlleur extends Application {
         temp.setFill(Color.rgb(255, 33, 33));
         temp.setTranslateX(3);
         
+        grille.add(temp, x, y);
+    }
+    
+    public void printCross(int x, int y, GridPane grille) {
+        SVGPath temp = new SVGPath();
+        temp.setContent(cross.getContent());
+        temp.setScaleX(50);
+        temp.setScaleY(50);
         grille.add(temp, x, y);
     }
     
