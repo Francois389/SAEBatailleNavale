@@ -3,6 +3,7 @@ package application.controller;
 import application.Main;
 import application.modele.Modele;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import jeu.partie.Joueur;
 
@@ -13,6 +14,9 @@ public class controllerTransition {
 	
 	@FXML
 	private Label pseudoJoueur2;
+	
+	@FXML
+	private Button boutonGo;
 	
 	// TODO récupérer les noms des joueurs
 	
@@ -50,6 +54,10 @@ public class controllerTransition {
 		pseudoJoueur1.setText(actuel.getNom());
 		pseudoJoueur2.setText(suivant.getNom());
 		System.out.println("pseudo changer");
+	}
 	
+	@FXML
+	void initialize() {
+	    boutonGo.getStyleClass().add("btnBleue");
 	}
 }

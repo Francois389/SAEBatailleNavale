@@ -11,10 +11,10 @@ import javafx.scene.control.ToggleGroup;
 public class PersonalisePartieController {
     
     @FXML
-    private Button buttonAnnuler;
+    private Button boutonAnnuler;
     
     @FXML
-    private Button buttonValider;
+    private Button boutonValider;
     
     @FXML
     private RadioButton radioAutomatique;
@@ -41,6 +41,8 @@ public class PersonalisePartieController {
         radioManuel.setToggleGroup(groupePlacementBateau);
         radioAutreJoueur.setToggleGroup(jouerContre);
         radioOrdinateur.setToggleGroup(jouerContre);
+        boutonAnnuler.getStyleClass().add("btnRouge");
+        boutonValider.getStyleClass().add("btnBleue");
     }
     
     @FXML

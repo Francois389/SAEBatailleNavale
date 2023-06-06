@@ -24,12 +24,12 @@
       </Text>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="120.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#retourMenu" style="-fx-background-color: blue;" text="Retour au Menu" textFill="WHITE">
+            <Button fx:id="btnRetourMenu" mnemonicParsing="false" onAction="#retourMenu" text="Retour au Menu">
                <font>
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#nouvellePartie" text="Nouvelle Partie">
+            <Button fx:id="btnNouvellePartie" mnemonicParsing="false" onAction="#nouvellePartie" text="Nouvelle Partie">
                <font>
                   <Font size="24.0" />
                </font>

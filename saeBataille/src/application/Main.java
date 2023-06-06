@@ -92,6 +92,7 @@ public class Main extends Application {
      */
     public static void activerSauvegardePartie() {
         fenetrePrincipale.setScene(sauvegardePartie);
+        System.out.println(sauvegardePartie);
     }
 
     public static void activerChargerPartie() {
@@ -149,10 +150,7 @@ public class Main extends Application {
             personalisePartie = new Scene(conteneur , LARGEUR  , HAUTEUR);
             personalisePartie.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
             
-           // Chargement de la vue sauvegarde partie
-            conteneur = getParentFromVue("vue/pageChargerPartie.fxml");
-            sauvegardePartie = new Scene (conteneur , LARGEUR , HAUTEUR);
-            sauvegardePartie.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+
 
             //Page pour charger une partie
             conteneur = getParentFromVue("vue/pageChargerPartie.fxml");
@@ -208,10 +206,12 @@ public class Main extends Application {
 	 * à une erreur et l'application de ce lancera pas.
 	 */
 	public void chargementPageDependante() {
+	    System.out.println("ùOEISF PIODJ");
         try {
             // Chargement de la vue sauvegarde partie
             sauvegardePartie = new Scene (getParentFromVue("vue/pageSauvegardePartie.fxml") , LARGEUR , HAUTEUR);
             sauvegardePartie.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+            
             resultat = new Scene (getParentFromVue("vue/pageResultat.fxml") , LARGEUR , HAUTEUR);
             resultat.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
             // Chargement de la vue postionBateau dans le conteneur

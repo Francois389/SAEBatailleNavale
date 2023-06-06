@@ -1,6 +1,5 @@
 package application.controller;
 
-import java.awt.Image;
 import java.io.IOException;
 
 import application.Main;
@@ -15,8 +14,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.control.Label;
 
-import jeu.plateau.Grille;
-import jeu.plateau.Cellule;
 
 public class PositionBateauController2 {
 	
@@ -81,24 +78,8 @@ public class PositionBateauController2 {
 
     
     private ImageView bateauCourant;
-    private Grille grilleJoueur = new Grille(creerTableauGrille());
     int coordoneeAplacerX = 0 ; 
     int coordonneAplacerY = 0 ;
-   
-	
-    private Cellule[][] creerTableauGrille() {
-    	Cellule[][] retour = new Cellule[10][10];
-    
-    	for (int i = 0; i < retour.length; i++) {
-    		for (int j = 0; j < retour.length; j++) {
-    			retour[i][j] = new Cellule(i,j);
-    		}
-    		
-    		
-    	}
-    	
-    	return retour;
-    }
     
     
     @FXML
