@@ -5,6 +5,9 @@
 package jeu.partie;
 
 import jeu.plateau.Grille;
+
+import java.util.Objects;
+
 import jeu.plateau.Cellule;
 
 /**
@@ -141,8 +144,24 @@ public class Joueur {
         return nbRatés;
 	    
 	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(mesBateaux, mesTirs, nom);
+	}
 
-
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Joueur other = (Joueur) obj;
+		return Objects.equals(mesBateaux, other.mesBateaux) && Objects.equals(mesTirs, other.mesTirs)
+				&& Objects.equals(nom, other.nom);
+	}
 }
 
 

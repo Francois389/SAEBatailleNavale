@@ -31,6 +31,8 @@ public class Main extends Application {
     /** Scene du menu de positionnement des bateaux*/
     private static Scene positionBateau;
     
+    private static Scene positionBateauJoueur2;
+    
     /** Scene du menu de personnalisation de partie*/
     private static Scene personalisePartie;
     
@@ -43,6 +45,10 @@ public class Main extends Application {
     private static Scene resultat;
     
     private static Scene chargerPartie;
+
+
+    private static Scene EcranTransition;
+    
 
     /** 
      * Fenêtre principale de l'application
@@ -70,6 +76,14 @@ public class Main extends Application {
     }
     
     /**
+     * change la scene de la fenetre principale en positionBateau joueur2
+     */
+    public static  void activerPositionBateau2() {
+        fenetrePrincipale.setScene(positionBateauJoueur2); 
+    }
+    
+    
+    /**
      * change la scene de la fenetre principale en personalisePartie
      */
     public static void activerPersonalisePartie() {
@@ -92,6 +106,12 @@ public class Main extends Application {
      */
     public static void activerPageDeJeux() {
         fenetrePrincipale.setScene(pageDeJeux);
+    }
+    /*
+     * change la scene de la fenetre principale en ecran transition
+     */
+    public static void activerEcranTransition() {
+    	fenetrePrincipale.setScene(EcranTransition);
     }
     
     /** 
@@ -121,6 +141,10 @@ public class Main extends Application {
 			conteneur = getParentFromVue("vue/pagePositionBateau.fxml");
             positionBateau = new Scene(conteneur , LARGEUR , HAUTEUR);
             
+            
+            conteneur = getParentFromVue("vue/pagePositionBateau2.fxml");
+            positionBateauJoueur2 = new Scene(conteneur , LARGEUR , HAUTEUR);
+            
             // Chargement de la vue personalisePartie
             conteneur = getParentFromVue("vue/personalisePartie.fxml");
             personalisePartie = new Scene(conteneur , LARGEUR  , HAUTEUR);
@@ -136,6 +160,9 @@ public class Main extends Application {
             // Chargement de la vue en sauvegarde partie
             conteneur = getParentFromVue("vue/pageDeJeux.fxml");
             pageDeJeux = new Scene (conteneur , LARGEUR , HAUTEUR);
+            
+            conteneur = getParentFromVue("vue/PageTransition.fxml");
+            EcranTransition = new Scene (conteneur , LARGEUR , HAUTEUR);
             
             
             primaryStage.setTitle("Bataille Navale");
@@ -188,7 +215,4 @@ public class Main extends Application {
             System.out.println("Le chemin n'est pas bon");
         }
 	}
-
-    
-
 }
