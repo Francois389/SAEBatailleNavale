@@ -44,6 +44,21 @@ public class Cellule {
         estTouche = false;
     }
     
+    /** 
+     * 
+     * @throws IllegalArgumentException 
+     */
+    public Cellule(int x, int y, boolean tir, boolean bateau) {
+        
+        if (!estValide(x, y)) {
+            throw new IllegalArgumentException("arguments invalides");
+        } 
+		this.x = x;
+        this.y = y;
+        estBateau = tir;
+        estTouche = bateau;
+    }
+    
     
     /**
      * Vérifie la validite des coordonnees d'un bateau

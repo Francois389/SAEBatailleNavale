@@ -11,9 +11,17 @@ import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.SVGPath;
 import javafx.stage.Stage;
 import jeu.partie.Joueur;
 import jeu.partie.Partie;
+import jeu.plateau.Cellule;
+import jeu.plateau.Grille;
 
 /**
  * Le controlleur de la pageDeJeux.fxml
@@ -26,14 +34,143 @@ public class PageDeJeuxControlleur extends Application {
     private Partie partieEnCours;
     
     @FXML
+    private GridPane grilleEnnemie ;
+    
+    @FXML
+    private GridPane grilleJoueur;
+    
+    @FXML
+    private SVGPath cross;
+    
+    @FXML
+    private Circle circle;
+    
+    @FXML
+    private Label nbCircle;
+    
+    @FXML
+    private Label nbCross;
+    
+    private final int CIRCLE_RADIUS = 12;
+    
+    
+    @FXML
     public void initialize() {
-        Modele.creerUneNouvellePartie("Coucou", "Oui");
-        partieEnCours = Modele.getPartieEnCours();
+        
+        System.out.println("initialize controler page jeux");
+        printCrossCircle();
+        printNbTirs();
+        
     }
+    
+    // TODO afficher leur nombre dans la top bar
+    
+  
 
     @Override
     public void start(Stage arg0) throws Exception {
         // TODO Auto-generated method stub
+    }
+    
+    public void printNbTirs() {
+        Joueur joueurActuel = Modele.getPartieEnCours().getJoueurActuel();
+        Joueur joueur1 = Modele.getPartieEnCours().getJoueur1();
+        Joueur joueur2 = Modele.getPartieEnCours().getJoueur2();
+        
+        if (joueurActuel == joueur1) { 
+            nbCircle.setText("  : " +  joueur1.getNbTouche());
+            nbCross.setText("  : " +  joueur1.getTirRatés());
+        } else {
+            nbCircle.setText("  : " +  joueur2.getNbTouche());
+            nbCross.setText("  : " +  joueur2.getTirRatés());
+        }
+        
+        
+    }
+    public void printCrossCircle() {
+        
+        Joueur joueurActuel = Modele.getPartieEnCours().getJoueurActuel();
+        Joueur joueur1 = Modele.getPartieEnCours().getJoueur1();
+        Joueur joueur2 = Modele.getPartieEnCours().getJoueur2();
+        
+        Cellule[][] tirJ1 = joueur1.getGrilleTirs().getQuadrillage();
+        Cellule[][] tirJ2 = joueur2.getGrilleTirs().getQuadrillage();
+        Cellule[][] bateauJ1 = joueur1.getGrilleBateaux().getQuadrillage();
+        Cellule[][] bateauJ2 = joueur2.getGrilleBateaux().getQuadrillage();
+        
+        for (int i = 0; i < tirJ1.length; i++) {
+            for (int j = 0; j < tirJ1[i].length; j++) {
+                // c'est le joueur 1
+                if (joueurActuel == joueur1) {                      
+                    if (tirJ1[i][j].isTouche() 
+                     && bateauJ2[i][j].isBateau()) {
+                        
+                        printCircle(i, j, grilleEnnemie);
+                    }
+                    
+                    if (tirJ1[i][j].isTouche() 
+                    && !bateauJ2[i][j].isBateau()) {
+                        
+                        printCross(j, i, grilleEnnemie);
+                    }
+                    
+                    if (tirJ2[i][j].isTouche() 
+                     && bateauJ1[i][j].isBateau()) {
+                        
+                        printCircle(i, j, grilleJoueur);
+                        
+                    }
+                    if (tirJ2[i][j].isTouche() 
+                    && !bateauJ1[i][j].isBateau()) {
+
+                        printCross(j, i, grilleEnnemie);
+                    }
+                } else  { // c'est le joueur 2
+                    if (tirJ2[i][j].isTouche() 
+                     && bateauJ1[i][j].isBateau()) {
+                        
+                        printCircle(i, j, grilleJoueur);
+                    }
+                
+                    if (tirJ2[i][j].isTouche() 
+                    && !bateauJ1[i][j].isBateau()) {
+                        
+                       printCross(i, j, grilleEnnemie);
+                    }
+                    
+                    if (tirJ1[i][j].isTouche() 
+                     && bateauJ2[i][j].isBateau()) {
+                        
+                        printCircle(i, j, grilleEnnemie);
+                    }
+                    
+                    if (tirJ1[i][j].isTouche() 
+                    && !bateauJ2[i][j].isBateau()) {
+                        
+                        printCross(i, j, grilleJoueur);
+                    }
+                    
+                }
+            }
+        }
+    }
+    
+    public void printCircle(int x, int y, GridPane grille) {
+        Circle temp = new Circle();
+        temp.setRadius(CIRCLE_RADIUS);
+        temp.setFill(Color.rgb(255, 33, 33));
+        temp.setTranslateX(3);
+        
+        grille.add(temp, x, y);
+    }
+    
+    public void printCross(int x, int y, GridPane grille) {
+        SVGPath temp = new SVGPath();
+        temp.setContent(cross.getContent());
+        temp.setScaleX(3);
+        temp.setScaleY(3);
+        temp.setTranslateX(10);
+        grille.add(temp, x, y);
     }
     
     @FXML
