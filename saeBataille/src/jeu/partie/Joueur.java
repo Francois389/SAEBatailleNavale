@@ -76,12 +76,7 @@ public class Joueur {
 	 * @param cible La Cellule ciblé
 	 */
 	public void tir(Cellule cible) {
-		if (!cible.isTouche()) {
-		    cible.setEstTouche(true);
-		    //Le joueur est trop fort, gg
-		} else {
-			cible.setEstTouche(false);
-		}
+		cible.setEstTouche(true);
 	}
 	
 	

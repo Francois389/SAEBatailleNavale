@@ -8,10 +8,13 @@ import java.util.Optional;
 import application.Main;
 import application.modele.Modele;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -70,24 +73,20 @@ public class PageDeJeuxControlleur extends Application {
         printCrossCircle();
         printNbTirs();
 
-        for (Node elt : grilleEnnemie.getChildren()) {
-			elt.setOnMouseExited((EventHandler<MouseEvent>) new EventHandler<MouseEvent>() {
-	        	@Override
-	        	public void handle(MouseEvent event) {
-	        		int x = (int) event.getX() / TAILLE_GRILLE_PIXEL;
-	        		int y = (int) event.getY() / TAILLE_GRILLE_PIXEL;
-	        		//System.out.println("("+x+"; "+y+")");
-	        			    			
-	        		if (DIMENSION_MIN<= x && x <= DIMENSION_MAX 
-	        			&& DIMENSION_MIN <= y && y <= DIMENSION_MAX)  {
-	        			tirCellule(x, y);
-	        		}
-	        	}
-	        });
-			
-			
-		}
-        
+        grilleEnnemie.setOnMouseClicked((EventHandler<MouseEvent>) new EventHandler<MouseEvent>() {
+        	@Override
+        	public void handle(MouseEvent event) {
+        		int x = (int) event.getX() / TAILLE_GRILLE_PIXEL;
+        		int y = (int) event.getY() / TAILLE_GRILLE_PIXEL;
+        		//System.out.println("("+x+"; "+y+")");
+        			    			
+        		if (DIMENSION_MIN<= x && x <= DIMENSION_MAX 
+        			&& DIMENSION_MIN <= y && y <= DIMENSION_MAX)  {
+        			tirCellule(x, y);
+        		}
+        	}
+        });
+        		
     }
     
     // TODO afficher leur nombre dans la top bar
@@ -186,6 +185,7 @@ public class PageDeJeuxControlleur extends Application {
     
     
     private void tirCellule(int x, int y) {
+		boolean touche;
     	Joueur joueurActuel = Modele.getPartieEnCours().getJoueurActuel();
         Joueur joueur1 = Modele.getPartieEnCours().getJoueur1();
         Joueur joueur2 = Modele.getPartieEnCours().getJoueur2();
@@ -197,21 +197,41 @@ public class PageDeJeuxControlleur extends Application {
         
         if (joueurActuel == joueur1) {
         	joueur1.tir(bateauJ2[x][y]);
+        	touche = bateauJ2[x][y].isBateau();
+        	System.out.println(joueur1.getGrilleTirs().getQuadrillage()[x][y]);
         } else {
         	joueur2.tir(bateauJ1[x][y]);
+        	touche = bateauJ2[x][y].isBateau();
+        	
         }
+        
+        Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("résultat du tir");
+		
+		if (touche) {
+			alert.setContentText("touché !");
+			alert.showAndWait(); 
+			
+			Main a = new Main();
+        	a.chargementPageDependante();     
+        	Main.activerPageDeJeux();
+		} else {
+			alert.setContentText("loupé ...");
+			alert.showAndWait();
+			
+			Main a = new Main();
+        	a.chargementPageDependante();     
+        	Main.activerEcranTransition(); 
+
+		}
+		
+		
         
     }
     
     // TODO sous programme 
     // TODO afficher leur nombre dans la top bar
     
-  
-
-    @Override
-    public void start(Stage arg0) throws Exception {
-        // TODO Auto-generated method stub
-    }
     
     public void printCircle(int x, int y, GridPane grille) {
         Circle temp = new Circle();
