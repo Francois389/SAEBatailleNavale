@@ -20,6 +20,7 @@ import jeu.partie.Partie;
  * @author de Saint Palais François
  *
  */
+//TODO enlever l'héritage d'Application, on n'en a pas besoin
 public class PageDeJeuxControlleur extends Application {
     
     private Partie partieEnCours;

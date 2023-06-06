@@ -63,7 +63,6 @@ public class Grille {
             }
         }
         
-        // TODO Il n'existe pas deux Cellule avec les mêmes coordonnée
         for (int i = 0; i < argQuadrillage.length; i++) {
 			for (int j = 0; j < argQuadrillage[i].length; j++) {
                 Cellule selectionne = argQuadrillage[i][j];

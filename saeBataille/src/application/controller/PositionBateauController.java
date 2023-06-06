@@ -1,6 +1,5 @@
 package application.controller;
 
-import java.awt.Image;
 import java.io.IOException;
 
 import application.Main;
@@ -9,14 +8,14 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import javafx.scene.control.Label;
-
-import jeu.plateau.Grille;
+import javafx.scene.text.Text;
 import jeu.plateau.Cellule;
+import jeu.plateau.Grille;
 
 public class PositionBateauController {
 	
@@ -30,9 +29,6 @@ public class PositionBateauController {
 	
 	final static private int LIGNE_MAX = 9;
 	
-	private boolean clicActive = false;
-	
-	private boolean bateauSelectionne = false;
 	
     @FXML
     private ImageView porteAvions ;
@@ -67,6 +63,13 @@ public class PositionBateauController {
     @FXML
     private Label labelTorpilleur;
     
+    @FXML
+    private Text textJoueur;
+
+    private boolean clicActive = false;
+    
+    private boolean bateauSelectionne = false;
+    
     boolean porteAvionsPivote = false ;
     boolean croiseurPivote = false ;
     boolean contreTorpilleurPivote = false ;
@@ -86,6 +89,16 @@ public class PositionBateauController {
     int coordonneAplacerY = 0 ;
    
 	
+    @FXML
+    void initialize() {
+        textJoueur.setText(Modele.getPartieEnCours().getJoueurActuel().getNom());
+    }
+    
+    
+    /**
+     * //TODO Commentez la fonction de la méthode
+     * @return
+     */
     private Cellule[][] creerTableauGrille() {
     	Cellule[][] retour = new Cellule[10][10];
     
@@ -128,6 +141,12 @@ public class PositionBateauController {
 				}
 	    	}
 		}
+    }
+    
+    @FXML
+    void valider() {
+        //TODO vérifier que tous les bateaux on été placé
+        System.out.println("Valider");
     }
     
     @FXML
@@ -298,7 +317,9 @@ public class PositionBateauController {
 		
 	}
 	
-	
+	/**
+	 * //TODO Commentez la fonction de la méthode
+	 */
 	private void activerClic() {
 		clicActive = true;		
 		
@@ -322,6 +343,12 @@ public class PositionBateauController {
 		}
 	}
 	
+	/**
+	 * //TODO Commentez la fonction de la méthode
+	 * @param bateau
+	 * @param x
+	 * @param y
+	 */
 	private void placerBateau(ImageView bateau ,int x, int y) {
  		if (grille.getChildren().contains(bateau)) {
 			grille.getChildren().remove(bateau);
@@ -390,6 +417,10 @@ public class PositionBateauController {
 		
 		grille.add(bateau, x, y);
 	}
+	
+	/**
+	 * //TODO Commentez la fonction de la méthode
+	 */
 	private void affichageTorpilleur() {
 		if ((torpilleur1Place &&  !torpilleur2Place)
 			 || (!torpilleur1Place && torpilleur2Place)) {
