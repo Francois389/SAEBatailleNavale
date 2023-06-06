@@ -118,7 +118,7 @@ public class ChargerPartieController {
        
        Main a = new Main();
 
-       a.chargementPageDependante();
+       a.chargementPageJeu();
        
        Main.activerPageDeJeux();
     }
@@ -131,7 +131,7 @@ public class ChargerPartieController {
         
         Main a = new Main();
 
-        a.chargementPageDependante();
+        a.chargementPageJeu();
         
         Main.activerPageDeJeux();
     }
@@ -143,7 +143,7 @@ public class ChargerPartieController {
         Modele.setPartieEnCours(partie);
         Main a = new Main();
 
-        a.chargementPageDependante();
+		a.chargementPageJeu();
         Main.activerPageDeJeux();
     }
     
@@ -154,7 +154,7 @@ public class ChargerPartieController {
         Modele.setPartieEnCours(partie);
         Main a = new Main();
 
-        a.chargementPageDependante();
+        a.chargementPageJeu();
         Main.activerPageDeJeux();
     }
     
@@ -165,7 +165,7 @@ public class ChargerPartieController {
         Modele.setPartieEnCours(partie);
         Main a = new Main();
 
-        a.chargementPageDependante();
+        a.chargementPageJeu();
         Main.activerPageDeJeux();
     }
 }

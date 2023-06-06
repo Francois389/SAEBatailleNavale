@@ -27,6 +27,7 @@ public class ControllerTransition {
 	
 	@FXML
 	void initialize() {
+		System.out.println("init");
 		ControllerTransition.controllerCourant =  this;
 		
 		for (int i = 0; i < Modele.getPartieEnCours().getJoueur2().getGrilleBateaux().getBateau().length && !bateauJ2place; i++) {
@@ -39,6 +40,7 @@ public class ControllerTransition {
 	}
 	@FXML
 	private void tourSuivant() {
+		System.out.println(bateauJ2place);
 		Modele.getPartieEnCours().incrementNbTour();
 		System.out.println(Modele.getPartieEnCours().getNbTour());
 		//System.out.println(Joueur1 + " " + Joueur2);
@@ -48,7 +50,7 @@ public class ControllerTransition {
 		} else {
 			
 			Main a = new Main();
-       		a.chargementPageDependante();
+       		a.chargementPageJeu();
        		Main.activerPageDeJeux();
 		}
 		

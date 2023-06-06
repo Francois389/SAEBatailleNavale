@@ -79,8 +79,6 @@ public class PageDeJeuxControlleur {
         System.out.println("initialize controler page jeux");
         printCrossCircle();
         printNbTirs();
-        PageDeJeuxControlleur.controlleurCourant = this ;
-        partieEnCours = Modele.getPartieEnCours();
 
         grilleEnnemie.setOnMouseClicked((EventHandler<MouseEvent>) new EventHandler<MouseEvent>() {
         	@Override
@@ -199,11 +197,20 @@ public class PageDeJeuxControlleur {
         if (joueurActuel == joueur1) {
         	joueur1.tir(bateauJ2[x][y]);
         	touche = bateauJ2[x][y].isBateau();
-        	printCrossCircle();
+        	if (touche) {
+        		printCircle(x, y, grilleEnnemie);
+        	} else {
+        		System.out.println("ajout cross");
+        		printCross(x, y, grilleEnnemie);
+        	}
         } else {
         	joueur2.tir(bateauJ1[x][y]);
         	touche = bateauJ2[x][y].isBateau();
-        	printCrossCircle();
+        	if (touche) {
+        		printCircle(x, y, grilleJoueur);
+        	} else {
+        		printCross(x, y, grilleEnnemie);
+        	}
         }
         
         Alert alert = new Alert(AlertType.INFORMATION);
@@ -214,7 +221,7 @@ public class PageDeJeuxControlleur {
 			alert.showAndWait(); 
 			
 			Main a = new Main();
-        	a.chargementPageDependante();     
+        	a.chargementChargerPartie();     
         	Main.activerPageDeJeux();
 		} else {
 			Modele.getPartieEnCours().incrementNbTour();
@@ -222,7 +229,7 @@ public class PageDeJeuxControlleur {
 			alert.showAndWait();
 			
 			Main a = new Main();
-        	a.chargementPageDependante();     
+        	a.chargementTranstion();;     
         	Main.activerEcranTransition(); 
 
 		}
@@ -355,9 +362,9 @@ public class PageDeJeuxControlleur {
         System.out.println("Credit");
     }
 
-
 	public static void affichage() {
-		controlleurCourant.nomJoueur.setText(Modele.getPartieEnCours().getJoueurActuel().getNom());
+		System.out.println(controlleurCourant);
+		controlleurCourant.nomJoueur.setText(Modele.getPartieEnCours().getJoueurActuel().getNom());	
 	}
 
 }

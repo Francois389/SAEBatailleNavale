@@ -218,21 +218,59 @@ public class Main extends Application {
 	 * Tenter de charger les pages dépendante sans Partie initialisé conduit 
 	 * à une erreur et l'application de ce lancera pas.
 	 */
-	public void chargementPageDependante() {
-        try {
-            // Chargement de la vue sauvegarde partie
-            sauvegardePartie = new Scene (getParentFromVue("vue/pageSauvegardePartie.fxml") , LARGEUR , HAUTEUR);
-            resultat = new Scene (getParentFromVue("vue/pageResultat.fxml") , LARGEUR , HAUTEUR);
-            // Chargement de la vue postionBateau dans le conteneur
-            positionBateau = new Scene(getParentFromVue("vue/pagePositionBateau.fxml") , LARGEUR , HAUTEUR);
-            EcranTransition = new Scene ( getParentFromVue("vue/PageTransition.fxml") , LARGEUR , HAUTEUR);
-            
-            positionBateauJoueur2 = new Scene(getParentFromVue("vue/pagePositionBateau2.fxml") , LARGEUR , HAUTEUR);
-
-            pageDeJeux = new Scene(getParentFromVue("vue/pageDeJeux.fxml") , LARGEUR - 120, HAUTEUR - 60);
-            chargerPartie = new Scene(getParentFromVue("vue/pageChargerPartie.fxml") , LARGEUR , HAUTEUR);
+	public void chargementResultat() {
+        try {           
+            resultat = new Scene (getParentFromVue("vue/pageResultat.fxml") , LARGEUR , HAUTEUR); 
         } catch (IOException e) {
             e.printStackTrace();
         }
 	}
+        
+    public void chargementPageJeu () {
+      	try {
+       		pageDeJeux = new Scene(getParentFromVue("vue/pageDeJeux.fxml") , LARGEUR - 120, HAUTEUR - 60);
+       	} catch (IOException e) {
+       		e.printStackTrace();
+        }
+    }
+    
+    public void positionBateau () {
+      	try {
+      		positionBateau = new Scene(getParentFromVue("vue/pagePositionBateau.fxml") , LARGEUR , HAUTEUR);
+       	} catch (IOException e) {
+       		e.printStackTrace();
+        }
+    }
+    public void positionBateau2 () {
+      	try {
+      		positionBateauJoueur2 = new Scene(getParentFromVue("vue/pagePositionBateau2.fxml") , LARGEUR , HAUTEUR);
+
+       	} catch (IOException e) {
+       		e.printStackTrace();
+        }
+    }
+    
+    public void chargementTranstion() {
+      	try {
+      		EcranTransition = new Scene ( getParentFromVue("vue/PageTransition.fxml") , LARGEUR , HAUTEUR);
+       	} catch (IOException e) {
+       		e.printStackTrace();
+        }
+    }
+    
+    public void chargementChargerPartie() {
+      	try {
+      		chargerPartie = new Scene(getParentFromVue("vue/pageChargerPartie.fxml") , LARGEUR , HAUTEUR);
+       	} catch (IOException e) {
+       		e.printStackTrace();
+        }
+   }
+   public void chargementSauvegardePartie() {
+	   try {
+		   sauvegardePartie = new Scene (getParentFromVue("vue/pageSauvegardePartie.fxml") , LARGEUR , HAUTEUR);
+   	   } catch (IOException e) {
+   		   e.printStackTrace();
+    
+   	   }
+    }
 }
