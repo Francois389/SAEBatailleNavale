@@ -35,7 +35,7 @@ import jeu.plateau.Grille;
  *
  */
 //TODO enlever l'héritage d'Application, on n'en a pas besoin
-public class PageDeJeuxControlleur extends Application {
+public class PageDeJeuxControlleur {
     
 	final static int TAILLE_GRILLE_PIXEL = 30;
 	
@@ -44,8 +44,15 @@ public class PageDeJeuxControlleur extends Application {
 	final static private int DIMENSION_MAX = 9 ;
 	
     private Partie partieEnCours;
+    private static PageDeJeuxControlleur controlleurCourant ;
     
     @FXML
+    Label nomJoueur;
+    @FXML
+    public void initialize() {
+    	PageDeJeuxControlleur.controlleurCourant = this ;
+        partieEnCours = Modele.getPartieEnCours();
+    }
     private GridPane grilleEnnemie ;
     
     @FXML
@@ -93,10 +100,6 @@ public class PageDeJeuxControlleur extends Application {
     
   
 
-    @Override
-    public void start(Stage arg0) throws Exception {
-        // TODO Auto-generated method stub
-    }
     
     public void printNbTirs() {
         Joueur joueurActuel = Modele.getPartieEnCours().getJoueurActuel();
@@ -352,5 +355,10 @@ public class PageDeJeuxControlleur extends Application {
     void menuCredit() {
         System.out.println("Credit");
     }
+
+
+	public static void affichage() {
+		controlleurCourant.nomJoueur.setText(Modele.getPartieEnCours().getJoueur1().getNom());
+	}
 
 }
