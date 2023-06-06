@@ -44,6 +44,8 @@ public class PageDeJeuxControlleur extends Application {
     @FXML
     private Circle circle;
     
+    private final int CIRCLE_RADIUS = 12;
+    
     
     @FXML
     public void initialize() {
@@ -77,13 +79,7 @@ public class PageDeJeuxControlleur extends Application {
                 if (joueurActuel == joueur1) {	                    
                     if (tirJ1[i][j].isTouche() 
                      && bateauJ2[i][j].isBateau()) {
-                        
-                        Circle temp = new Circle();
-                        temp.setRadius(circle.getRadius());
-                        temp.setStroke(Color.rgb(255, 33, 33));
-                        
-                        grilleEnnemie.add(temp, i, j);
-                        System.out.println("rond en " + i + "; "+ j);
+                        printCircle(i, j, grilleEnnemie);
                     }
                     
                     if (tirJ1[i][j].isTouche() 
@@ -98,13 +94,7 @@ public class PageDeJeuxControlleur extends Application {
                     
                     if (tirJ2[i][j].isTouche() 
                      && bateauJ1[i][j].isBateau()) {
-                        
-                        Circle temp = new Circle();
-                        temp.setRadius(circle.getRadius());
-                        temp.setStroke(Color.rgb(255, 33, 33));
-                        
-                        grilleJoueur.add(temp, i, j);
-                        System.out.println("rond en " + i + "; "+ j);
+                        printCircle(i, j, grilleJoueur);
                     }
                     if (tirJ2[i][j].isTouche() 
                     && !bateauJ1[i][j].isBateau()) {
@@ -118,13 +108,7 @@ public class PageDeJeuxControlleur extends Application {
             	} else  { // c'est le joueur 2
             		if (tirJ2[i][j].isTouche() 
                      && bateauJ1[i][j].isBateau()) {
-                        
-                        Circle temp = new Circle();
-                        temp.setRadius(circle.getRadius());
-                        temp.setStroke(Color.rgb(255, 33, 33));
-                        
-                        grilleEnnemie.add(temp, i, j);
-                        System.out.println("rond en " + i + "; "+ j);
+            		    printCircle(i, j, grilleEnnemie);
                     }
             	
             		if (tirJ2[i][j].isTouche() 
@@ -138,14 +122,8 @@ public class PageDeJeuxControlleur extends Application {
                     }
                     
                     if (tirJ1[i][j].isTouche() 
-                     && bateauJ2[i][j].isBateau()) {
-                        
-                        Circle temp = new Circle();
-                        temp.setRadius(circle.getRadius());
-                        temp.setStroke(Color.rgb(255, 33, 33));
-                        
-                        grilleJoueur.add(temp, i, j);
-                        System.out.println("rond en " + i + "; "+ j);
+                     && bateauJ2[i][j].isBateau()) {                       
+                        printCircle(i, j, grilleJoueur);
                     }
                     
                     if (tirJ1[i][j].isTouche() 
@@ -164,11 +142,23 @@ public class PageDeJeuxControlleur extends Application {
         
     }
     
+    // TODO sous programme 
+    // TODO afficher leur nombre dans la top bar
+    
   
 
     @Override
     public void start(Stage arg0) throws Exception {
         // TODO Auto-generated method stub
+    }
+    
+    public void printCircle(int x, int y, GridPane grille) {
+        Circle temp = new Circle();
+        temp.setRadius(CIRCLE_RADIUS);
+        temp.setFill(Color.rgb(255, 33, 33));
+        temp.setTranslateX(3);
+        
+        grille.add(temp, x, y);
     }
     
     @FXML
