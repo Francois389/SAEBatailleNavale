@@ -53,7 +53,7 @@ public class PersonalisePartieController {
         Main a = new Main();
         Modele.creerUneNouvellePartie(joueur1.getText(), joueur2.getText());
         //System.out.println(Modele.getPartieEnCours().getJoueur1().getNom());
-        a.chargementPageDependante();
+        a.positionBateau();
         Main.activerPositionBateau();
     }    
 }

@@ -43,12 +43,7 @@ public class PageDeJeuxControlleur {
 	
 	final static private int DIMENSION_MAX = 9 ;
 	
-    private Partie partieEnCours;
-    private static PageDeJeuxControlleur controlleurCourant ;
-    
-    @FXML
-    Label nomJoueur;
-    
+        
     @FXML
     private GridPane grilleEnnemie ;
     
@@ -69,15 +64,27 @@ public class PageDeJeuxControlleur {
     
     private final int CIRCLE_RADIUS = 12;
     
+    private Partie partieEnCours;
+
+	private static PageDeJeuxControlleur controlleurCourant ;
     
-    
-    // TODO afficher leur nombre dans la top bar
+    @FXML
+    Label nomJoueur;
     
     @FXML
     public void initialize() {
+		
+		
     	PageDeJeuxControlleur.controlleurCourant = this ;
         partieEnCours = Modele.getPartieEnCours();
         
+        System.out.println("initialize controler page jeux");
+        printCrossCircle();
+        printNbTirs();
+        
+        
+        
+
         grilleEnnemie.setOnMouseClicked((EventHandler<MouseEvent>) new EventHandler<MouseEvent>() {
         	@Override
         	public void handle(MouseEvent event) {
@@ -182,6 +189,7 @@ public class PageDeJeuxControlleur {
     
     
     private void tirCellule(int x, int y) {
+		boolean toutTouche;
 		boolean touche;
     	Joueur joueurActuel = Modele.getPartieEnCours().getJoueurActuel();
         Joueur joueur1 = Modele.getPartieEnCours().getJoueur1();
@@ -195,36 +203,53 @@ public class PageDeJeuxControlleur {
         if (joueurActuel == joueur1) {
         	joueur1.tir(bateauJ2[x][y]);
         	touche = bateauJ2[x][y].isBateau();
-        	printCrossCircle();
+        	if (touche) {
+        		printCircle(x, y, grilleEnnemie);
+        	} else {
+        		System.out.println("ajout cross");
+        		printCross(x, y, grilleEnnemie);
+        	}
         } else {
         	joueur2.tir(bateauJ1[x][y]);
         	touche = bateauJ2[x][y].isBateau();
-        	printCrossCircle();
+        	if (touche) {
+        		printCircle(x, y, grilleJoueur);
+        	} else {
+        		printCross(x, y, grilleEnnemie);
+        	}
         }
+        
+        toutTouche = true;
+        for (int i = 0; i < Modele.getPartieEnCours().getAutreJoueur().getGrilleBateaux().getQuadrillage().length; i++) {
+			for (int j = 0; i < Modele.getPartieEnCours().getAutreJoueur().getGrilleBateaux().getQuadrillage().length; i++) {
+				if (! Modele.getPartieEnCours().getAutreJoueur().getGrilleBateaux().getQuadrillage()[i][j].isTouche()) {
+					toutTouche = false;
+				}
+			} 
+		} 
+        
+        if (toutTouche) {
+			Modele.setJoueurGagnant(joueurActuel);
+			Main.activerResultat();
+		}
         
         Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("résultat du tir");
 		
-		if (touche && bateauJ2[x][y].isBateau()) {
-			alert.setContentText("touché coulé !");
-			alert.showAndWait(); 
-			
-			Main a = new Main();
-        	a.chargementPageDependante();     
-        	Main.activerEcranTransition();
-		}if (touche && ! bateauJ2[x][y].isBateau()) {
+		if (touche) {
 			alert.setContentText("touché !");
 			alert.showAndWait(); 
 			
 			Main a = new Main();
-        	a.chargementPageDependante();     
+        	a.chargementChargerPartie();     
         	Main.activerPageDeJeux();
 		} else {
+			Modele.getPartieEnCours().incrementNbTour();
 			alert.setContentText("loupé ...");
 			alert.showAndWait();
 			
 			Main a = new Main();
-        	a.chargementPageDependante();     
+        	a.chargementTranstion();     
         	Main.activerEcranTransition(); 
 
 		}
@@ -301,12 +326,16 @@ public class PageDeJeuxControlleur {
             if (option.get() == ButtonType.YES) {
                 Main.activerPersonalisePartie();
             }
-        }
+        } else {
+			Main.activerPersonalisePartie();
+		}
     }
     
     @FXML
     void menuSauvegarder() {
         System.out.println("sauvegarde");
+        Main a = new Main();
+        a.chargementSauvegardePartie();
         Main.activerSauvegardePartie();
     }
     
@@ -327,6 +356,8 @@ public class PageDeJeuxControlleur {
                 System.out.println(perdant.getNom() + " abandonne.");
                 Modele.setJoueurGagnant(gagnant);
                 System.out.println(gagnant.getNom() + " gagne !");
+                Main a = new Main ();
+                a.chargementResultat();
                 Main.activerResultat();
             }
         }
@@ -342,9 +373,9 @@ public class PageDeJeuxControlleur {
         System.out.println("Credit");
     }
 
-
 	public static void affichage() {
-		controlleurCourant.nomJoueur.setText(Modele.getPartieEnCours().getJoueurActuel().getNom());
+		System.out.println(controlleurCourant);
+		controlleurCourant.nomJoueur.setText(Modele.getPartieEnCours().getJoueurActuel().getNom());	
 	}
 
 }

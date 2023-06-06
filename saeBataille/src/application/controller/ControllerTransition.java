@@ -27,29 +27,35 @@ public class ControllerTransition {
 	
 	@FXML
 	void initialize() {
+		System.out.println("init");
+		
 		ControllerTransition.controllerCourant =  this;
 		
-		for (int i = 0; i < Modele.getPartieEnCours().getAutreJoueur().getGrilleBateaux().getBateau().length; i++) {
-			
-		}
-		if (Modele.getPartieEnCours().getAutreJoueur().getGrilleBateaux().getBateau().length != 0) {
-			System.out.println("tg quentin");
-			bateauJ2place = true;
-		}
-		
+		for (int i = 0; i < Modele.getPartieEnCours().getJoueur2().getGrilleBateaux().getBateau().length; i++) {
+			for (int j = 0; j < Modele.getPartieEnCours().getJoueur2().getGrilleBateaux().getBateau().length; j++) {
+				System.out.println(bateauJ2place);
+				if (Modele.getPartieEnCours().getJoueur2().getGrilleBateaux().getBateau()[i][j]) {
+					bateauJ2place = true;
+					System.out.println(bateauJ2place);
+				}				
+			}
+		}		
 	}
 	@FXML
 	private void tourSuivant() {
+		System.out.println(bateauJ2place);
 		Modele.getPartieEnCours().incrementNbTour();
 		System.out.println(Modele.getPartieEnCours().getNbTour());
 		//System.out.println(Joueur1 + " " + Joueur2);
 		if (!bateauJ2place) {
 			bateauJ2place = true ;
+			Main a = new Main();
+			a.positionBateau2();
 			Main.activerPositionBateau2();
 		} else {
 			
 			Main a = new Main();
-       		a.chargementPageDependante();
+       		a.chargementPageJeu();
        		Main.activerPageDeJeux();
 		}
 		
