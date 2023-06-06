@@ -8,11 +8,17 @@ import java.util.Optional;
 import application.Main;
 import application.modele.Modele;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -31,6 +37,12 @@ import jeu.plateau.Grille;
 //TODO enlever l'héritage d'Application, on n'en a pas besoin
 public class PageDeJeuxControlleur {
     
+	final static int TAILLE_GRILLE_PIXEL = 30;
+	
+	final static private int DIMENSION_MIN = 0 ;
+	
+	final static private int DIMENSION_MAX = 9 ;
+	
     private Partie partieEnCours;
     private static PageDeJeuxControlleur controlleurCourant ;
     
@@ -147,8 +159,60 @@ public class PageDeJeuxControlleur {
                     
                 }
             }
-        }
+        }   
+
+        
     }
+    
+    
+    private void tirCellule(int x, int y) {
+		boolean touche;
+    	Joueur joueurActuel = Modele.getPartieEnCours().getJoueurActuel();
+        Joueur joueur1 = Modele.getPartieEnCours().getJoueur1();
+        Joueur joueur2 = Modele.getPartieEnCours().getJoueur2();
+        
+        Cellule[][] tirJ1 = joueur1.getGrilleTirs().getQuadrillage();
+        Cellule[][] tirJ2 = joueur2.getGrilleTirs().getQuadrillage();
+        Cellule[][] bateauJ1 = joueur1.getGrilleBateaux().getQuadrillage();
+        Cellule[][] bateauJ2 = joueur2.getGrilleBateaux().getQuadrillage();
+        
+        if (joueurActuel == joueur1) {
+        	joueur1.tir(bateauJ2[x][y]);
+        	touche = bateauJ2[x][y].isBateau();
+        	System.out.println(joueur1.getGrilleTirs().getQuadrillage()[x][y]);
+        } else {
+        	joueur2.tir(bateauJ1[x][y]);
+        	touche = bateauJ2[x][y].isBateau();
+        	
+        }
+        
+        Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("résultat du tir");
+		
+		if (touche) {
+			alert.setContentText("touché !");
+			alert.showAndWait(); 
+			
+			Main a = new Main();
+        	a.chargementPageDependante();     
+        	Main.activerPageDeJeux();
+		} else {
+			alert.setContentText("loupé ...");
+			alert.showAndWait();
+			
+			Main a = new Main();
+        	a.chargementPageDependante();     
+        	Main.activerEcranTransition(); 
+
+		}
+		
+		
+        
+    }
+    
+    // TODO sous programme 
+    // TODO afficher leur nombre dans la top bar
+    
     
     public void printCircle(int x, int y, GridPane grille) {
         Circle temp = new Circle();
