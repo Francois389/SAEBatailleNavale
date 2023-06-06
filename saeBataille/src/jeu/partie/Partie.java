@@ -4,6 +4,8 @@
  */
 package jeu.partie;
 
+import java.util.Objects;
+
 /**
  * stockage d'unne partie de bataille navale
  * @author Costes Quentin
@@ -116,4 +118,19 @@ public class Partie {
     public void setEstSauvegarder(boolean etat) {
         this.estSauvegarder = etat;
     }
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Partie other = (Partie) obj;
+		return joueur1.equals(other.joueur1)
+				&& joueur2.equals(other.joueur2) && nbTour == other.nbTour;
+	}
+    
+    
 }
