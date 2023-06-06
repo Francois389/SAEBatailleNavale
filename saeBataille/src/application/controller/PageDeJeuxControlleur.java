@@ -48,11 +48,8 @@ public class PageDeJeuxControlleur {
     
     @FXML
     Label nomJoueur;
+    
     @FXML
-    public void initialize() {
-    	PageDeJeuxControlleur.controlleurCourant = this ;
-        partieEnCours = Modele.getPartieEnCours();
-    }
     private GridPane grilleEnnemie ;
     
     @FXML
@@ -76,7 +73,26 @@ public class PageDeJeuxControlleur {
     
     // TODO afficher leur nombre dans la top bar
     
-  
+    @FXML
+    public void initialize() {
+    	PageDeJeuxControlleur.controlleurCourant = this ;
+        partieEnCours = Modele.getPartieEnCours();
+        
+        grilleEnnemie.setOnMouseClicked((EventHandler<MouseEvent>) new EventHandler<MouseEvent>() {
+        	@Override
+        	public void handle(MouseEvent event) {
+        		int x = (int) event.getX() / TAILLE_GRILLE_PIXEL;
+        		int y = (int) event.getY() / TAILLE_GRILLE_PIXEL;
+        		//System.out.println("("+x+"; "+y+")");
+        			    			
+        		if (DIMENSION_MIN<= x && x <= DIMENSION_MAX 
+        			&& DIMENSION_MIN <= y && y <= DIMENSION_MAX)  {
+        			tirCellule(x, y);
+        		}
+        	}
+        });
+        
+    }
 
     
     public void printNbTirs() {
@@ -179,17 +195,24 @@ public class PageDeJeuxControlleur {
         if (joueurActuel == joueur1) {
         	joueur1.tir(bateauJ2[x][y]);
         	touche = bateauJ2[x][y].isBateau();
-        	System.out.println(joueur1.getGrilleTirs().getQuadrillage()[x][y]);
+        	printCrossCircle();
         } else {
         	joueur2.tir(bateauJ1[x][y]);
         	touche = bateauJ2[x][y].isBateau();
-        	
+        	printCrossCircle();
         }
         
         Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("résultat du tir");
 		
-		if (touche) {
+		if (touche && bateauJ2[x][y].isBateau()) {
+			alert.setContentText("touché coulé !");
+			alert.showAndWait(); 
+			
+			Main a = new Main();
+        	a.chargementPageDependante();     
+        	Main.activerEcranTransition();
+		}if (touche && ! bateauJ2[x][y].isBateau()) {
 			alert.setContentText("touché !");
 			alert.showAndWait(); 
 			
@@ -336,7 +359,7 @@ public class PageDeJeuxControlleur {
 
 
 	public static void affichage() {
-		controlleurCourant.nomJoueur.setText(Modele.getPartieEnCours().getJoueur1().getNom());
+		controlleurCourant.nomJoueur.setText(Modele.getPartieEnCours().getJoueurActuel().getNom());
 	}
 
 }

@@ -28,6 +28,15 @@ public class ControllerTransition {
 	@FXML
 	void initialize() {
 		ControllerTransition.controllerCourant =  this;
+		
+		for (int i = 0; i < Modele.getPartieEnCours().getAutreJoueur().getGrilleBateaux().getBateau().length; i++) {
+			
+		}
+		if (Modele.getPartieEnCours().getAutreJoueur().getGrilleBateaux().getBateau().length != 0) {
+			System.out.println("tg quentin");
+			bateauJ2place = true;
+		}
+		
 	}
 	@FXML
 	private void tourSuivant() {
@@ -37,11 +46,11 @@ public class ControllerTransition {
 		if (!bateauJ2place) {
 			bateauJ2place = true ;
 			Main.activerPositionBateau2();
-			//joueurSuivant(Joueur2 , Joueur1);
 		} else {
-			Main.activerPageDeJeux();
 			
-			// TODO changer pour ecran jeu joueur2
+			Main a = new Main();
+       		a.chargementPageDependante();
+       		Main.activerPageDeJeux();
 		}
 		
 	}
