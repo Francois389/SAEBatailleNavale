@@ -9,6 +9,7 @@ import application.Main;
 import application.modele.Modele;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
@@ -31,7 +32,15 @@ public class SauvegardePartieControlleur {
     TextField nomSauvegarde;
     
     @FXML
+    private Button btnValider;
+
+    @FXML
+    private Button btnRetour;
+    
+    @FXML
     void initialize() {
+        btnRetour.getStyleClass().add("btnGris");
+        btnValider.getStyleClass().add("btnBleue");
         affichageJoueur1.setText(Modele.getPartieEnCours().getJoueur1().getNom());
         affichageJoueur2.setText(Modele.getPartieEnCours().getJoueur2().getNom());
         nomSauvegarde.setText(affichageJoueur1.getText() 

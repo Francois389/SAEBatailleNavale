@@ -19,6 +19,7 @@ import javafx.scene.control.Labeled;
 import jeu.plateau.Grille;
 import jeu.plateau.Cellule;
 
+
 public class PositionBateauController2 {
 	
 	final static private int TAILLE_GRILLE_PIXEL = 30;
@@ -85,7 +86,6 @@ public class PositionBateauController2 {
 
     
     private ImageView bateauCourant;
-    private Grille grilleJoueur = new Grille(creerTableauGrille());
     int coordoneeAplacerX = 0 ; 
     int coordonneAplacerY = 0 ;
     
@@ -114,6 +114,7 @@ public class PositionBateauController2 {
     	
     	return retour;
     }
+
     
     
     @FXML

@@ -100,7 +100,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="70.0">
          <children>
-            <Button fx:id="buttonAnnuler" mnemonicParsing="false" onAction="#menuPrincipal" style="-fx-background-color: blue; -fx-background-radius: 25;" text="Annuler" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">>
+            <Button fx:id="boutonAnnuler" mnemonicParsing="false" onAction="#menuPrincipal" text="Annuler" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">>
                <font>
                   <Font name="Arial" size="30.0" />
                </font>
@@ -108,7 +108,7 @@
                   <DropShadow />
                </effect>
             </Button>
-            <Button fx:id="buttonValider" mnemonicParsing="false" onAction="#positionBateau" style="-fx-background-color: blue; -fx-background-radius: 25;" text="Valider" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
+            <Button fx:id="boutonValider" mnemonicParsing="false" onAction="#positionBateau" text="Valider" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
                <font>
                   <Font name="Arial" size="30.0" />
                </font>

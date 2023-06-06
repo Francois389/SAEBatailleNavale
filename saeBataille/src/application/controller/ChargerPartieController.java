@@ -1,24 +1,14 @@
 package application.controller;
 
-import jeu.partie.Partie;
 import java.io.File;
 import java.io.IOException;
-import sauvegarde.Lecture;
-
-import java.util.Iterator;
-import java.util.Optional;
 
 import application.Main;
 import application.modele.Modele;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.stage.Stage;
+import jeu.partie.Partie;
+import sauvegarde.Lecture;
 
 /**
  * Gère l'interactivité entre le menu et l'utilisateur.
@@ -51,10 +41,13 @@ public class ChargerPartieController {
     private String partie4;
     private String partie5;
     
+    Main lanceurApplication = new Main();
+    
     
     /**S'éxécute aux démarrage de l'application */
     @FXML
     private void initialize() {
+        retour.getStyleClass().add("btnRouge");
 
         String[] files;
         File f = new File("sauvegardes");
@@ -114,12 +107,8 @@ public class ChargerPartieController {
        System.out.println("charger partie 1");
        Partie partie = Lecture.interprete(Lecture.lire(partie1));
        Modele.setPartieEnCours(partie);
-       
-       
-       Main a = new Main();
-
-       a.chargementPageJeu();
-       
+       lanceurApplication.chargementPageJeu();
+       lanceurApplication.chargementPageDependante();
        Main.activerPageDeJeux();
     }
     
@@ -128,11 +117,8 @@ public class ChargerPartieController {
         System.out.println("charger partie 2");
         Partie partie = Lecture.interprete(Lecture.lire(partie2));
         Modele.setPartieEnCours(partie);
-        
-        Main a = new Main();
-
-        a.chargementPageJeu();
-        
+        lanceurApplication.chargementPageJeu();
+        lanceurApplication.chargementPageDependante();
         Main.activerPageDeJeux();
     }
     
@@ -141,9 +127,8 @@ public class ChargerPartieController {
         System.out.println("charger partie 3");
         Partie partie = Lecture.interprete(Lecture.lire(partie3));
         Modele.setPartieEnCours(partie);
-        Main a = new Main();
-
-		a.chargementPageJeu();
+		lanceurApplication.chargementPageJeu();
+        lanceurApplication.chargementPageDependante();
         Main.activerPageDeJeux();
     }
     
@@ -152,9 +137,9 @@ public class ChargerPartieController {
         System.out.println("charger partie 4");
         Partie partie = Lecture.interprete(Lecture.lire(partie4));
         Modele.setPartieEnCours(partie);
-        Main a = new Main();
 
-        a.chargementPageJeu();
+        lanceurApplication.chargementPageJeu();
+        lanceurApplication.chargementPageDependante();
         Main.activerPageDeJeux();
     }
     
@@ -163,9 +148,8 @@ public class ChargerPartieController {
         System.out.println("charger partie 5");
         Partie partie = Lecture.interprete(Lecture.lire(partie5));
         Modele.setPartieEnCours(partie);
-        Main a = new Main();
-
-        a.chargementPageJeu();
+        lanceurApplication.chargementPageJeu();
+        lanceurApplication.chargementPageDependante();
         Main.activerPageDeJeux();
     }
 }

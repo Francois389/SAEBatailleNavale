@@ -50,12 +50,12 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="200.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#retour" style="-fx-background-color: grey;" text="Retour" textFill="WHITE">
+            <Button fx:id="btnRetour" mnemonicParsing="false" onAction="#retour" text="Retour">
                <font>
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#validerNom" style="-fx-background-color: blue;" text="Valider" textFill="WHITE">
+            <Button fx:id="btnValider" mnemonicParsing="false" onAction="#validerNom" text="Valider">
                <font>
                   <Font size="24.0" />
                </font>

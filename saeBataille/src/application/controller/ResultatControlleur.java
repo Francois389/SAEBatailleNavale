@@ -6,6 +6,7 @@ package application.controller;
 import application.Main;
 import application.modele.Modele;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 
 /**
@@ -17,6 +18,12 @@ public class ResultatControlleur {
 
     @FXML
     private Text textResultat;
+    
+    @FXML
+    private Button btnNouvellePartie;
+
+    @FXML
+    private Button btnRetourMenu;
     
     
     @FXML
@@ -36,5 +43,10 @@ public class ResultatControlleur {
     	if (Modele.getJoueurGagnant() != null) {
 	        textResultat.setText(Modele.getJoueurGagnant().getNom() + " a gagné!");
     	}
+        //TODO retirer le STUB
+        //Modele.creerUneNouvellePartie("François", "Quentin");//STUB
+        textResultat.setText(Modele.getJoueurGagnant().getNom() + " a gagné!");
+        btnNouvellePartie.getStyleClass().add("btnBleue");
+        btnRetourMenu.getStyleClass().add("btnGris");
     }
 }

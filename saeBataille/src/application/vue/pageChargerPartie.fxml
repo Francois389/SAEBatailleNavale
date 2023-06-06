@@ -76,7 +76,7 @@
                         <DropShadow />
                      </effect>
                   </Button>
-                  <Button fx:id="retour" mnemonicParsing="false" onAction="#retourMainMenu" prefHeight="51.0" prefWidth="114.0" style="-fx-background-color: red; -fx-background-radius: 25;" text="Retour" textFill="WHITE">
+                  <Button fx:id="retour" mnemonicParsing="false" onAction="#retourMainMenu" prefHeight="51.0" prefWidth="176.0" text="Retour">
                      <font>
                         <Font name="Arial" size="24.0" />
                      </font>
