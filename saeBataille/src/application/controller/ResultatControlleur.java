@@ -33,8 +33,6 @@ public class ResultatControlleur {
     
     @FXML
     void initialize() {
-        //TODO retirer le STUB
-//        Modele.creerUneNouvellePartie("François", "Quentin");//STUB
-//        textResultat.setText(Modele.getJoueurGagnant().getNom() + " a gagné!");
+        textResultat.setText(Modele.getJoueurGagnant().getNom() + " a gagné!");
     }
 }
