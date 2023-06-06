@@ -35,7 +35,7 @@ public class Partie {
 
         this.joueur1 = joueur1;
         this.joueur2 = joueur2;
-        this.nbTour = 0;
+        this.nbTour = -2;
         estSauvegarder = false;
     }
     
@@ -100,9 +100,9 @@ public class Partie {
      * @return joueur qui ne joue pas actuellement
      */
     public Joueur getAutreJoueur() {
-        return this.getNbTour() % 2 == 1
-                ? joueur1
-                : joueur2;
+        return this.getNbTour() % 2 == 0
+                ? joueur2
+                : joueur1;
     }
 
     /**
