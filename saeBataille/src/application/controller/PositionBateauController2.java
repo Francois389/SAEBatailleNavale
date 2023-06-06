@@ -1,6 +1,6 @@
+
 package application.controller;
 
-import java.awt.Image;
 import java.io.IOException;
 
 import application.Main;
@@ -13,8 +13,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Text;
 import javafx.scene.control.Label;
-
+import javafx.scene.control.Labeled;
 import jeu.plateau.Grille;
 import jeu.plateau.Cellule;
 
@@ -67,6 +68,9 @@ public class PositionBateauController2 {
     @FXML
     private Label labelTorpilleur;
     
+    @FXML
+    private Text textJoueur;
+    
     boolean porteAvionsPivote = false ;
     boolean croiseurPivote = false ;
     boolean contreTorpilleurPivote = false ;
@@ -84,6 +88,17 @@ public class PositionBateauController2 {
     private Grille grilleJoueur = new Grille(creerTableauGrille());
     int coordoneeAplacerX = 0 ; 
     int coordonneAplacerY = 0 ;
+    
+    @FXML
+    void initialize() {
+		textJoueur.setText(Modele.getPartieEnCours().getJoueur2().getNom());
+    }
+    
+    @FXML
+    void valider() {
+        //TODO vérifier que tous les bateaux on été placé
+        System.out.println("Valider");
+    }
    
 	
     private Cellule[][] creerTableauGrille() {
@@ -116,13 +131,13 @@ public class PositionBateauController2 {
 	  	} else {
 	    	if (tourne) {
 	        	for (int i = 0 ; i < taille ; i++) {
-	        		Modele.getPartieEnCours().getJoueur1()
+	        		Modele.getPartieEnCours().getJoueur2()
 	        		.getGrilleBateaux().getCellule(coordoneeAplacerX+i, coordonneAplacerY)
 	        		.setEstBateau(true);
 	        	}	
 	    	} else {
 				for (int i = 0; i < taille; i++) {
-					Modele.getPartieEnCours().getJoueur1()
+					Modele.getPartieEnCours().getJoueur2()
 		    		.getGrilleBateaux().getCellule(coordoneeAplacerX, coordonneAplacerY+i)
 		    		.setEstBateau(true);
 				}
@@ -329,10 +344,6 @@ public class PositionBateauController2 {
 		
 		coordoneeAplacerX = x ;
 		coordonneAplacerY = y ;
-		
-		System.out.println(coordoneeAplacerX);
-		System.out.println(coordonneAplacerY);
-						   
 		
 		switch (bateau.getId()) {
 		case "porteAvions":

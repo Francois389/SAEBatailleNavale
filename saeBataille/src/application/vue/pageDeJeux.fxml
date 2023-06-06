@@ -45,17 +45,7 @@
             <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" />
             <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0">
                <children>
-                  <Label alignment="CENTER" style="-fx-text-fill: #00FF00;" text="Joueur 1">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Label alignment="CENTER" text=" / ">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Label alignment="CENTER" style="-fx-text-fill: #FF0000;" text="Joueur 2">
+                  <Label alignment="CENTER" style="-fx-text-fill: #00FF00;" text=" " fx:id ="nomJoueur">
                      <font>
                         <Font size="20.0" />
                      </font>
