@@ -2,6 +2,9 @@ package application;
 	
 import java.io.IOException;
 
+import application.controller.ControllerTransition;
+import application.controller.PageDeJeuxControlleur;
+import application.controller.PositionBateauController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -103,12 +106,14 @@ public class Main extends Application {
      */
     public static void activerPageDeJeux() {
         fenetrePrincipale.setScene(pageDeJeux);
+        PageDeJeuxControlleur.affichage();
     }
     /*
      * change la scene de la fenetre principale en ecran transition
      */
     public static void activerEcranTransition() {
     	fenetrePrincipale.setScene(EcranTransition);
+    	ControllerTransition.affichage();
     }
     
     /** 
@@ -136,12 +141,6 @@ public class Main extends Application {
 			conteneur = getParentFromVue("vue/MenuPrincipal.fxml");
 			menuPrincipale = new Scene(conteneur , LARGEUR , HAUTEUR);
 			
-			
-            
-            
-            conteneur = getParentFromVue("vue/pagePositionBateau2.fxml");
-            positionBateauJoueur2 = new Scene(conteneur , LARGEUR , HAUTEUR);
-            
             // Chargement de la vue personalisePartie
             conteneur = getParentFromVue("vue/personalisePartie.fxml");
             personalisePartie = new Scene(conteneur , LARGEUR  , HAUTEUR);
@@ -155,11 +154,8 @@ public class Main extends Application {
             chargerPartie = new Scene (conteneur , LARGEUR , HAUTEUR);
             
             // Chargement de la vue en sauvegarde partie
-            conteneur = getParentFromVue("vue/pageDeJeux.fxml");
-            pageDeJeux = new Scene (conteneur , LARGEUR , HAUTEUR);
             
-            conteneur = getParentFromVue("vue/PageTransition.fxml");
-            EcranTransition = new Scene (conteneur , LARGEUR , HAUTEUR);
+            
             
             
             primaryStage.setTitle("Bataille Navale");
@@ -207,6 +203,12 @@ public class Main extends Application {
             resultat = new Scene (getParentFromVue("vue/pageResultat.fxml") , LARGEUR , HAUTEUR);
             // Chargement de la vue postionBateau dans le conteneur
             positionBateau = new Scene(getParentFromVue("vue/pagePositionBateau.fxml") , LARGEUR , HAUTEUR);
+          
+            pageDeJeux = new Scene (getParentFromVue("vue/pageDeJeux.fxml") , LARGEUR , HAUTEUR);
+            EcranTransition = new Scene ( getParentFromVue("vue/PageTransition.fxml") , LARGEUR , HAUTEUR);
+            
+            positionBateauJoueur2 = new Scene(getParentFromVue("vue/pagePositionBateau2.fxml") , LARGEUR , HAUTEUR);
+
         } catch (IOException e) {
             e.printStackTrace();
         }

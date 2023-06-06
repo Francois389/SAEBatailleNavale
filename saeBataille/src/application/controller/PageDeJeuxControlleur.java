@@ -11,6 +11,7 @@ import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import jeu.partie.Joueur;
 import jeu.partie.Partie;
@@ -21,20 +22,19 @@ import jeu.partie.Partie;
  *
  */
 //TODO enlever l'héritage d'Application, on n'en a pas besoin
-public class PageDeJeuxControlleur extends Application {
+public class PageDeJeuxControlleur {
     
     private Partie partieEnCours;
+    private static PageDeJeuxControlleur controlleurCourant ;
     
     @FXML
+    Label nomJoueur;
+    @FXML
     public void initialize() {
-        Modele.creerUneNouvellePartie("Coucou", "Oui");
+    	PageDeJeuxControlleur.controlleurCourant = this ;
         partieEnCours = Modele.getPartieEnCours();
     }
 
-    @Override
-    public void start(Stage arg0) throws Exception {
-        // TODO Auto-generated method stub
-    }
     
     @FXML
     void menuChargerUnePartie() {
@@ -137,5 +137,10 @@ public class PageDeJeuxControlleur extends Application {
     void menuCredit() {
         System.out.println("Credit");
     }
+
+
+	public static void affichage() {
+		controlleurCourant.nomJoueur.setText(Modele.getPartieEnCours().getJoueur1().getNom());
+	}
 
 }

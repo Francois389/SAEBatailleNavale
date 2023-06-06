@@ -14,6 +14,7 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
+import jeu.partie.Partie;
 import jeu.plateau.Cellule;
 import jeu.plateau.Grille;
 
@@ -125,6 +126,7 @@ public class PositionBateauController {
 		 && torpilleur1Place && torpilleur2Place
 		 && contreTorpilleurPlace) {
 			Main.activerEcranTransition();
+			//System.out.println(Modele.getPartieEnCours().getJoueur1().getNom());
 			  
 	  	} else {
 	    	if (tourne) {
@@ -355,11 +357,7 @@ public class PositionBateauController {
 		}
 		
 		coordoneeAplacerX = x ;
-		coordonneAplacerY = y ;
-		
-		System.out.println(coordoneeAplacerX);
-		System.out.println(coordonneAplacerY);
-						   
+		coordonneAplacerY = y ;				   
 		
 		switch (bateau.getId()) {
 		case "porteAvions":
