@@ -8,11 +8,14 @@ import java.util.Optional;
 import application.Main;
 import application.modele.Modele;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -31,6 +34,12 @@ import jeu.plateau.Grille;
 //TODO enlever l'héritage d'Application, on n'en a pas besoin
 public class PageDeJeuxControlleur extends Application {
     
+	final static int TAILLE_GRILLE_PIXEL = 30;
+	
+	final static private int DIMENSION_MIN = 0 ;
+	
+	final static private int DIMENSION_MAX = 9 ;
+	
     private Partie partieEnCours;
     
     @FXML
@@ -130,6 +139,43 @@ public class PageDeJeuxControlleur extends Application {
             	}
             }
         }   
+    
+        for (Node elt : grilleEnnemie.getChildren()) {
+			elt.setOnMouseExited((EventHandler<MouseEvent>) new EventHandler<MouseEvent>() {
+	        	@Override
+	        	public void handle(MouseEvent event) {
+	        		int x = (int) event.getX() / TAILLE_GRILLE_PIXEL;
+	        		int y = (int) event.getY() / TAILLE_GRILLE_PIXEL;
+	        		//System.out.println("("+x+"; "+y+")");
+	        			    			
+	        		if (DIMENSION_MIN<= x && x <= DIMENSION_MAX 
+	        			&& DIMENSION_MIN <= y && y <= DIMENSION_MAX)  {
+	        			tirCellule(x, y);
+	        		}
+	        	}
+	        });
+			
+			
+		}
+        
+    }
+    
+    
+    private void tirCellule(int x, int y) {
+    	Joueur joueurActuel = Modele.getPartieEnCours().getJoueurActuel();
+        Joueur joueur1 = Modele.getPartieEnCours().getJoueur1();
+        Joueur joueur2 = Modele.getPartieEnCours().getJoueur2();
+        
+        Cellule[][] tirJ1 = joueur1.getGrilleTirs().getQuadrillage();
+        Cellule[][] tirJ2 = joueur2.getGrilleTirs().getQuadrillage();
+        Cellule[][] bateauJ1 = joueur1.getGrilleBateaux().getQuadrillage();
+        Cellule[][] bateauJ2 = joueur2.getGrilleBateaux().getQuadrillage();
+        
+        if (joueurActuel == joueur1) {
+        	joueur1.tir(bateauJ2[x][y]);
+        } else {
+        	joueur2.tir(bateauJ1[x][y]);
+        }
         
     }
     
