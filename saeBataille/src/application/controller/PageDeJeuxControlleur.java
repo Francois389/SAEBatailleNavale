@@ -229,7 +229,7 @@ public class PageDeJeuxControlleur {
 			alert.showAndWait();
 			
 			Main a = new Main();
-        	a.chargementTranstion();;     
+        	a.chargementTranstion();     
         	Main.activerEcranTransition(); 
 
 		}
