@@ -1,1 +1,21 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.btnBleue {
+	-fx-background-color: blue;
+	-fx-font-size: 20pt;
+	-fx-background-radius: 25;
+	-fx-text-fill: white;
+}
+
+.btnGris {
+	-fx-background-color: grey;
+	-fx-background-radius: 25;
+	-fx-font-size: 20pt;
+	-fx-text-fill: white;
+}
+
+.btnRouge {
+	-fx-background-color: red;
+	-fx-background-radius: 25;
+	-fx-font-size: 20pt;
+	-fx-text-fill: white;
+}

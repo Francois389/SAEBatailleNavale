@@ -16,17 +16,17 @@
             <Insets />
          </opaqueInsets>
       </Label>
-      <Button fx:id="btnNouvellePartie" mnemonicParsing="false" onAction="#creerNouvellePartie" style="-fx-background-color: blue; -fx-background-radius: 25;" text="Nouvelle partie" textFill="WHITE">
+      <Button fx:id="btnNouvellePartie" mnemonicParsing="false" onAction="#creerNouvellePartie" style="-fx-background-radius: 25;" text="Nouvelle partie">
          <font>
             <Font size="30.0" />
          </font>
       </Button>
-      <Button fx:id="btnChargerPartie" layoutX="284.0" layoutY="232.0" mnemonicParsing="false" onAction="#chargerPartie" style="-fx-background-color: blue; -fx-background-radius: 25;" text="Charger une partie" textFill="WHITE">
+      <Button fx:id="btnChargerPartie" layoutX="284.0" layoutY="232.0" mnemonicParsing="false" onAction="#chargerPartie" style="-fx-background-radius: 25;" text="Charger une partie">
          <font>
             <Font size="30.0" />
          </font>
       </Button>
-      <Button fx:id="btnQuitter" layoutX="284.0" layoutY="254.0" mnemonicParsing="false" onAction="#quitter" style="-fx-background-color: blue; -fx-background-radius: 25;" text="Quitter" textFill="WHITE">
+      <Button fx:id="btnQuitter" layoutX="284.0" layoutY="254.0" mnemonicParsing="false" onAction="#quitter" style="-fx-background-radius: 25;" text="Quitter">
          <font>
             <Font size="30.0" />
          </font>

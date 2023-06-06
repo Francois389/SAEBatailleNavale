@@ -56,5 +56,8 @@ public class MenuPrincipalControlleur {
 		btnNouvellePartie.setPrefWidth(300);
 		btnQuitter.setPrefWidth(300);
 		btnChargerPartie.setPrefWidth(300);
+		btnNouvellePartie.getStyleClass().add("btnBleue");
+		btnChargerPartie.getStyleClass().add("btnBleue");
+		btnQuitter.getStyleClass().add("btnRouge");
 	}
 }

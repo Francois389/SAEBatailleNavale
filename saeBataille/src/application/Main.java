@@ -135,31 +135,38 @@ public class Main extends Application {
 		    // et creation scene principale
 			conteneur = getParentFromVue("vue/MenuPrincipal.fxml");
 			menuPrincipale = new Scene(conteneur , LARGEUR , HAUTEUR);
+			menuPrincipale.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			
 			
             
             
             conteneur = getParentFromVue("vue/pagePositionBateau2.fxml");
             positionBateauJoueur2 = new Scene(conteneur , LARGEUR , HAUTEUR);
+            positionBateauJoueur2.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
             
             // Chargement de la vue personalisePartie
             conteneur = getParentFromVue("vue/personalisePartie.fxml");
             personalisePartie = new Scene(conteneur , LARGEUR  , HAUTEUR);
+            personalisePartie.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
             
            // Chargement de la vue sauvegarde partie
             conteneur = getParentFromVue("vue/pageChargerPartie.fxml");
             sauvegardePartie = new Scene (conteneur , LARGEUR , HAUTEUR);
+            sauvegardePartie.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 
             //Page pour charger une partie
             conteneur = getParentFromVue("vue/pageChargerPartie.fxml");
             chargerPartie = new Scene (conteneur , LARGEUR , HAUTEUR);
+            chargerPartie.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
             
             // Chargement de la vue en sauvegarde partie
             conteneur = getParentFromVue("vue/pageDeJeux.fxml");
             pageDeJeux = new Scene (conteneur , LARGEUR , HAUTEUR);
+            pageDeJeux.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
             
             conteneur = getParentFromVue("vue/PageTransition.fxml");
             EcranTransition = new Scene (conteneur , LARGEUR , HAUTEUR);
+            EcranTransition.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
             
             
             primaryStage.setTitle("Bataille Navale");
@@ -204,9 +211,12 @@ public class Main extends Application {
         try {
             // Chargement de la vue sauvegarde partie
             sauvegardePartie = new Scene (getParentFromVue("vue/pageSauvegardePartie.fxml") , LARGEUR , HAUTEUR);
+            sauvegardePartie.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
             resultat = new Scene (getParentFromVue("vue/pageResultat.fxml") , LARGEUR , HAUTEUR);
+            resultat.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
             // Chargement de la vue postionBateau dans le conteneur
             positionBateau = new Scene(getParentFromVue("vue/pagePositionBateau.fxml") , LARGEUR , HAUTEUR);
+            positionBateau.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
         } catch (IOException e) {
             e.printStackTrace();
         }
