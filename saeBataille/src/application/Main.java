@@ -7,6 +7,9 @@ import application.modele.Modele;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+import jeu.partie.Joueur;
+import jeu.partie.Partie;
+import jeu.plateau.Grille;
 import sauvegarde.Lecture;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -191,7 +194,6 @@ public class Main extends Application {
     }
 	
 	public static void main(String[] args) {
-	    Modele.setPartieEnCours(Lecture.interprete(Lecture.lire("FvsQ")));
 		launch(args);
 	}
 

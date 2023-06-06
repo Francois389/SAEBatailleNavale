@@ -44,6 +44,7 @@ public class PageDeJeuxControlleur extends Application {
     
     @FXML
     public void initialize() {
+        
         System.out.println("initialize controler page jeux");
         
         // SVGPath temp = new SVGPath();
