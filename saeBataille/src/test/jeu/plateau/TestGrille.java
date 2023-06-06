@@ -4,15 +4,20 @@
  */
 package test.jeu.plateau;
 
-import jeu.plateau.Cellule;
-import jeu.plateau.Grille;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import jeu.plateau.Cellule;
+import jeu.plateau.Grille;
+import sauvegarde.Lecture;
 
 /**
  * test de la classe Grille
@@ -21,12 +26,12 @@ import org.junit.jupiter.api.BeforeEach;
  *
  */
 class TestGrille {
-    
+
     private ArrayList<Grille> grilleValide;
-    
+
     @BeforeEach
     void genererGrileValide() {
-        grilleValide = new ArrayList<Grille>();
+        grilleValide = new ArrayList<>();
         Cellule[][] cadrillage = {{new Cellule(0, 0),new Cellule(0, 1)},
             					  {new Cellule(1, 0),new Cellule(1, 1)}};
         grilleValide.add(new Grille(cadrillage));
@@ -66,8 +71,45 @@ class TestGrille {
         }
     }
 
-    
+
     @Test
+	void testGetBateau() {
+	    boolean[][] attendu = {{false,false},
+	                           {false,false}};
+	    
+	    assertArrayEquals(attendu, grilleValide.get(0).getBateau());
+	    
+	    attendu[0][0] = true;
+	    attendu[1][0] = true;
+        grilleValide.get(0).getCellule(0, 0).setEstBateau(true);
+        grilleValide.get(0).getCellule(1, 0).setEstBateau(true);
+        
+        assertArrayEquals(attendu, grilleValide.get(0).getBateau());
+    }
+
+	@Test
+	void testGetCellule() {
+	    assertInstanceOf(Cellule.class, grilleValide.get(0).getCellule(0, 0));
+        assertTrue(grilleValide.get(0).getCellule(0,0).getX() == 0
+                && grilleValide.get(0).getCellule(0,0).getY() == 0);
+        assertTrue(grilleValide.get(0).getCellule(1,0).getX() == 1
+                && grilleValide.get(0).getCellule(1,0).getY() == 0);
+        assertThrows(IllegalArgumentException.class,
+                ()->grilleValide.get(0).getCellule(Integer.MAX_VALUE,Integer.MAX_VALUE));
+        assertThrows(IllegalArgumentException.class,
+                ()->grilleValide.get(0).getCellule(Integer.MIN_VALUE,Integer.MIN_VALUE));
+        assertThrows(IllegalArgumentException.class,
+                ()->grilleValide.get(0).getCellule(2,2));
+    }
+
+	@Test
+	void testGetQuadrillage() {
+        Cellule[][] cadrillage = {{new Cellule(0, 0),new Cellule(0, 1)},
+                                  {new Cellule(1, 0),new Cellule(1, 1)}};
+        assertArrayEquals(cadrillage, grilleValide.get(0).getQuadrillage());
+    }
+
+	@Test
     void testGrilleValide() {
         {/* Grille de deux par deux case */
             Cellule[][] cadrillage = {
@@ -79,36 +121,14 @@ class TestGrille {
             Cellule[][] cadrillage = {{new Cellule(0, 0)}};
             assertDoesNotThrow(()->new Grille(cadrillage));
         }
-    }
-    
-	@Test
-	void testGetCellule() {
-	    assertInstanceOf(Cellule.class, grilleValide.get(0).getCellule(0, 0));
-        assertTrue(grilleValide.get(0).getCellule(0,0).getX() == 0 
-                && grilleValide.get(0).getCellule(0,0).getY() == 0);
-        assertTrue(grilleValide.get(0).getCellule(1,0).getX() == 1 
-                && grilleValide.get(0).getCellule(1,0).getY() == 0);
-        assertThrows(IllegalArgumentException.class,
-                ()->grilleValide.get(0).getCellule(Integer.MAX_VALUE,Integer.MAX_VALUE));
-        assertThrows(IllegalArgumentException.class,
-                ()->grilleValide.get(0).getCellule(Integer.MIN_VALUE,Integer.MIN_VALUE));
-        assertThrows(IllegalArgumentException.class,
-                ()->grilleValide.get(0).getCellule(2,2));
-    }
-	
-	@Test
-	void testGetBateau() {
-	    boolean[][] attendu = {{true,false},
-	                           {true,false}};
-        grilleValide.get(0).getCellule(0, 0).setEstBateau(true);
-        grilleValide.get(0).getCellule(1, 0).setEstBateau(true);
-        assertArrayEquals(attendu, grilleValide.get(0).getBateau());
-    }
-	
-	@Test
-	void testGetQuadrillage() {
-        Cellule[][] cadrillage = {{new Cellule(0, 0),new Cellule(0, 1)},
-                                  {new Cellule(1, 0),new Cellule(1, 1)}};
-        assertArrayEquals(cadrillage, grilleValide.get(0).getQuadrillage());
+        {
+        	Cellule[][] cadrillage = new Cellule[10][10];
+        	for (int i = 0; i < cadrillage.length; i++) {
+    			for (int j = 0; j < cadrillage[i].length; j++) {
+    				cadrillage[i][j] = new Cellule(i, j);
+    			}
+    		}
+        	assertDoesNotThrow(()->new Grille(cadrillage));
+        }
     }
 }

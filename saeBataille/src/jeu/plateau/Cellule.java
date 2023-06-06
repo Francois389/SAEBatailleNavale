@@ -26,7 +26,7 @@ public class Cellule {
     /** Boollen qui verifie si une case a ete touche par un tir  */
     private boolean estTouche;
     
-    private final static int COORDONNES_MAX = 10 ; 
+    private final static int COORDONNES_MAX = 9 ; 
     private final static int CORDONNES_MIN = 0;
     
     /** 
