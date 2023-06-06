@@ -14,8 +14,6 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
-import jeu.plateau.Cellule;
-import jeu.plateau.Grille;
 
 public class PositionBateauController {
 	
@@ -84,7 +82,6 @@ public class PositionBateauController {
 
     
     private ImageView bateauCourant;
-    private Grille grilleJoueur = new Grille(creerTableauGrille());
     int coordoneeAplacerX = 0 ; 
     int coordonneAplacerY = 0 ;
    
@@ -92,25 +89,6 @@ public class PositionBateauController {
     @FXML
     void initialize() {
         textJoueur.setText(Modele.getPartieEnCours().getJoueurActuel().getNom());
-    }
-    
-    
-    /**
-     * //TODO Commentez la fonction de la méthode
-     * @return
-     */
-    private Cellule[][] creerTableauGrille() {
-    	Cellule[][] retour = new Cellule[10][10];
-    
-    	for (int i = 0; i < retour.length; i++) {
-    		for (int j = 0; j < retour.length; j++) {
-    			retour[i][j] = new Cellule(i,j);
-    		}
-    		
-    		
-    	}
-    	
-    	return retour;
     }
     
     
