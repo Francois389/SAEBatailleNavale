@@ -32,18 +32,13 @@ public class controllerTransition {
 			bateauJ2place = true ;
 			Main.activerPositionBateau2();
 			joueurSuivant(Joueur2 , Joueur1);
-		} else if (joueurSuivant.equals(Joueur1)) {
-			joueurSuivant(Joueur1 , Joueur2);
-			joueurSuivant = Joueur2;
-			// TODO changer pour ecran jeu joueur1
-		} else if (joueurSuivant.equals(Joueur2)) {
-			joueurSuivant(Joueur2 , Joueur1);
-			joueurSuivant = Joueur1;
-			
-			
-			// TODO changer pour ecran jeu joueur2
+		} else {
+			if (Modele.getPartieEnCours().getAutreJoueur().equals(Joueur1))  {
+				Main a = new Main();
+       			a.chargementPageDependante();
+       			Main.activerPageDeJeux();
+			}
 		}
-		
 	}
 	
 	private void joueurSuivant(Joueur suivant , Joueur actuel) {

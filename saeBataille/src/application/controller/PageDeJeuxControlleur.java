@@ -65,6 +65,8 @@ public class PageDeJeuxControlleur extends Application {
     
     private final int CIRCLE_RADIUS = 12;
     
+	private static PageDeJeuxControlleur controlleurCourant ;
+    
     
     @FXML
     public void initialize() {
@@ -72,6 +74,8 @@ public class PageDeJeuxControlleur extends Application {
         System.out.println("initialize controler page jeux");
         printCrossCircle();
         printNbTirs();
+        PageDeJeuxControlleur.controlleurCourant = this ;
+        partieEnCours = Modele.getPartieEnCours();
 
         grilleEnnemie.setOnMouseClicked((EventHandler<MouseEvent>) new EventHandler<MouseEvent>() {
         	@Override
@@ -216,6 +220,7 @@ public class PageDeJeuxControlleur extends Application {
         	a.chargementPageDependante();     
         	Main.activerPageDeJeux();
 		} else {
+			Modele.getPartieEnCours().incrementNbTour();
 			alert.setContentText("loupé ...");
 			alert.showAndWait();
 			
@@ -352,5 +357,8 @@ public class PageDeJeuxControlleur extends Application {
     void menuCredit() {
         System.out.println("Credit");
     }
-
+    
+    public static void affichage() {
+		controlleurCourant.nomJoueur.setText(Modele.getPartieEnCours().getJoueur1().getNom());
+	}
 }
