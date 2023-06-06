@@ -67,10 +67,54 @@ public class PageDeJeuxControlleur extends Application {
     public void initialize() {
         
         System.out.println("initialize controler page jeux");
+        printCrossCircle();
+        printNbTirs();
+
+        for (Node elt : grilleEnnemie.getChildren()) {
+			elt.setOnMouseExited((EventHandler<MouseEvent>) new EventHandler<MouseEvent>() {
+	        	@Override
+	        	public void handle(MouseEvent event) {
+	        		int x = (int) event.getX() / TAILLE_GRILLE_PIXEL;
+	        		int y = (int) event.getY() / TAILLE_GRILLE_PIXEL;
+	        		//System.out.println("("+x+"; "+y+")");
+	        			    			
+	        		if (DIMENSION_MIN<= x && x <= DIMENSION_MAX 
+	        			&& DIMENSION_MIN <= y && y <= DIMENSION_MAX)  {
+	        			tirCellule(x, y);
+	        		}
+	        	}
+	        });
+			
+			
+		}
         
-        // SVGPath temp = new SVGPath();
-        // temp.setContent(cross.getContent());
+    }
+    
+    // TODO afficher leur nombre dans la top bar
+    
+  
+
+    @Override
+    public void start(Stage arg0) throws Exception {
+        // TODO Auto-generated method stub
+    }
+    
+    public void printNbTirs() {
+        Joueur joueurActuel = Modele.getPartieEnCours().getJoueurActuel();
+        Joueur joueur1 = Modele.getPartieEnCours().getJoueur1();
+        Joueur joueur2 = Modele.getPartieEnCours().getJoueur2();
         
+        if (joueurActuel == joueur1) { 
+            nbCircle.setText("  : " +  joueur1.getNbTouche());
+            nbCross.setText("  : " +  joueur1.getTirRatés());
+        } else {
+            nbCircle.setText("  : " +  joueur2.getNbTouche());
+            nbCross.setText("  : " +  joueur2.getTirRatés());
+        }
+        
+        
+    }
+    public void printCrossCircle() {
         
         Joueur joueurActuel = Modele.getPartieEnCours().getJoueurActuel();
         Joueur joueur1 = Modele.getPartieEnCours().getJoueur1();
@@ -81,13 +125,10 @@ public class PageDeJeuxControlleur extends Application {
         Cellule[][] bateauJ1 = joueur1.getGrilleBateaux().getQuadrillage();
         Cellule[][] bateauJ2 = joueur2.getGrilleBateaux().getQuadrillage();
         
-        
-        
-        
         for (int i = 0; i < tirJ1.length; i++) {
             for (int j = 0; j < tirJ1[i].length; j++) {
-            	// c'est le joueur 1
-                if (joueurActuel == joueur1) {	                    
+                // c'est le joueur 1
+                if (joueurActuel == joueur1) {                      
                     if (tirJ1[i][j].isTouche() 
                      && bateauJ2[i][j].isBateau()) {
                         
@@ -111,14 +152,14 @@ public class PageDeJeuxControlleur extends Application {
 
                         printCross(j, i, grilleEnnemie);
                     }
-            	} else  { // c'est le joueur 2
-            		if (tirJ2[i][j].isTouche() 
+                } else  { // c'est le joueur 2
+                    if (tirJ2[i][j].isTouche() 
                      && bateauJ1[i][j].isBateau()) {
                         
                         printCircle(i, j, grilleJoueur);
                     }
-            	
-            		if (tirJ2[i][j].isTouche() 
+                
+                    if (tirJ2[i][j].isTouche() 
                     && !bateauJ1[i][j].isBateau()) {
                         
                        printCross(i, j, grilleEnnemie);
@@ -135,28 +176,11 @@ public class PageDeJeuxControlleur extends Application {
                         
                         printCross(i, j, grilleJoueur);
                     }
-            		
-            	}
+                    
+                }
             }
         }   
-    
-        for (Node elt : grilleEnnemie.getChildren()) {
-			elt.setOnMouseExited((EventHandler<MouseEvent>) new EventHandler<MouseEvent>() {
-	        	@Override
-	        	public void handle(MouseEvent event) {
-	        		int x = (int) event.getX() / TAILLE_GRILLE_PIXEL;
-	        		int y = (int) event.getY() / TAILLE_GRILLE_PIXEL;
-	        		//System.out.println("("+x+"; "+y+")");
-	        			    			
-	        		if (DIMENSION_MIN<= x && x <= DIMENSION_MAX 
-	        			&& DIMENSION_MIN <= y && y <= DIMENSION_MAX)  {
-	        			tirCellule(x, y);
-	        		}
-	        	}
-	        });
-			
-			
-		}
+
         
     }
     

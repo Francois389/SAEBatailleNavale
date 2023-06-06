@@ -229,7 +229,7 @@ public class Main extends Application {
             resultat = new Scene (getParentFromVue("vue/pageResultat.fxml") , LARGEUR , HAUTEUR);
             // Chargement de la vue postionBateau dans le conteneur
             positionBateau = new Scene(getParentFromVue("vue/pagePositionBateau.fxml") , LARGEUR , HAUTEUR);
-            pageDeJeux = new Scene(getParentFromVue("vue/pageDeJeux.fxml") , LARGEUR , HAUTEUR);
+            pageDeJeux = new Scene(getParentFromVue("vue/pageDeJeux.fxml") , LARGEUR - 120, HAUTEUR - 60);
             chargerPartie = new Scene(getParentFromVue("vue/pageChargerPartie.fxml") , LARGEUR , HAUTEUR);
         } catch (IOException e) {
             e.printStackTrace();
