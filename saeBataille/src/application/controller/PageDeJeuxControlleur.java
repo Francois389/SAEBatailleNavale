@@ -82,11 +82,7 @@ public class PageDeJeuxControlleur extends Application {
                     if (tirJ1[i][j].isTouche() 
                      && bateauJ2[i][j].isBateau()) {
                         
-                        Circle temp = new Circle();
-                        temp.setRadius(circle.getRadius());
-                        temp.setStroke(Color.rgb(255, 33, 33));
-                        
-                        grilleEnnemie.add(temp, i, j);
+                        printCircle(i, j, grilleEnnemie);
                     }
                     
                     if (tirJ1[i][j].isTouche() 
@@ -101,11 +97,8 @@ public class PageDeJeuxControlleur extends Application {
                     if (tirJ2[i][j].isTouche() 
                      && bateauJ1[i][j].isBateau()) {
                         
-                        Circle temp = new Circle();
-                        temp.setRadius(circle.getRadius());
-                        temp.setStroke(Color.rgb(255, 33, 33));
+                        printCircle(i, j, grilleJoueur);
                         
-                        grilleJoueur.add(temp, i, j);
                     }
                     if (tirJ2[i][j].isTouche() 
                     && !bateauJ1[i][j].isBateau()) {
@@ -119,11 +112,7 @@ public class PageDeJeuxControlleur extends Application {
             		if (tirJ2[i][j].isTouche() 
                      && bateauJ1[i][j].isBateau()) {
                         
-                        Circle temp = new Circle();
-                        temp.setRadius(circle.getRadius());
-                        temp.setStroke(Color.rgb(255, 33, 33));
-                        
-                        grilleEnnemie.add(temp, i, j);
+                        printCircle(i, j, grilleJoueur);
                     }
             	
             		if (tirJ2[i][j].isTouche() 
@@ -139,11 +128,7 @@ public class PageDeJeuxControlleur extends Application {
                     if (tirJ1[i][j].isTouche() 
                      && bateauJ2[i][j].isBateau()) {
                         
-                        Circle temp = new Circle();
-                        temp.setRadius(circle.getRadius());
-                        temp.setStroke(Color.rgb(255, 33, 33));
-                        
-                        grilleJoueur.add(temp, i, j);
+                        printCircle(i, j, grilleEnnemie);
                     }
                     
                     if (tirJ1[i][j].isTouche() 
