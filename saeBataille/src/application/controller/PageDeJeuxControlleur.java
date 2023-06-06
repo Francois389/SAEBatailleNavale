@@ -81,40 +81,49 @@ public class PageDeJeuxControlleur extends Application {
                 if (joueurActuel == joueur1) {	                    
                     if (tirJ1[i][j].isTouche() 
                      && bateauJ2[i][j].isBateau()) {
+                        
                         printCircle(i, j, grilleEnnemie);
                     }
                     
                     if (tirJ1[i][j].isTouche() 
                     && !bateauJ2[i][j].isBateau()) {
+                        
                         printCross(j, i, grilleEnnemie);
                     }
                     
                     if (tirJ2[i][j].isTouche() 
                      && bateauJ1[i][j].isBateau()) {
+                        
                         printCircle(i, j, grilleJoueur);
+                        
                     }
                     if (tirJ2[i][j].isTouche() 
                     && !bateauJ1[i][j].isBateau()) {
+
                         printCross(j, i, grilleEnnemie);
                     }
             	} else  { // c'est le joueur 2
             		if (tirJ2[i][j].isTouche() 
                      && bateauJ1[i][j].isBateau()) {
-                        printCircle(i, j, grilleEnnemie);
+                        
+                        printCircle(i, j, grilleJoueur);
                     }
             	
             		if (tirJ2[i][j].isTouche() 
                     && !bateauJ1[i][j].isBateau()) {
+                        
                        printCross(i, j, grilleEnnemie);
                     }
                     
                     if (tirJ1[i][j].isTouche() 
                      && bateauJ2[i][j].isBateau()) {
-                        printCircle(i, j, grilleJoueur);
+                        
+                        printCircle(i, j, grilleEnnemie);
                     }
                     
                     if (tirJ1[i][j].isTouche() 
                     && !bateauJ2[i][j].isBateau()) {
+                        
                         printCross(i, j, grilleJoueur);
                     }
             		
