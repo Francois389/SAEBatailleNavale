@@ -31,7 +31,7 @@ public class PageDeJeuxControlleur extends Application {
     private Partie partieEnCours;
     
     @FXML
-    private GridPane grilleEnemie ;
+    private GridPane grilleEnnemie ;
     
     @FXML
     private GridPane grilleJoueur;
@@ -49,6 +49,11 @@ public class PageDeJeuxControlleur extends Application {
         // SVGPath temp = new SVGPath();
         // temp.setContent(cross.getContent());
         
+        Circle a = new Circle();
+        a.setRadius(circle.getRadius());
+        
+        grilleEnnemie.add(a, 1, 1);
+        
         if (Modele.getPartieEnCours().getJoueurActuel() == Modele.getPartieEnCours().getJoueur1()) {
             for (int i = 0; i < Modele.getPartieEnCours().getJoueur1().getGrilleTirs().getQuadrillage().length; i++) {
                 for (int j = 0; j < Modele.getPartieEnCours().getJoueur1().getGrilleTirs().getQuadrillage()[i].length; j++) {
@@ -58,7 +63,7 @@ public class PageDeJeuxControlleur extends Application {
                         Circle temp = new Circle();
                         temp.setRadius(circle.getRadius());
                         
-                        grilleEnemie.add(temp, i, j);
+                        grilleEnnemie.add(temp, i, j);
                         System.out.println("rond en " + i + "; "+ j);
                     }
                 }
@@ -72,7 +77,7 @@ public class PageDeJeuxControlleur extends Application {
                         SVGPath temp = new SVGPath();
                         temp.setContent(cross.getContent());
                         
-                        grilleEnemie.add(temp, i, j);
+                        grilleEnnemie.add(temp, i, j);
                         System.out.println("croix en " + i + "; "+ j);
                     }
                 }
@@ -118,7 +123,7 @@ public class PageDeJeuxControlleur extends Application {
                         Circle temp = new Circle();
                         temp.setRadius(circle.getRadius());
                         
-                        grilleEnemie.add(temp, i, j);
+                        grilleEnnemie.add(temp, i, j);
                         System.out.println("rond en " + i + "; "+ j);
                     }
                 }
@@ -132,7 +137,7 @@ public class PageDeJeuxControlleur extends Application {
                         SVGPath temp = new SVGPath();
                         temp.setContent(cross.getContent());
                         
-                        grilleEnemie.add(temp, i, j);
+                        grilleEnnemie.add(temp, i, j);
                         System.out.println("croix en " + i + "; "+ j);
                     }
                 }

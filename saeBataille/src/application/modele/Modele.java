@@ -64,8 +64,8 @@ public class Modele {
     /**
      * @param partieEnCours the partieEnCours to set
      */
-    public static void setPartieEnCours(Partie partieEnCours) {
-        Modele.partieEnCours = partieEnCours;
+    public static void setPartieEnCours(Partie nouvellePartieEnCours) {
+        partieEnCours = nouvellePartieEnCours;
     }
 
     /** @return the joueurGagnant */
@@ -76,8 +76,8 @@ public class Modele {
     /**
      * @param joueurGagnant the joueurGagnant to set
      */
-    public static void setJoueurGagnant(Joueur joueurGagnant) {
-        Modele.joueurGagnant = joueurGagnant;
+    public static void setJoueurGagnant(Joueur nouveauJoueurGagnant) {
+        joueurGagnant = nouveauJoueurGagnant;
     }
     
     
