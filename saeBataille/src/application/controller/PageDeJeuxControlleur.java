@@ -43,8 +43,8 @@ public class PageDeJeuxControlleur {
 	
 	final static private int DIMENSION_MAX = 9 ;
 	
-    
-    
+        
+    @FXML
     private GridPane grilleEnnemie ;
     
     @FXML
@@ -73,6 +73,8 @@ public class PageDeJeuxControlleur {
     
     @FXML
     public void initialize() {
+    	PageDeJeuxControlleur.controlleurCourant = this ;
+        partieEnCours = Modele.getPartieEnCours();
         
         System.out.println("initialize controler page jeux");
         printCrossCircle();
@@ -93,12 +95,8 @@ public class PageDeJeuxControlleur {
         		}
         	}
         });
-        		
+        
     }
-    
-    // TODO afficher leur nombre dans la top bar
-    
-  
 
     
     public void printNbTirs() {
@@ -201,17 +199,24 @@ public class PageDeJeuxControlleur {
         if (joueurActuel == joueur1) {
         	joueur1.tir(bateauJ2[x][y]);
         	touche = bateauJ2[x][y].isBateau();
-        	System.out.println(joueur1.getGrilleTirs().getQuadrillage()[x][y]);
+        	printCrossCircle();
         } else {
         	joueur2.tir(bateauJ1[x][y]);
         	touche = bateauJ2[x][y].isBateau();
-        	
+        	printCrossCircle();
         }
         
         Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("résultat du tir");
 		
-		if (touche) {
+		if (touche && bateauJ2[x][y].isBateau()) {
+			alert.setContentText("touché coulé !");
+			alert.showAndWait(); 
+			
+			Main a = new Main();
+        	a.chargementPageDependante();     
+        	Main.activerEcranTransition();
+		}if (touche && ! bateauJ2[x][y].isBateau()) {
 			alert.setContentText("touché !");
 			alert.showAndWait(); 
 			
@@ -359,7 +364,7 @@ public class PageDeJeuxControlleur {
 
 
 	public static void affichage() {
-		controlleurCourant.nomJoueur.setText(Modele.getPartieEnCours().getJoueur1().getNom());
+		controlleurCourant.nomJoueur.setText(Modele.getPartieEnCours().getJoueurActuel().getNom());
 	}
 
 }
