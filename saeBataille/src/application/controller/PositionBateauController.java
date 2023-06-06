@@ -125,6 +125,8 @@ public class PositionBateauController {
 		if (porteAvionsPlace && croiseurPlace
 		 && torpilleur1Place && torpilleur2Place
 		 && contreTorpilleurPlace) {
+			Main a = new Main();
+			a.chargementTranstion();
 			Main.activerEcranTransition();
 			//System.out.println(Modele.getPartieEnCours().getJoueur1().getNom());
 			  

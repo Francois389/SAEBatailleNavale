@@ -73,12 +73,17 @@ public class PageDeJeuxControlleur {
     
     @FXML
     public void initialize() {
+		
+		
     	PageDeJeuxControlleur.controlleurCourant = this ;
         partieEnCours = Modele.getPartieEnCours();
         
         System.out.println("initialize controler page jeux");
         printCrossCircle();
         printNbTirs();
+        
+        
+        
 
         grilleEnnemie.setOnMouseClicked((EventHandler<MouseEvent>) new EventHandler<MouseEvent>() {
         	@Override
@@ -184,6 +189,7 @@ public class PageDeJeuxControlleur {
     
     
     private void tirCellule(int x, int y) {
+		boolean toutTouche;
 		boolean touche;
     	Joueur joueurActuel = Modele.getPartieEnCours().getJoueurActuel();
         Joueur joueur1 = Modele.getPartieEnCours().getJoueur1();
@@ -213,10 +219,24 @@ public class PageDeJeuxControlleur {
         	}
         }
         
+        toutTouche = true;
+        for (int i = 0; i < Modele.getPartieEnCours().getAutreJoueur().getGrilleBateaux().getQuadrillage().length; i++) {
+			for (int j = 0; i < Modele.getPartieEnCours().getAutreJoueur().getGrilleBateaux().getQuadrillage().length; i++) {
+				if (! Modele.getPartieEnCours().getAutreJoueur().getGrilleBateaux().getQuadrillage()[i][j].isTouche()) {
+					toutTouche = false;
+				}
+			} 
+		} 
+        
+        if (toutTouche) {
+			Modele.setJoueurGagnant(joueurActuel);
+			Main.activerResultat();
+		}
+        
         Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("résultat du tir");
 		
-		if (touche && ! bateauJ2[x][y].isBateau()) {
+		if (touche) {
 			alert.setContentText("touché !");
 			alert.showAndWait(); 
 			
@@ -321,12 +341,16 @@ public class PageDeJeuxControlleur {
             if (option.get() == ButtonType.YES) {
                 Main.activerPersonalisePartie();
             }
-        }
+        } else {
+			Main.activerPersonalisePartie();
+		}
     }
     
     @FXML
     void menuSauvegarder() {
         System.out.println("sauvegarde");
+        Main a = new Main();
+        a.chargementSauvegardePartie();
         Main.activerSauvegardePartie();
     }
     
@@ -347,6 +371,8 @@ public class PageDeJeuxControlleur {
                 System.out.println(perdant.getNom() + " abandonne.");
                 Modele.setJoueurGagnant(gagnant);
                 System.out.println(gagnant.getNom() + " gagne !");
+                Main a = new Main ();
+                a.chargementResultat();
                 Main.activerResultat();
             }
         }

@@ -28,12 +28,15 @@ public class ControllerTransition {
 	@FXML
 	void initialize() {
 		System.out.println("init");
+		
 		ControllerTransition.controllerCourant =  this;
 		
-		for (int i = 0; i < Modele.getPartieEnCours().getJoueur2().getGrilleBateaux().getBateau().length && !bateauJ2place; i++) {
-			for (int j = 0; i < Modele.getPartieEnCours().getJoueur2().getGrilleBateaux().getBateau().length; i++) {
+		for (int i = 0; i < Modele.getPartieEnCours().getJoueur2().getGrilleBateaux().getBateau().length; i++) {
+			for (int j = 0; j < Modele.getPartieEnCours().getJoueur2().getGrilleBateaux().getBateau().length; j++) {
+				System.out.println(bateauJ2place);
 				if (Modele.getPartieEnCours().getJoueur2().getGrilleBateaux().getBateau()[i][j]) {
 					bateauJ2place = true;
+					System.out.println(bateauJ2place);
 				}				
 			}
 		}		
@@ -46,6 +49,8 @@ public class ControllerTransition {
 		//System.out.println(Joueur1 + " " + Joueur2);
 		if (!bateauJ2place) {
 			bateauJ2place = true ;
+			Main a = new Main();
+			a.positionBateau2();
 			Main.activerPositionBateau2();
 		} else {
 			

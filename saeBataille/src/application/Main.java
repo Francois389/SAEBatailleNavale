@@ -53,7 +53,7 @@ public class Main extends Application {
     /** Scene de la page de jeux */
     private static Scene pageDeJeux;
     
-    private static Scene resultat;
+    private static Scene pageResultat;
     
     private static Scene chargerPartie;
 
@@ -105,6 +105,7 @@ public class Main extends Application {
      * change la scene de la fenetre principale en pageSauvegarde
      */
     public static void activerSauvegardePartie() {
+        System.out.println("active page sauvegarde");
         fenetrePrincipale.setScene(sauvegardePartie);
     }
 
@@ -135,7 +136,7 @@ public class Main extends Application {
     }
     
     public static void activerResultat() {
-        fenetrePrincipale.setScene(resultat);
+        fenetrePrincipale.setScene(pageResultat);
     }
 
     
@@ -220,7 +221,7 @@ public class Main extends Application {
 	 */
 	public void chargementResultat() {
         try {           
-            resultat = new Scene (getParentFromVue("vue/pageResultat.fxml") , LARGEUR , HAUTEUR); 
+            pageResultat = new Scene (getParentFromVue("vue/pageResultat.fxml") , LARGEUR , HAUTEUR); 
         } catch (IOException e) {
             e.printStackTrace();
         }
