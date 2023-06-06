@@ -61,14 +61,6 @@ public class PageDeJeuxControlleur {
     private final int CIRCLE_RADIUS = 12;
     
     
-    @FXML
-    public void initialize() {
-        
-        System.out.println("initialize controler page jeux");
-        printCrossCircle();
-        printNbTirs();
-        
-    }
     
     // TODO afficher leur nombre dans la top bar
     
