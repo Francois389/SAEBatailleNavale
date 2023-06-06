@@ -18,8 +18,8 @@ import jeu.partie.Partie;
 import jeu.plateau.Grille;
 
 /**
+ * Permet la lecture de fichier Json et la création d'instance de Partie
  * @author de Saint Palais François
- *
  */
 public class Lecture {
     
