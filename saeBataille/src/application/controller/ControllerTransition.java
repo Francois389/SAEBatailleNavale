@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import jeu.partie.Joueur;
 
-public class controllerTransition {
+public class ControllerTransition {
 
 	@FXML
 	private Label pseudoJoueur1;
