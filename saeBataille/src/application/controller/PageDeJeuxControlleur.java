@@ -81,78 +81,41 @@ public class PageDeJeuxControlleur extends Application {
                 if (joueurActuel == joueur1) {	                    
                     if (tirJ1[i][j].isTouche() 
                      && bateauJ2[i][j].isBateau()) {
-                        
-                        Circle temp = new Circle();
-                        temp.setRadius(circle.getRadius());
-                        temp.setStroke(Color.rgb(255, 33, 33));
-                        
-                        grilleEnnemie.add(temp, i, j);
+                        printCircle(i, j, grilleEnnemie);
                     }
                     
                     if (tirJ1[i][j].isTouche() 
                     && !bateauJ2[i][j].isBateau()) {
-                        
-                        SVGPath temp = new SVGPath();
-                        temp.setContent(cross.getContent());
-                        
-                        grilleEnnemie.add(temp, i, j);
+                        printCross(j, i, grilleEnnemie);
                     }
                     
                     if (tirJ2[i][j].isTouche() 
                      && bateauJ1[i][j].isBateau()) {
-                        
-                        Circle temp = new Circle();
-                        temp.setRadius(circle.getRadius());
-                        temp.setStroke(Color.rgb(255, 33, 33));
-                        
-                        grilleJoueur.add(temp, i, j);
+                        printCircle(i, j, grilleJoueur);
                     }
                     if (tirJ2[i][j].isTouche() 
                     && !bateauJ1[i][j].isBateau()) {
-                        
-                        SVGPath temp = new SVGPath();
-                        temp.setContent(cross.getContent());
-                        
-                        grilleJoueur.add(temp, i, j);
+                        printCross(j, i, grilleEnnemie);
                     }
             	} else  { // c'est le joueur 2
             		if (tirJ2[i][j].isTouche() 
                      && bateauJ1[i][j].isBateau()) {
-                        
-                        Circle temp = new Circle();
-                        temp.setRadius(circle.getRadius());
-                        temp.setStroke(Color.rgb(255, 33, 33));
-                        
-                        grilleEnnemie.add(temp, i, j);
+                        printCircle(i, j, grilleEnnemie);
                     }
             	
             		if (tirJ2[i][j].isTouche() 
                     && !bateauJ1[i][j].isBateau()) {
-                        
-                        SVGPath temp = new SVGPath();
-                        temp.setContent(cross.getContent());
-                        temp.setScaleX(50);
-                        temp.setScaleY(50);
-                        grilleEnnemie.add(temp, i, j);
+                       printCross(i, j, grilleEnnemie);
                     }
                     
                     if (tirJ1[i][j].isTouche() 
                      && bateauJ2[i][j].isBateau()) {
-                        
-                        Circle temp = new Circle();
-                        temp.setRadius(circle.getRadius());
-                        temp.setStroke(Color.rgb(255, 33, 33));
-                        
-                        grilleJoueur.add(temp, i, j);
+                        printCircle(i, j, grilleJoueur);
                     }
                     
                     if (tirJ1[i][j].isTouche() 
                     && !bateauJ2[i][j].isBateau()) {
-                        
-                        SVGPath temp = new SVGPath();
-                        temp.setContent(cross.getContent());
-                        
-                        grilleJoueur.add(temp, i, j);
+                        printCross(i, j, grilleJoueur);
                     }
             		
             	}
@@ -183,8 +146,9 @@ public class PageDeJeuxControlleur extends Application {
     public void printCross(int x, int y, GridPane grille) {
         SVGPath temp = new SVGPath();
         temp.setContent(cross.getContent());
-        temp.setScaleX(50);
-        temp.setScaleY(50);
+        temp.setScaleX(3);
+        temp.setScaleY(3);
+        temp.setTranslateX(10);
         grille.add(temp, x, y);
     }
     
