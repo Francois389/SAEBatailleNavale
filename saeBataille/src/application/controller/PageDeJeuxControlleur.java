@@ -209,14 +209,7 @@ public class PageDeJeuxControlleur {
         Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("résultat du tir");
 		
-		if (touche && bateauJ2[x][y].isBateau()) {
-			alert.setContentText("touché coulé !");
-			alert.showAndWait(); 
-			
-			Main a = new Main();
-        	a.chargementPageDependante();     
-        	Main.activerEcranTransition();
-		}if (touche && ! bateauJ2[x][y].isBateau()) {
+		if (touche && ! bateauJ2[x][y].isBateau()) {
 			alert.setContentText("touché !");
 			alert.showAndWait(); 
 			
