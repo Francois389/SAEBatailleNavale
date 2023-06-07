@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -8,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" style="-fx-background-color: lightgrey;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ChargerPartieController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" style="-fx-background-color: lightgrey;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ChargerPartieController">
    <children>
       <HBox alignment="CENTER" prefHeight="80.0" prefWidth="200.0" style="-fx-background-color: white;">
          <children>
@@ -29,7 +35,7 @@
          <children>
             <VBox alignment="CENTER" prefHeight="308.0" prefWidth="360.0" spacing="45.0">
                <children>
-                  <Button fx:id="buttonPartie1" disable="true" mnemonicParsing="false" onAction="#loadPartie1" style="-fx-background-color: grey; -fx-background-radius: 10;" text="Vide" textFill="WHITE">
+                  <Button fx:id="buttonPartie1" disable="true" mnemonicParsing="false" onAction="#loadPartie1" text="Vide" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="24.0" />
                      </font>
@@ -40,7 +46,7 @@
                         <DropShadow />
                      </effect>
                   </Button>
-                  <Button fx:id="buttonPartie3" cancelButton="true" disable="true" mnemonicParsing="false" onAction="#loadPartie3" style="-fx-background-color: grey; -fx-background-radius: 10;" text="Vide" textFill="WHITE">
+                  <Button fx:id="buttonPartie3" cancelButton="true" disable="true" mnemonicParsing="false" onAction="#loadPartie3" text="Vide" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="24.0" />
                      </font>
@@ -48,7 +54,7 @@
                         <DropShadow />
                      </effect>
                   </Button>
-                  <Button fx:id="buttonPartie5" disable="true" mnemonicParsing="false" onAction="#loadPartie5" style="-fx-background-color: grey; -fx-background-radius: 10;" text="Vide" textFill="WHITE">
+                  <Button fx:id="buttonPartie5" disable="true" mnemonicParsing="false" onAction="#loadPartie5" text="Vide" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="24.0" />
                      </font>
@@ -60,7 +66,7 @@
             </VBox>
             <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="308.0" prefWidth="360.0" spacing="45.0">
                <children>
-                  <Button fx:id="buttonPartie2" disable="true" mnemonicParsing="false" onAction="#loadPartie2" style="-fx-background-color: grey; -fx-background-radius: 10;" text="Vide" textFill="WHITE">
+                  <Button fx:id="buttonPartie2" disable="true" mnemonicParsing="false" onAction="#loadPartie2" text="Vide" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="24.0" />
                      </font>
@@ -68,7 +74,7 @@
                         <DropShadow />
                      </effect>
                   </Button>
-                  <Button fx:id="buttonPartie4" disable="true" mnemonicParsing="false" onAction="#loadPartie4" style="-fx-background-color: grey; -fx-background-radius: 10;" text="Vide" textFill="WHITE">
+                  <Button fx:id="buttonPartie4" disable="true" mnemonicParsing="false" onAction="#loadPartie4" text="Vide" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="24.0" />
                      </font>

@@ -231,16 +231,16 @@ public class PageDeJeuxControlleur {
 			alert.setContentText("touché !");
 			alert.showAndWait(); 
 			
-			Main a = new Main();
-        	a.chargementChargerPartie();     
+//			Main a = new Main();
+//        	a.chargementChargerPartie();     
         	Main.activerPageDeJeux();
 		} else {
 			Modele.getPartieEnCours().incrementNbTour();
 			alert.setContentText("loupé ...");
 			alert.showAndWait();
 			
-			Main a = new Main();
-        	a.chargementTranstion();     
+//			Main a = new Main();
+//        	a.chargementTranstion();     
         	Main.activerEcranTransition(); 
 
 		}

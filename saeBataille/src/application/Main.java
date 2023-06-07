@@ -276,6 +276,7 @@ public class Main extends Application {
     public void chargementChargerPartie() {
       	try {
       		chargerPartie = new Scene(getParentFromVue("vue/pageChargerPartie.fxml") , LARGEUR , HAUTEUR);
+      		chargerPartie.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
        	} catch (IOException e) {
        		e.printStackTrace();
         }

@@ -19,3 +19,15 @@
 	-fx-font-size: 20pt;
 	-fx-text-fill: white;
 }
+
+.btnPartieSauvegarder {
+	-fx-background-color: blue; 
+	-fx-background-radius: 10;
+	-fx-text-fill: white;
+}
+
+.btnDesactiver {
+	-fx-background-color: grey; 
+	-fx-background-radius: 10;	
+	-fx-text-fill: white;
+}
