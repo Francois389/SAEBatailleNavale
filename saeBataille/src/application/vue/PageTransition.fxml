@@ -80,7 +80,7 @@
             </VBox>
             <VBox layoutX="250.0" layoutY="10.0" prefHeight="100.0" prefWidth="240.0">
                <children>
-                  <Button fx:id="boutonGo" mnemonicParsing="false" onAction="#validerNom" style="-fx-background-color: blue;" text="Valider" textFill="WHITE">
+                  <Button fx:id="boutonGo" mnemonicParsing="false" onAction="#tourSuivant" style="-fx-background-color: blue;" text="Valider" textFill="WHITE">
                      <font>
                         <Font size="27.0" />
                      </font>
