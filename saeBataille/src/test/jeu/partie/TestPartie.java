@@ -71,11 +71,11 @@ class TestPartie {
         Joueur j2 = new Joueur("Françis",new Grille(quadrillageBateau),new Grille (quadrillageTir));
         Partie partie = new Partie(j1, j2);
    
-        assertEquals(0, partie.getNbTour());
+        assertEquals(-2, partie.getNbTour());
         assertNotEquals(14567, partie.getNbTour());
         
         partie.incrementNbTour();
-        assertEquals(1, partie.getNbTour());
+        assertEquals(-1, partie.getNbTour());
         assertNotEquals(0, partie.getNbTour());
     }
 
@@ -85,12 +85,12 @@ class TestPartie {
     @Test
     void testIncrementNbTour() {        
 		Partie partie = PartiesValide.get(0);
-		assertEquals(0, partie.getNbTour());
+		assertEquals(-2, partie.getNbTour());
 		
 		partie.incrementNbTour();
 		partie.incrementNbTour();
 		partie.incrementNbTour();
-		assertEquals(3, partie.getNbTour());
+		assertEquals(1, partie.getNbTour());
     }
 
     /**

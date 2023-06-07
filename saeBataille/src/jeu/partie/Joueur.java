@@ -67,12 +67,7 @@ public class Joueur {
 	
 	/** 
 	 * Le joueur à attaqué une Cellule.
-	 * <ul>
-	 *     <li>Si la Cellule est déjà touché on ne fais rien.</li>
-	 *     <li>Si la Cellule n'est pas touché mais que ce n'est pas 
-	 *     un bateau, on ne fais rien.</li>
-	 *     <li>Si la Cellule n'est pas touché et que c'est un bateau,
-	 *      alors on marque qu'elle est touché.</li>
+	 * La cellule cible est touche
 	 * @param cible La Cellule ciblé
 	 */
 	public void tir(Cellule cible) {
