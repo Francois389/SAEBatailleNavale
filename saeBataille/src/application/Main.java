@@ -98,9 +98,7 @@ public class Main extends Application {
      * change la scene de la fenetre principale en pageSauvegarde
      */
     public static void activerSauvegardePartie() {
-        System.out.println("active page sauvegarde");
         fenetrePrincipale.setScene(sauvegardePartie);
-        System.out.println(sauvegardePartie);
     }
 
     public static void activerChargerPartie() {

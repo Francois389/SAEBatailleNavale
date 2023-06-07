@@ -11,7 +11,7 @@ import java.util.Objects;
 import jeu.plateau.Cellule;
 
 /**
- * //TODO Commenter la responsabilités de la classe Joueur
+ * Represente un joueur avec ses grilles et son nom
  * @author Costes Quentin
  * @author de Saint Palais Francois
  * @author Denamiel Clément
@@ -72,6 +72,7 @@ public class Joueur {
 	 */
 	public void tir(Cellule cible) {
 		cible.setEstTouche(true);
+		
 	}
 	
 	

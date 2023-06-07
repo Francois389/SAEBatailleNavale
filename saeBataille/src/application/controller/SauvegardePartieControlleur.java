@@ -16,7 +16,7 @@ import javafx.scene.text.Text;
 import sauvegarde.Ecriture;
 
 /**
- * //TODO Commenter la responsabilité de la classe
+ * Controlleur de la page ssauvegarde
  * @author de Saint Palais François
  *
  */
@@ -50,7 +50,6 @@ public class SauvegardePartieControlleur {
     @FXML
     void validerNom() {
         String nomChoisie = nomSauvegarde.getText().replaceAll(" ", "_");
-        System.out.println(nomChoisie);
         Ecriture.ecrire(Modele.getPartieEnCours(), nomChoisie);
         Main.activerMenuPrincipale();
     }

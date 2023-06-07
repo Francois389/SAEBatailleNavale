@@ -10,7 +10,8 @@ import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 
 /**
- * //TODO Commenter la responsabiliter de la classe
+ * Controlleur de la page victoire qui 
+ * affiche le resultat de la partie
  * @author de Saint Palais François
  *
  */
@@ -28,13 +29,11 @@ public class ResultatControlleur {
     
     @FXML
     void retourMenu() {
-        System.out.println("Retour Menu");
         Main.activerMenuPrincipale();
     }
 
     @FXML
     void nouvellePartie() {
-        System.out.println("Nouvelle Partie");
         Main.activerPersonalisePartie();
     }
     
@@ -43,8 +42,6 @@ public class ResultatControlleur {
     	if (Modele.getJoueurGagnant() != null) {
 	        textResultat.setText(Modele.getJoueurGagnant().getNom() + " a gagné!");
     	}
-        //TODO retirer le STUB
-        //Modele.creerUneNouvellePartie("François", "Quentin");//STUB
         textResultat.setText(Modele.getJoueurGagnant().getNom() + " a gagné!");
         btnNouvellePartie.getStyleClass().add("btnBleue");
         btnRetourMenu.getStyleClass().add("btnGris");

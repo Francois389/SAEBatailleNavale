@@ -27,7 +27,6 @@ import jeu.plateau.Cellule;
  * @author de Saint Palais François
  *
  */
-//TODO enlever l'héritage d'Application, on n'en a pas besoin
 public class PageDeJeuxControlleur {
     
 	final static int TAILLE_GRILLE_PIXEL = 30;
@@ -70,20 +69,13 @@ public class PageDeJeuxControlleur {
 		
     	PageDeJeuxControlleur.controlleurCourant = this ;
         partieEnCours = Modele.getPartieEnCours();
-        
-        System.out.println("initialize controler page jeux");
         printCrossCircle();
         printNbTirs();
-        
-        
-        
-
         grilleEnnemie.setOnMouseClicked((EventHandler<MouseEvent>) new EventHandler<MouseEvent>() {
         	@Override
         	public void handle(MouseEvent event) {
         		int x = (int) event.getX() / TAILLE_GRILLE_PIXEL;
         		int y = (int) event.getY() / TAILLE_GRILLE_PIXEL;
-        		//System.out.println("("+x+"; "+y+")");
         			    			
         		if (DIMENSION_MIN<= x && x <= DIMENSION_MAX 
         			&& DIMENSION_MIN <= y && y <= DIMENSION_MAX)  {
@@ -146,7 +138,7 @@ public class PageDeJeuxControlleur {
                     if (tirJ2[i][j].isTouche() 
                     && !bateauJ1[i][j].isBateau()) {
 
-                        printCross(j, i, grilleEnnemie);
+                        printCross(j, i, grilleJoueur);
                     }
                 } else  { // c'est le joueur 2
                     if (tirJ2[i][j].isTouche() 
@@ -197,7 +189,6 @@ public class PageDeJeuxControlleur {
         	if (touche) {
         		printCircle(x, y, grilleEnnemie);
         	} else {
-        		System.out.println("ajout cross");
         		printCross(x, y, grilleEnnemie);
         	}
         } else {
@@ -249,7 +240,6 @@ public class PageDeJeuxControlleur {
         
     }
     
-    // TODO sous programme 
     // TODO afficher leur nombre dans la top bar
     
     
@@ -273,7 +263,6 @@ public class PageDeJeuxControlleur {
     
     @FXML
     void menuChargerUnePartie() {
-        System.out.println("Charger une partie");
         if (!partieEnCours.isEstSauvegarder()) {
             Alert boiteAlerte = new Alert(Alert.AlertType.CONFIRMATION ,"",
                     ButtonType.YES, ButtonType.NO);
@@ -289,7 +278,6 @@ public class PageDeJeuxControlleur {
     
     @FXML
     void menuRetourAuMenu() {
-        System.out.println("Retour au menu");
         if (!partieEnCours.isEstSauvegarder()) {
             Alert boiteAlerte = new Alert(Alert.AlertType.CONFIRMATION ,"",
                     ButtonType.YES, ButtonType.NO);
@@ -306,7 +294,6 @@ public class PageDeJeuxControlleur {
     
     @FXML
     void menuNouvellePartie() {
-        System.out.println("Nouvelle partie");
         if (!partieEnCours.isEstSauvegarder()) {
             Alert boiteAlerte = new Alert(Alert.AlertType.CONFIRMATION ,"",
                     ButtonType.YES, ButtonType.NO);
@@ -324,7 +311,6 @@ public class PageDeJeuxControlleur {
     
     @FXML
     void menuSauvegarder() {
-        System.out.println("sauvegarde");
         Main a = new Main();
         a.chargementSauvegardePartie();
         Main.activerSauvegardePartie();
@@ -332,7 +318,6 @@ public class PageDeJeuxControlleur {
     
     @FXML
     void menuAbandonner() {
-        System.out.println("Abandonner");
         ButtonType btnAbandonner = new ButtonType("Abandonner");
         ButtonType btnAnnuler = new ButtonType("Annuler");
         if (!partieEnCours.isEstSauvegarder()) {
@@ -344,9 +329,7 @@ public class PageDeJeuxControlleur {
             if (option.get() == btnAbandonner) {
                 Joueur perdant = Modele.getPartieEnCours().getJoueurActuel();
                 Joueur gagnant = Modele.getPartieEnCours().getAutreJoueur();
-                System.out.println(perdant.getNom() + " abandonne.");
                 Modele.setJoueurGagnant(gagnant);
-                System.out.println(gagnant.getNom() + " gagne !");
                 Main a = new Main ();
                 a.chargementPageDependante();
                 Main.activerResultat();
@@ -356,16 +339,13 @@ public class PageDeJeuxControlleur {
     
     @FXML
     void menuCommentJouer() {
-        System.out.println("Comment jouer");
     }
     
     @FXML
     void menuCredit() {
-        System.out.println("Credit");
     }
 
 	public static void affichage() {
-		System.out.println(controlleurCourant);
 		controlleurCourant.nomJoueur.setText(Modele.getPartieEnCours().getJoueurActuel().getNom());	
 	}
 

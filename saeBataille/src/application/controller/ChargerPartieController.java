@@ -104,7 +104,6 @@ public class ChargerPartieController {
     
     @FXML
     private void loadPartie1() {
-       System.out.println("charger partie 1");
        Partie partie = Lecture.interprete(Lecture.lire(partie1));
        Modele.setPartieEnCours(partie);
        lanceurApplication.chargementPageJeu();
@@ -114,7 +113,6 @@ public class ChargerPartieController {
     
     @FXML
     private void loadPartie2() {
-        System.out.println("charger partie 2");
         Partie partie = Lecture.interprete(Lecture.lire(partie2));
         Modele.setPartieEnCours(partie);
         lanceurApplication.chargementPageJeu();
@@ -124,7 +122,6 @@ public class ChargerPartieController {
     
     @FXML
     private void loadPartie3() {
-        System.out.println("charger partie 3");
         Partie partie = Lecture.interprete(Lecture.lire(partie3));
         Modele.setPartieEnCours(partie);
 		lanceurApplication.chargementPageJeu();
@@ -134,7 +131,6 @@ public class ChargerPartieController {
     
     @FXML
     private void loadPartie4() {
-        System.out.println("charger partie 4");
         Partie partie = Lecture.interprete(Lecture.lire(partie4));
         Modele.setPartieEnCours(partie);
 
@@ -145,7 +141,6 @@ public class ChargerPartieController {
     
     @FXML
     private void loadPartie5() {
-        System.out.println("charger partie 5");
         Partie partie = Lecture.interprete(Lecture.lire(partie5));
         Modele.setPartieEnCours(partie);
         lanceurApplication.chargementPageJeu();

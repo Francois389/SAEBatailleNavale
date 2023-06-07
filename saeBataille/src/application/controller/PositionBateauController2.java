@@ -94,7 +94,6 @@ public class PositionBateauController2 {
     @FXML
     void valider() {
         //TODO vérifier que tous les bateaux on été placé
-        System.out.println("Valider");
     }
     
     @FXML
@@ -264,9 +263,6 @@ public class PositionBateauController2 {
 		}
     	bateauSelectionne = true;
 		bateauCourant = croisseur ;
-        //System.out.println("clic porte avions");
-        //System.out.println(porteAvions);
-        //System.out.println(grille);
         croisseur.setOnMouseClicked((EventHandler<MouseEvent>) new EventHandler<MouseEvent>() {
 	      	@Override
 	        public void handle(MouseEvent event) {
@@ -304,7 +300,6 @@ public class PositionBateauController2 {
 	        	public void handle(MouseEvent event) {
 	        		int x = (int) event.getX() / TAILLE_GRILLE_PIXEL;
 	        		int y = (int) event.getY() / TAILLE_GRILLE_PIXEL;
-	        		//System.out.println("("+x+"; "+y+")");
 	        			    			
 	        		if (COLONNE_MIN<= x && x <= COLONNE_MAX 
 	        			&& LIGNE_MIN <= y && y <= LIGNE_MAX
@@ -353,7 +348,7 @@ public class PositionBateauController2 {
 		case "torpilleur1":
 			if (torpilleurPivote1) {
 				x += (int) (x + 15)/30;				
-				bateau.setTranslateX(-15);
+				bateau.setTranslateX(15);
 			} else {
 				y += (int) (y + 30)/30;
 				bateau.setTranslateY(-15);
@@ -362,9 +357,6 @@ public class PositionBateauController2 {
 		case "torpilleur2":
 			
 			if (torpilleurPivote2) {
-				System.out.println(torpilleurPivote2);
-				//x += (int) (x - 15)/30;
-				//y += (int) (y-15)/30;
 				if (x == 0 ) {
 					bateau.setTranslateY(0);
 				}

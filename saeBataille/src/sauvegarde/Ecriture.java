@@ -82,7 +82,6 @@ public class Ecriture {
         try {
             File f = new File(chemin);
             if (f.createNewFile()) {
-                System.out.println("Fichier créer");
             } else {
                 System.out.println("Le fichier existe déjà");
             }

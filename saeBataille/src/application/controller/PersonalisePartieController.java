@@ -54,7 +54,6 @@ public class PersonalisePartieController {
     private void positionBateau() {
         Main a = new Main();
         Modele.creerUneNouvellePartie(joueur1.getText(), joueur2.getText());
-        //System.out.println(Modele.getPartieEnCours().getJoueur1().getNom());
         a.positionBateau();
         Main.activerPositionBateau();
     }    
