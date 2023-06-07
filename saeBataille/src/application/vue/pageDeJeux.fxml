@@ -55,7 +55,7 @@
                <children>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <Label text="nombre de tirs : 0">
+                        <Label fx:id="nbTirs" text="nombre de tirs : 0">
                            <font>
                               <Font size="20.0" />
                            </font>

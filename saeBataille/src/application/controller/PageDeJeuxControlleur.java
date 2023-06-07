@@ -54,6 +54,9 @@ public class PageDeJeuxControlleur {
     @FXML
     private Label nbCross;
     
+    @FXML
+    private Label nbTirs;
+    
     private final int CIRCLE_RADIUS = 12;
     
     private Partie partieEnCours;
@@ -95,9 +98,11 @@ public class PageDeJeuxControlleur {
         if (joueurActuel == joueur1) { 
             nbCircle.setText("  : " +  joueur1.getNbTouche());
             nbCross.setText("  : " +  joueur1.getTirRatés());
+            nbTirs.setText("nombre de tirs : " + joueur1.getNbTouche() + joueur1.getTirRatés());
         } else {
             nbCircle.setText("  : " +  joueur2.getNbTouche());
             nbCross.setText("  : " +  joueur2.getTirRatés());
+            nbTirs.setText("nombre de tirs : " + joueur2.getNbTouche() + joueur2.getTirRatés());
         }
         
         
