@@ -17,7 +17,6 @@ import org.junit.jupiter.api.Test;
 
 import jeu.plateau.Cellule;
 import jeu.plateau.Grille;
-import sauvegarde.Lecture;
 
 /**
  * test de la classe Grille

@@ -48,6 +48,12 @@ public class ChargerPartieController {
     @FXML
     private void initialize() {
         retour.getStyleClass().add("btnRouge");
+        
+        buttonPartie1.getStyleClass().add("btnDesactiver");
+        buttonPartie2.getStyleClass().add("btnDesactiver");
+        buttonPartie3.getStyleClass().add("btnDesactiver");
+        buttonPartie4.getStyleClass().add("btnDesactiver");
+        buttonPartie5.getStyleClass().add("btnDesactiver");
 
         String[] files;
         File f = new File("sauvegardes");
@@ -59,35 +65,40 @@ public class ChargerPartieController {
             case 0: {   
                 partie1 = files[i].substring(0, files[i].lastIndexOf("."));
                 buttonPartie1.setText(partie1);
-                buttonPartie1.setStyle(STYLE_BOUTTONS);
+                buttonPartie1.getStyleClass().add("btnPartieSauvegarder");
+                buttonPartie1.getStyleClass().remove("btnDesactiver");
                 buttonPartie1.setDisable(false);
                 break;
             }
             case 1: {
                 partie2 = files[i].substring(0, files[i].lastIndexOf("."));
                 buttonPartie2.setText(partie2);
-                buttonPartie2.setStyle(STYLE_BOUTTONS);
+                buttonPartie2.getStyleClass().add("btnPartieSauvegarder");
+                buttonPartie2.getStyleClass().remove("btnDesactiver");
                 buttonPartie2.setDisable(false);
                 break;
             }
             case 2: {
                 partie3 = files[i].substring(0, files[i].lastIndexOf("."));
                 buttonPartie3.setText(partie3);
-                buttonPartie3.setStyle(STYLE_BOUTTONS);
+                buttonPartie3.getStyleClass().add("btnPartieSauvegarder");
+                buttonPartie3.getStyleClass().remove("btnDesactiver");
                 buttonPartie3.setDisable(false);
                 break;
             }
             case 3: {
                 partie4 = files[i].substring(0, files[i].lastIndexOf("."));
                 buttonPartie4.setText(partie4);
-                buttonPartie4.setStyle(STYLE_BOUTTONS);
+                buttonPartie4.getStyleClass().add("btnPartieSauvegarder");
+                buttonPartie4.getStyleClass().remove("btnDesactiver");
                 buttonPartie4.setDisable(false);
                 break;
             }
             case 4: {
                 partie5 = files[i].substring(0, files[i].lastIndexOf("."));
                 buttonPartie5.setText(partie5);
-                buttonPartie5.setStyle(STYLE_BOUTTONS);
+                buttonPartie5.getStyleClass().add("btnPartieSauvegarder");
+                buttonPartie5.getStyleClass().remove("btnDesactiver");
                 buttonPartie5.setDisable(false);
                 break;
             }

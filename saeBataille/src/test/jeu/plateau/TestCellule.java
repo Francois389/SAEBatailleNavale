@@ -17,7 +17,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import application.controller.PageDeJeuxControlleur;
 import jeu.plateau.Cellule;
 /**
  * Tests unitaire de la classe Cellule
